@@ -1,0 +1,20 @@
+.welcome-container {
+  text-align: center;
+  margin-top: 50px;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3880ff;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  ion-button {
+    margin-top: 10px;
+  }
+}

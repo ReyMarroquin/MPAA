@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ username }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Tipo de usuario: <strong>{{ tipoUsuario }}</strong></p>
+      <ion-button expand="full" color="danger" (click)="logout()">Cerrar Sesión</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

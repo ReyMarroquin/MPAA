@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <ion-img src="/assets/MPA.jpg" class="logo"></ion-img>
+
+    <h2>Bienvenido de nuevo</h2>
+    <p>Ingresa tus credenciales para continuar</p>
+
+    <ion-item class="input-field">
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input [(ngModel)]="username" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item class="input-field">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" (click)="login()">Iniciar Sesión</ion-button>
+    <p class="register-link">
+      ¿No tienes cuenta? <a (click)="goToRegister()">Regístrate</a>
+    </p>
+
+    <div class="error-message" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+  </div>
+</ion-content>

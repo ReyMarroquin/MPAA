@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Control de Luces</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Edificio Principal</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button (click)="toggleLuz(1)" color="{{ luces[1] ? 'success' : 'danger' }}">
+        {{ luces[1] ? 'Apagar' : 'Encender' }} Luces
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Edificio Secundario</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button (click)="toggleLuz(2)" color="{{ luces[2] ? 'success' : 'danger' }}">
+        {{ luces[2] ? 'Apagar' : 'Encender' }} Luces
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

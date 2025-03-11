@@ -1,0 +1,7 @@
+{
+  "name": "MPA",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

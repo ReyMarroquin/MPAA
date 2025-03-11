@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>📊 Sensores en Tiempo Real</h2>
+  <ion-card>
+    <ion-card-header>🌡 Temperatura</ion-card-header>
+    <ion-card-content>{{ temperatura }}°C</ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>💨 Calidad de Aire</ion-card-header>
+    <ion-card-content>{{ calidadAire }}</ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>🔊 Nivel de Ruido</ion-card-header>
+    <ion-card-content>{{ ruido }} dB</ion-card-content>
+  </ion-card>
+</ion-content>
