@@ -27,21 +27,22 @@
     margin-bottom: 20px;
   }
 
+  .input-field,
+  ion-button,
+  .error-message {
+    width: 300px;
+  }
+
   .input-field {
-    width: 100%;
-    max-width: 350px;
     margin-bottom: 15px;
-    border-radius: 10px;
+    border-radius: 5px;
     overflow: hidden;
     --background: white;
     color: black;
-    border: 1px solid black;
-    border-radius: 5px;
+    border: 2px solid rgb(51, 51, 51);
   }
 
   ion-button {
-    width: 100%;
-    max-width: 350px;
     margin-top: 10px;
     border-radius: 10px;
     --background: #1d9d30;
@@ -63,12 +64,27 @@
     color: var(--ion-color-danger);
     margin-top: 10px;
     font-size: 0.9rem;
+    background: rgba(255, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--ion-color-danger);
+    text-align: center;
   }
 }
-ion-content{
-  --background:white;
+
+ion-content {
+  --background: white;
 }
 
 ion-toolbar {
   --background: #1d9d30;
+  --color: white;
+}
+
+@media (min-width: 600px) {
+  .input-field,
+  ion-button,
+  .error-message {
+    max-width: 460px;
+  }
 }
