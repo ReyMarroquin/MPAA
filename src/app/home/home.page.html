@@ -1,14 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Bienvenido a MPA</ion-title>
+    <ion-title>MPA - Seguridad Inteligente</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div class="welcome-container">
-    <h1>Bienvenido a MPA</h1>
+    <h1>Bienvenido a <span>MPA</span></h1>
+    <ion-img src="/assets/MPA.jpg"></ion-img>
     <p>Monitoreo y Prevención de Accidentes</p>
-    <ion-button expand="full" (click)="goToLogin()">Iniciar Sesión</ion-button>
-    <ion-button expand="full" fill="outline" (click)="goToRegister()">Registrarse</ion-button>
+
+    <ion-button expand="full" class="login-btn" (click)="goToLogin()">Iniciar Sesión</ion-button>
+    <ion-button expand="full" class="register-btn" fill="outline" (click)="goToRegister()">Registrarse</ion-button>
   </div>
 </ion-content>
+<ion-footer></ion-footer>
+
