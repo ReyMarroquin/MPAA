@@ -2,6 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Router,RouterModule } from '@angular/router';
+import {
+  IonApp,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenu,
+  IonMenuButton,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/angular/standalone';
+
+
 
 @Component({
   selector: 'app-configuracion',

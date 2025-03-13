@@ -6,23 +6,25 @@
 
 <ion-content class="ion-padding">
   <div class="login-container">
-    <ion-img src="/assets/MPA.jpg" class="logo"></ion-img>
+    <ion-img src="/assets/MPAA.png" class="logo"></ion-img>
 
     <h2>Bienvenido de nuevo</h2>
     <p>Ingresa tus credenciales para continuar</p>
 
     <form #loginForm="ngForm" (ngSubmit)="login()" novalidate>
-      <ion-item class="input-field">
-        <ion-label position="floating">👤 Usuario</ion-label>
-        <ion-input [(ngModel)]="username" name="username" type="text" required #usernameInput="ngModel"></ion-input>
-      </ion-item>
-     
-      <ion-item class="input-field">
-        <ion-label position="floating">🔒 Contraseña</ion-label>
-        <ion-input [(ngModel)]="password" name="password" type="password" required #passwordInput="ngModel"></ion-input>
-      </ion-item>
-     
-      <!-- ⚡️ Mensaje de error si faltan datos -->
+      <!-- Input de Usuario -->
+      <div class="input-group">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <input [(ngModel)]="username" name="username" type="text" required placeholder="Usuario">
+      </div>
+
+      <!-- Input de Contraseña -->
+      <div class="input-group">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <input [(ngModel)]="password" name="password" type="password" required placeholder="Contraseña">
+      </div>
+
+      <!-- Mensaje de error -->
       <div class="error-message" *ngIf="errorMessage">
         {{ errorMessage }}
       </div>
@@ -33,7 +35,6 @@
     <p class="register-link">
       ¿No tienes cuenta? <a (click)="goToRegister()" class="rea">Regístrate</a>
     </p>
-
   </div>
 </ion-content>
 
