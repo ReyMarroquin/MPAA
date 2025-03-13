@@ -17,12 +17,12 @@
     h2 {
       font-size: 1.3rem;
       font-weight: bold;
-      color: #333;
+      color:black;
     }
   
     p {
       font-size: 1rem;
-      color: #666;
+      color: black;
       margin-bottom: 15px;
     }
   
@@ -44,14 +44,14 @@
       max-width: 450px;
       margin-top: 10px;
       border-radius: 10px;
-      --background: #1d9d30;
+      --background:#247E3E;
       height: 45px; /* Tamaño uniforme */
     }
   
     .register-link {
       font-size: 0.9rem;
       margin-top: 10px;
-      color: #1d9d30;
+      color:black;
   
       a {
         font-weight: bold;
@@ -79,7 +79,7 @@
   }
   
   ion-toolbar {
-    --background: #1d9d30;
+    --background:#247E3E;
     --color: white;
   }
   
@@ -106,4 +106,8 @@
         margin-top: 20px;
       }
   }
+
+.rea{
+  color:#247E3E;
+}
   
