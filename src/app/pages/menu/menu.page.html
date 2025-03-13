@@ -10,6 +10,7 @@
         <ion-item routerLink="/dashboard">🏠 Dashboard</ion-item>
         <ion-item routerLink="/sensores">📊 Sensores</ion-item>
         <ion-item routerLink="/historial">📜 Historial</ion-item>
+        <!-- Dashborad,notificaciones,historial,configuracion(tema) -->
         <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de luces</ion-item>
         <ion-item routerLink="/configuracion">⚙️ Configuración</ion-item>
         <ion-item (click)="logout()">🚪 Cerrar sesión</ion-item>

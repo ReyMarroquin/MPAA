@@ -11,23 +11,30 @@
     <h2>Bienvenido de nuevo</h2>
     <p>Ingresa tus credenciales para continuar</p>
 
-    <ion-item class="input-field">
-      <ion-label position="floating">Usuario</ion-label>
-      <ion-input [(ngModel)]="username" type="text"></ion-input>
-    </ion-item>
+    <form #loginForm="ngForm" (ngSubmit)="login()" novalidate>
+      <ion-item class="input-field">
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input [(ngModel)]="username" name="username" type="text" required #usernameInput="ngModel"></ion-input>
+      </ion-item>
+     
 
-    <ion-item class="input-field">
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input [(ngModel)]="password" type="password"></ion-input>
-    </ion-item>
+      <ion-item class="input-field">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="password" name="password" type="password" required #passwordInput="ngModel"></ion-input>
+      </ion-item>
+     
 
-    <ion-button expand="full" (click)="login()">Iniciar Sesión</ion-button>
+      <!-- ⚡️ Mensaje de error si faltan datos -->
+      <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <ion-button expand="full" type="submit">Iniciar Sesión</ion-button>
+    </form>
+
     <p class="register-link">
       ¿No tienes cuenta? <a (click)="goToRegister()">Regístrate</a>
     </p>
 
-    <div class="error-message" *ngIf="errorMessage">
-      {{ errorMessage }}
-    </div>
   </div>
 </ion-content>

@@ -16,11 +16,18 @@ export class LoginPage {
   password: string = '';
   errorMessage: string = '';
 
-  constructor(private router: Router) {}
+  constructor(public router: Router) {}
 
   login() {
     this.errorMessage = ''; // Limpiar mensaje de error antes de validar
 
+    // Verificar si ambos campos están llenos
+    if (!this.username || !this.password) {
+      this.errorMessage = 'Por favor, llena todos los campos';
+      return;
+    }
+
+    // Lógica de autenticación
     if (this.username === 'admin' && this.password === 'admin123') {
       this.router.navigate(['/control-luces']);
     } else if (this.username === 'user' && this.password === 'user123') {
@@ -29,8 +36,8 @@ export class LoginPage {
       this.errorMessage = 'Usuario o contraseña incorrectos';
     }
   }
-  goToRegister(){
-    
+
+  goToRegister() {
+    this.router.navigate(['/registro']);
   }
 }
-

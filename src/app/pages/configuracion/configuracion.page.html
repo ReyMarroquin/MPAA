@@ -1,17 +1,44 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Configuracion</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
-  <ion-list-header>Apariencia</ion-list-header>
-  <ion-list [inset]="true">
-    <ion-item>
-      <ion-toggle [(ngModel)]="paletteToggle" (ionChange)="toggleChange($event)" justify="space-between"
-        >Modo oscuro</ion-toggle
-      >
-    </ion-item>
-  </ion-list>
-</ion-content>
 
+
+<<<<<<< HEAD
   
+=======
+
+<!-- Menú lateral -->
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>MPA</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle autoHide="false">
+        <ion-item routerLink="/dashboard">🏠 Dashboard</ion-item>
+        <ion-item routerLink="/sensores">📊 Sensores</ion-item>
+        <ion-item routerLink="/historial">📜 Historial</ion-item>
+
+        <!-- Sección de administración desplegable -->
+        <ion-item (click)="toggleAdminMenu()">
+          🛠 Administración
+          <ion-icon slot="end" name="{{ adminExpanded ? 'chevron-up' : 'chevron-down' }}"></ion-icon>
+        </ion-item>
+        <div *ngIf="adminExpanded">
+          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Luces</ion-item>
+          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Puertas</ion-item>
+          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Elevador</ion-item>
+          <ion-item routerLink="/configuracion">⚙️ Configuración</ion-item>
+        </div>
+
+        <ion-item (click)="logout()">🚪 Cerrar sesión</ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido principal -->
+<div id="main-content">
+  <router-outlet></router-outlet>
+</div>
+>>>>>>> e01486f243f3aa03b48f2329071aead6b2c7c923
