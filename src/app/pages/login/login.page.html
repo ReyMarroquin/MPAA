@@ -13,17 +13,15 @@
 
     <form #loginForm="ngForm" (ngSubmit)="login()" novalidate>
       <ion-item class="input-field">
-        <ion-label position="floating">Usuario</ion-label>
+        <ion-label position="floating">👤 Usuario</ion-label>
         <ion-input [(ngModel)]="username" name="username" type="text" required #usernameInput="ngModel"></ion-input>
       </ion-item>
      
-
       <ion-item class="input-field">
-        <ion-label position="floating">Contraseña</ion-label>
+        <ion-label position="floating">🔒 Contraseña</ion-label>
         <ion-input [(ngModel)]="password" name="password" type="password" required #passwordInput="ngModel"></ion-input>
       </ion-item>
      
-
       <!-- ⚡️ Mensaje de error si faltan datos -->
       <div class="error-message" *ngIf="errorMessage">
         {{ errorMessage }}
@@ -38,3 +36,4 @@
 
   </div>
 </ion-content>
+

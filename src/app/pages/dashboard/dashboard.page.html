@@ -26,7 +26,95 @@
 <!-- Menú lateral -->
 <ion-menu contentId="main-content">
   <ion-header>
+    <ion-toolbar><ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="dashboard-header">
+    <h2>📊 Sensores en Tiempo Real</h2>
+  </div>
+
+  <div class="cards-container">
+    <ion-card class="sensor-card">
+      <ion-card-header class="sensor-header">🌡 Temperatura</ion-card-header>
+      <ion-card-content class="sensor-content">
+        <h3>{{ temperatura }}°C</h3>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="sensor-card">
+      <ion-card-header class="sensor-header">💨 Calidad de Aire</ion-card-header>
+      <ion-card-content class="sensor-content">
+        <h3>{{ calidadAire }}</h3>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="sensor-card">
+      <ion-card-header class="sensor-header">🔊 Nivel de Ruido</ion-card-header>
+      <ion-card-content class="sensor-content">
+        <h3>{{ ruido }} dB</h3>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<!-- Menú lateral -->
+<ion-menu contentId="main-content">
+  <ion-header>
     <ion-toolbar>
+      <ion-title>MPA</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle autoHide="false">
+        <ion-item routerLink="/dashboard">
+          <ion-icon name="home" slot="start"></ion-icon> 🏠 Dashboard
+        </ion-item>
+        <ion-item routerLink="/sensores">
+          <ion-icon name="bar-chart" slot="start"></ion-icon> 📊 Sensores
+        </ion-item>
+        <ion-item routerLink="/historial">
+          <ion-icon name="document-text" slot="start"></ion-icon> 📜 Historial
+        </ion-item>
+
+        <!-- Sección de administración desplegable -->
+        <ion-item (click)="toggleAdminMenu()">
+          <ion-icon name="settings" slot="start"></ion-icon> 🛠 Administración
+          <ion-icon slot="end" name="{{ adminExpanded ? 'chevron-up' : 'chevron-down' }}"></ion-icon>
+        </ion-item>
+        <div *ngIf="adminExpanded">
+          <ion-item *ngIf="isAdmin" routerLink="/control-luces">
+            <ion-icon name="bulb" slot="start"></ion-icon> 💡 Control de Luces
+          </ion-item>
+          <ion-item *ngIf="isAdmin" routerLink="/control-puertas">
+            <ion-icon name="keypad" slot="start"></ion-icon> 💡 Control de Puertas
+          </ion-item>
+          <ion-item *ngIf="isAdmin" routerLink="/control-elevador">
+            <ion-icon name="elevator" slot="start"></ion-icon> 💡 Control de Elevador
+          </ion-item>
+          <ion-item routerLink="/configuracion">
+            <ion-icon name="settings" slot="start"></ion-icon> ⚙️ Configuración
+          </ion-item>
+        </div>
+
+        <ion-item (click)="logout()">
+          <ion-icon name="log-out" slot="start"></ion-icon> 🚪 Cerrar sesión
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido principal -->
+<div id="main-content">
+  <router-outlet></router-outlet>
+</div>
+
       <ion-title>MPA</ion-title>
     </ion-toolbar>
   </ion-header>
