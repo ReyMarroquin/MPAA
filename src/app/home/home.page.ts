@@ -16,6 +16,6 @@ export class HomePage {
   }
 
   goToRegister() {
-    this.navCtrl.navigateForward('/register');
+    this.navCtrl.navigateForward('/registro');
   }
 }

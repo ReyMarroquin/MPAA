@@ -11,3 +11,42 @@
     </ion-toolbar>
   </ion-header>
 </ion-content>
+
+
+<!-- Menú lateral -->
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>MPA</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle autoHide="false">
+        <ion-item routerLink="/dashboard">🏠 Dashboard</ion-item>
+        <ion-item routerLink="/sensores">📊 Sensores</ion-item>
+        <ion-item routerLink="/historial">📜 Historial</ion-item>
+
+        <!-- Sección de administración desplegable -->
+        <ion-item (click)="toggleAdminMenu()">
+          🛠 Administración
+          <ion-icon slot="end" name="{{ adminExpanded ? 'chevron-up' : 'chevron-down' }}"></ion-icon>
+        </ion-item>
+        <div *ngIf="adminExpanded">
+          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Luces</ion-item>
+          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Puertas</ion-item>
+          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Elevador</ion-item>
+          <ion-item routerLink="/configuracion">⚙️ Configuración</ion-item>
+        </div>
+
+        <ion-item (click)="logout()">🚪 Cerrar sesión</ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido principal -->
+<div id="main-content">
+  <router-outlet></router-outlet>
+</div>
