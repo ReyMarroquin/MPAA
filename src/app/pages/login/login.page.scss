@@ -33,6 +33,10 @@
     margin-bottom: 15px;
     border-radius: 10px;
     overflow: hidden;
+    --background: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
   }
 
   ion-button {
@@ -40,12 +44,13 @@
     max-width: 350px;
     margin-top: 10px;
     border-radius: 10px;
+    --background: #1d9d30;
   }
 
   .register-link {
     font-size: 0.9rem;
     margin-top: 10px;
-    color: #3880ff;
+    color: #1d9d30;
 
     a {
       font-weight: bold;
@@ -60,8 +65,10 @@
     font-size: 0.9rem;
   }
 }
-
 ion-content{
-  --Background:#09ae2c;
-  background-color: white;
+  --background:white;
+}
+
+ion-toolbar {
+  --background: #1d9d30;
 }

@@ -1,20 +1,78 @@
+ion-content {
+  --background: linear-gradient(to bottom, white, white); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  padding: 20px; 
+}
+
 .welcome-container {
   text-align: center;
-  margin-top: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10vh;
+
+  .logo {
+    width: 120px; /* Tamaño de la imagen */
+    height: auto;
+    margin-bottom: 20px;
+    display: block; /* Asegura que la imagen se trate como un bloque */
+  }
 
   h1 {
     font-size: 2rem;
     font-weight: bold;
-    color: #3880ff;
+    color: #04730d;
+
+    span {
+      color: #04730d;
+    }
   }
 
   p {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #000000;
+    margin-bottom: 25px;
   }
 
   ion-button {
-    margin-top: 10px;
+    width: 100%;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    
   }
+
+  .login-btn {
+    --background: #1d9d30;
+    color: white;
+  }
+
+  .register-btn {
+    border: 2px solid #1d9d30;
+    color: #1d9d30;
+  }
+
+  ion-img {
+    height: 50%;
+    width: 50%;
+  }
+
+  
+}
+
+ion-toolbar {
+  --background: #1d9d30;
+}
+
+ion-footer {
+  --Background: #1d9d30;
 }

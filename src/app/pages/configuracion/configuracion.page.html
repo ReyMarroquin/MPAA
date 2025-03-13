@@ -1,13 +1,17 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>configuracion</ion-title>
+    <ion-title>Configuracion</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">configuracion</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list-header>Apariencia</ion-list-header>
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-toggle [(ngModel)]="paletteToggle" (ionChange)="toggleChange($event)" justify="space-between"
+        >Modo oscuro</ion-toggle
+      >
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+  
