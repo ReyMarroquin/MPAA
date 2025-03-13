@@ -1,9 +1,3 @@
-
-
-<<<<<<< HEAD
-  
-=======
-
 <!-- Menú lateral -->
 <ion-menu contentId="main-content">
   <ion-header>
@@ -26,8 +20,8 @@
         </ion-item>
         <div *ngIf="adminExpanded">
           <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Luces</ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Puertas</ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Elevador</ion-item>
+          <ion-item *ngIf="isAdmin" routerLink="/control-puertas">💡 Control de Puertas</ion-item>
+          <ion-item *ngIf="isAdmin" routerLink="/control-elevador">💡 Control de Elevador</ion-item>
           <ion-item routerLink="/configuracion">⚙️ Configuración</ion-item>
         </div>
 
@@ -41,4 +35,3 @@
 <div id="main-content">
   <router-outlet></router-outlet>
 </div>
->>>>>>> e01486f243f3aa03b48f2329071aead6b2c7c923
