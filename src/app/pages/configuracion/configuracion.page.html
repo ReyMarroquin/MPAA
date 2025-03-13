@@ -21,8 +21,8 @@
         </ion-item>
         <div *ngIf="adminExpanded">
           <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Luces</ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Puertas</ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Elevador</ion-item>
+          <ion-item *ngIf="isAdmin" routerLink="/control-puertas">💡 Control de Puertas</ion-item>
+          <ion-item *ngIf="isAdmin" routerLink="/control-elevador">💡 Control de Elevador</ion-item>
           <ion-item routerLink="/configuracion">⚙️ Configuración</ion-item>
         </div>
 
@@ -36,6 +36,4 @@
 <div id="main-content">
   <router-outlet></router-outlet>
 </div>
-
-
 

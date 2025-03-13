@@ -23,7 +23,7 @@
 
   p {
     font-size: 1rem;
-    color: #666;
+    color: black;
     margin-bottom: 20px;
   }
 
@@ -45,13 +45,13 @@
   ion-button {
     margin-top: 10px;
     border-radius: 10px;
-    --background: #1d9d30;
+    --background:#247E3E;
   }
 
   .register-link {
     font-size: 0.9rem;
     margin-top: 10px;
-    color: #1d9d30;
+    --background:#247E3E;
 
     a {
       font-weight: bold;
@@ -77,8 +77,12 @@ ion-content {
 }
 
 ion-toolbar {
-  --background: #1d9d30;
+  --background:#247E3E;
   --color: white;
+}
+
+.rea{
+  color:#247E3E;
 }
 
 @media (min-width: 600px) {
