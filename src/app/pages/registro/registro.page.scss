@@ -1,113 +1,106 @@
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 20px;
-    text-align: center;
-  
-    .logo {
-      width: 120px;
-      margin-bottom: 20px;
-      border-radius: 50%;
-      box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
-    }
-  
-    h2 {
-      font-size: 1.3rem;
-      font-weight: bold;
-      color:black;
-    }
-  
-    p {
-      font-size: 1rem;
-      color: black;
-      margin-bottom: 15px;
-    }
-  
-    .input-field {
-      width: 100%;
-      max-width: 450px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      overflow: hidden;
-      --background: white;
-      color: black;
-      border: 1px solid black;
-      height: 45px; /* Altura base */
-      font-size: 1rem;
-    }
-  
-    ion-button {
-      width: 100%;
-      max-width: 450px;
-      margin-top: 10px;
-      border-radius: 10px;
-      --background:#247E3E;
-      height: 45px; /* Tamaño uniforme */
-    }
-  
-    .register-link {
-      font-size: 0.9rem;
-      margin-top: 10px;
-      color:black;
-  
-      a {
-        font-weight: bold;
-        cursor: pointer;
-        text-decoration: none;
-      }
-    }
-  
-    .error-message {
-      color: var(--ion-color-danger);
-      margin-top: 10px;
-      font-size: 0.9rem;
-      background: rgba(255, 0, 0, 0.1);
-      padding: 5px 10px;
-      border-radius: 5px;
-      border: 1px solid var(--ion-color-danger);
-      width: 100%;
-      max-width: 450px;
-      text-align: center;
-    }
-  }
-  
-  ion-content {
-    --background: white;
-  }
-  
-  ion-toolbar {
-    --background:#247E3E;
-    --color: white;
-  }
-  
-  /* 📱 Ajuste de tamaño para pantallas pequeñas */
-  @media (max-width: 600px) {
-    .input-field,
-    ion-button,
-    .error-message {
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: black;
+}
+
+p {
+  font-size: 1rem;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.input-field {
+  width: 100%;
+  max-width: 450px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  --background: white;
+  color: black;
+  border: 1px solid black;
+  height: 45px;
+  font-size: 1rem;
+}
+
+/* Ajuste de tamaño y color para los iconos */
+.input-field ion-icon {
+  font-size: 1.4rem;
+  color: black;
+  margin-right: 10px;
+}
+
+ion-button {
+  width: 100%;
+  max-width: 450px;
+  margin-top: 10px;
+  border-radius: 10px;
+  --background: #247E3E;
+  height: 45px;
+}
+
+.register-link {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: black;
+}
+
+.register-link a {
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  color: #247E3E;
+}
+
+.error-message {
+  color: var(--ion-color-danger);
+  margin-top: 10px;
+  font-size: 0.9rem;
+  background: rgba(255, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--ion-color-danger);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+ion-content {
+  --background: white;
+}
+
+ion-toolbar {
+  --background: #247E3E;
+  --color: white;
+}
+
+/* 📱 Ajuste de tamaño para pantallas pequeñas */
+@media (max-width: 600px) {
+  .input-field,
+  ion-button,
+  .error-message {
       max-width: 300px;
-    }
-  
-    /* 🔍 Aumenta la altura de los campos en pantallas pequeñas */
-    .input-field {
-      min-height: 45px;
-      font-size: 1.1rem; /* Hace el texto más grande */
-    }
-  
-    ion-button {
-      height: 100px; /* Botón más grande también */
-      font-size: 0.9rem;
-    }
-    .logo{
-        max-width: 50px;
-        margin-top: 20px;
-      }
   }
 
-.rea{
-  color:#247E3E;
+  /* 🔍 Aumenta la altura de los campos en pantallas pequeñas */
+  .input-field {
+      min-height: 45px;
+      font-size: 1.1rem;
+  }
+
+  ion-button {
+      height: 50px;
+      font-size: 0.9rem;
+  }
 }
+
   
