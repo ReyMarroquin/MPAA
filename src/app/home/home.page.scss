@@ -3,23 +3,24 @@ ion-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  padding: 20px;
+  height: 90vh;
+  padding: 10px;
 }
 
 .welcome-container {
   text-align: center;
   background: rgba(255, 255, 255, 0.95);
-  padding: 30px;
+  padding: 30px; /* Aumentar el padding */
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 400px;
+  width: 80%; 
+  max-width: 400px; /* Aumentar el ancho máximo */
   margin: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-top: 10vh;
+  height: 70vh; /* Aumentar la altura para que quepan los botones */
   transition: all 0.3s ease;
 
   &:hover {
@@ -33,21 +34,23 @@ ion-content {
     margin-bottom: 20px;
   }
 
-  h1 {
-    font-size: 2.2rem;
+  .welcome-title {
+    font-size: 2rem;
     font-weight: 700;
     color: #247E3E;
-    letter-spacing: 1px;
-
-    span {
-      color: #1f7a33; /* tono ligeramente más oscuro para el texto resaltado */
-    }
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
   }
 
-  /* Estilo para el texto "Monitoreo y Prevención de Accidentes" */
+  .welcome-title span {
+    color: #1f7a33;
+    text-transform: uppercase;
+    font-size: 2.3rem;
+  }
+
   .styled-text {
-    font-size: 1.5rem;
-    color: #247E3E; /* Color sólido */
+    font-size: 1.4rem;
+    color: #247E3E;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -60,6 +63,7 @@ ion-content {
     font-size: 1.2rem;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 15px; /* Asegurarse de que haya espacio entre botones */
 
     &:hover {
       transform: translateY(-2px);
@@ -69,7 +73,6 @@ ion-content {
   .login-btn {
     --background: #247E3E;
     color: white;
-    margin-bottom: 15px;
   }
 
   .register-btn {
@@ -82,12 +85,6 @@ ion-content {
   .register-btn:hover {
     background-color: #247E3E;
     color: white;
-  }
-
-  ion-img {
-    height: 60%;
-    width: 60%;
-    margin-bottom: 20px;
   }
 }
 
@@ -106,6 +103,7 @@ ion-footer {
   font-size: 0.9rem;
   margin: 0;
 }
+
 
 
 
