@@ -1,50 +1,45 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>historial</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">historial</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
-
-
-<!-- Menú lateral -->
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>MPA</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-app>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar class="color-menu">
+        <ion-title>MPA</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle autoHide="false">
+          <ion-item routerLink="/dashboard"><ion-icon name="home" style="color:#247E3E"></ion-icon>Dashboard</ion-item>
+          <ion-item routerLink="/sensores"><ion-icon name="podium" style="color:#247E3E"></ion-icon>Sensores</ion-item>
+          <ion-item routerLink="/historial"><ion-icon name="archive" style="color:#247E3E;"></ion-icon>Historial</ion-item>
   
-  <ion-content>
-    <ion-list>
-      <ion-menu-toggle autoHide="false">
-        <ion-item routerLink="/dashboard">🏠 Dashboard</ion-item>
-        <ion-item routerLink="/sensores">📊 Sensores</ion-item>
-        <ion-item routerLink="/historial">📜 Historial</ion-item>
-
-        <!-- Sección de administración desplegable -->
-        <ion-item (click)="toggleAdminMenu()">
-          🛠 Administración
-          <ion-icon slot="end" name="{{ adminExpanded ? 'chevron-up' : 'chevron-down' }}"></ion-icon>
-        </ion-item>
-        <div *ngIf="adminExpanded">
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Luces</ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Puertas</ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Elevador</ion-item>
-          <ion-item routerLink="/configuracion">⚙️ Configuración</ion-item>
-        </div>
-
-        <ion-item (click)="logout()">🚪 Cerrar sesión</ion-item>
-      </ion-menu-toggle>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+          <!-- Sección de administración desplegable -->
+          <ion-item (click)="toggleAdminMenu()">
+            <ion-icon name="construct" style="color: #247E3E;"></ion-icon>Administración
+          </ion-item>
+          <div *ngIf="adminExpanded">
+            <ion-item *ngIf="isAdmin" routerLink="/control-luces"><ion-icon name="bulb" style="color:#247E3E"></ion-icon>Control de Luces</ion-item>
+            <ion-item *ngIf="isAdmin" routerLink="/control-puertas">Control de Puertas</ion-item>
+            <ion-item *ngIf="isAdmin" routerLink="/control-elevador">Control de Elevador</ion-item>
+            <ion-item routerLink="/configuracion"><ion-icon name="settings" style="color:#247E3E"></ion-icon>Configuración</ion-item>
+          </div>
+  
+          <ion-item (click)="logout()"><ion-icon name="log-out" style="color:#247E3E"></ion-icon>Cerrar sesión</ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Historial</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding"></ion-content>
+  </div>
+</ion-app>
 
 <!-- Contenido principal -->
 <div id="main-content">
