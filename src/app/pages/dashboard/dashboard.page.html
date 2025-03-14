@@ -6,145 +6,119 @@
 
 <ion-content class="ion-padding">
   <h2>📊 Sensores en Tiempo Real</h2>
-  <ion-card>
-    <ion-card-header>🌡 Temperatura</ion-card-header>
-    <ion-card-content>{{ temperatura }}°C</ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>💨 Calidad de Aire</ion-card-header>
-    <ion-card-content>{{ calidadAire }}</ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>🔊 Nivel de Ruido</ion-card-header>
-    <ion-card-content>{{ ruido }} dB</ion-card-content>
-  </ion-card>
-</ion-content>
 
+  <!-- Contenedor principal que se muestra en horizontal -->
+  <div class="sensor-container">
+    <!-- Card: Temperatura -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>🌡 Temperatura</ion-card-header>
+        <ion-card-content>
+          <div class="sensor-bar" 
+               [ngStyle]="{
+                  'background-color': getTemperatureColor(temperatura), 
+                  'width': getTemperatureWidth(temperatura) + '%'
+               }">
+          </div>
+          <div class="sensor-value">{{ temperatura }}°C</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
 
-=======
-<!-- Menú lateral -->
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar><ion-header>
-  <ion-toolbar>
-    <ion-title>Dashboard</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <!-- Card: Calidad de Aire -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>💨 Calidad de Aire</ion-card-header>
+        <ion-card-content>
+          <div class="sensor-bar" 
+               [ngStyle]="{
+                  'background-color': getAirQualityColor(calidadAire), 
+                  'width': getAirQualityWidth(calidadAire) + '%'
+               }">
+          </div>
+          <div class="sensor-value">{{ calidadAire }}</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
 
-<ion-content class="ion-padding">
-  <div class="dashboard-header">
-    <h2>📊 Sensores en Tiempo Real</h2>
+    <!-- Card: Nivel de Ruido -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>🔊 Nivel de Ruido</ion-card-header>
+        <ion-card-content>
+          <div class="sensor-bar" 
+               [ngStyle]="{
+                  'background-color': getNoiseLevelColor(ruido), 
+                  'width': getNoiseLevelWidth(ruido) + '%'
+               }">
+          </div>
+          <div class="sensor-value">{{ ruido }} dB</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Card: Humedad -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>💧 Humedad</ion-card-header>
+        <ion-card-content>
+          <div class="sensor-bar" 
+               [ngStyle]="{
+                  'background-color': getHumidityColor(humedad), 
+                  'width': getHumidityWidth(humedad) + '%'
+               }">
+          </div>
+          <div class="sensor-value">{{ humedad }}%</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Card: Calidad de Agua -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>💦 Calidad de Agua</ion-card-header>
+        <ion-card-content>
+          <div class="sensor-bar" 
+               [ngStyle]="{
+                  'background-color': getWaterQualityColor(calidadAgua), 
+                  'width': getWaterQualityWidth(calidadAgua) + '%'
+               }">
+          </div>
+          <div class="sensor-value">{{ calidadAgua }}</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Card: CO2 -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>🌫 CO2</ion-card-header>
+        <ion-card-content>
+          <div class="sensor-bar" 
+               [ngStyle]="{
+                  'background-color': getCO2LevelColor(co2), 
+                  'width': getCO2LevelWidth(co2) + '%'
+               }">
+          </div>
+          <div class="sensor-value">{{ co2 }} ppm</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Card: Intensidad de Luz -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>💡 Intensidad de Luz</ion-card-header>
+        <ion-card-content>
+          <div class="sensor-bar" 
+               [ngStyle]="{
+                  'background-color': getLightIntensityColor(luz), 
+                  'width': getLightIntensityWidth(luz) + '%'
+               }">
+          </div>
+          <div class="sensor-value">{{ luz }} lux</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
   </div>
-
-  <div class="cards-container">
-    <ion-card class="sensor-card">
-      <ion-card-header class="sensor-header">🌡 Temperatura</ion-card-header>
-      <ion-card-content class="sensor-content">
-        <h3>{{ temperatura }}°C</h3>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="sensor-card">
-      <ion-card-header class="sensor-header">💨 Calidad de Aire</ion-card-header>
-      <ion-card-content class="sensor-content">
-        <h3>{{ calidadAire }}</h3>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="sensor-card">
-      <ion-card-header class="sensor-header">🔊 Nivel de Ruido</ion-card-header>
-      <ion-card-content class="sensor-content">
-        <h3>{{ ruido }} dB</h3>
-      </ion-card-content>
-    </ion-card>
-  </div>
 </ion-content>
-
-<!-- Menú lateral -->
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>MPA</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    <ion-list>
-      <ion-menu-toggle autoHide="false">
-        <ion-item routerLink="/dashboard">
-          <ion-icon name="home" slot="start"></ion-icon> 🏠 Dashboard
-        </ion-item>
-        <ion-item routerLink="/sensores">
-          <ion-icon name="bar-chart" slot="start"></ion-icon> 📊 Sensores
-        </ion-item>
-        <ion-item routerLink="/historial">
-          <ion-icon name="document-text" slot="start"></ion-icon> 📜 Historial
-        </ion-item>
-
-        <!-- Sección de administración desplegable -->
-        <ion-item (click)="toggleAdminMenu()">
-          <ion-icon name="settings" slot="start"></ion-icon> 🛠 Administración
-          <ion-icon slot="end" name="{{ adminExpanded ? 'chevron-up' : 'chevron-down' }}"></ion-icon>
-        </ion-item>
-        <div *ngIf="adminExpanded">
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">
-            <ion-icon name="bulb" slot="start"></ion-icon> 💡 Control de Luces
-          </ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-puertas">
-            <ion-icon name="keypad" slot="start"></ion-icon> 💡 Control de Puertas
-          </ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-elevador">
-            <ion-icon name="elevator" slot="start"></ion-icon> 💡 Control de Elevador
-          </ion-item>
-          <ion-item routerLink="/configuracion">
-            <ion-icon name="settings" slot="start"></ion-icon> ⚙️ Configuración
-          </ion-item>
-        </div>
-
-        <ion-item (click)="logout()">
-          <ion-icon name="log-out" slot="start"></ion-icon> 🚪 Cerrar sesión
-        </ion-item>
-      </ion-menu-toggle>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<!-- Contenido principal -->
-<div id="main-content">
-  <router-outlet></router-outlet>
-</div>
-
-      <ion-title>MPA</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    <ion-list>
-      <ion-menu-toggle autoHide="false">
-        <ion-item routerLink="/dashboard">🏠 Dashboard</ion-item>
-        <ion-item routerLink="/sensores">📊 Sensores</ion-item>
-        <ion-item routerLink="/historial">📜 Historial</ion-item>
-
-        <!-- Sección de administración desplegable -->
-        <ion-item (click)="toggleAdminMenu()">
-          🛠 Administración
-          <ion-icon slot="end" name="{{ adminExpanded ? 'chevron-up' : 'chevron-down' }}"></ion-icon>
-        </ion-item>
-        <div *ngIf="adminExpanded">
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Luces</ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Puertas</ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Elevador</ion-item>
-          <ion-item routerLink="/configuracion">⚙️ Configuración</ion-item>
-        </div>
-
-        <ion-item (click)="logout()">🚪 Cerrar sesión</ion-item>
-      </ion-menu-toggle>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<!-- Contenido principal -->
-<div id="main-content">
-  <router-outlet></router-outlet>
-</div>
->>>>>>> e01486f243f3aa03b48f2329071aead6b2c7c923

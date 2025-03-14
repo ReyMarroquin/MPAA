@@ -1,0 +1,54 @@
+.sensor-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  /* 1 card por fila en pantallas pequeñas */
+  .sensor-item {
+    width: 100%; /* 1 card por fila */
+    margin-bottom: 20px;
+  }
+  
+  ion-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    height: 150px; /* Ajusta la altura de la card si es necesario */
+  }
+  
+  /* Aseguramos que el contenido de la card ocupe el 100% */
+  ion-card-content {
+    width: 100%;
+  }
+  
+  .sensor-bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .sensor-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Para pantallas medianas (Tablet) */
+  @media screen and (min-width: 768px) {
+    .sensor-item {
+      width: 48%; /* 2 cards por fila */
+    }
+  }
+  
+  /* Para pantallas grandes (Desktop) */
+  @media screen and (min-width: 1024px) {
+    .sensor-item {
+      width: 32%; /* 4 cards por fila */
+    }
+  }
+  
