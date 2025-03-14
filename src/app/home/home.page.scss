@@ -1,9 +1,9 @@
 ion-content {
-  --background: linear-gradient(to bottom, #f0f0f0, #ffffff); 
+  --background: linear-gradient(to bottom, #f0f0f0, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh; /* Cambié la altura a 100vh para que ocupe toda la pantalla */
   padding: 10px;
 }
 
@@ -13,14 +13,14 @@ ion-content {
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  width: 80%; 
+  width: 80%;
   max-width: 400px;
   margin: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 10vh;
-  height: 70vh; 
+  margin-top: 10vh; /* Ajuste para dispositivos pequeños */
+  height: 70vh;
   transition: all 0.3s ease;
 }
 
@@ -104,24 +104,24 @@ ion-footer {
   margin: 0;
 }
 
-
 @media (max-width: 600px) {
   .welcome-container {
     padding: 20px;
     margin-top: 5vh;
-    height: auto; 
+    height: auto;
+    min-height: 500px; /* Ajuste para que no se estire demasiado en pantallas pequeñas */
   }
 
   .logo {
-    width: 100px; 
+    width: 100px;
   }
 
   .welcome-title {
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
   }
 
   .styled-text {
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
   }
 
   ion-button {
@@ -131,19 +131,19 @@ ion-footer {
 
 @media (max-width: 768px) {
   .welcome-container {
-    width: 90%; 
+    width: 90%;
   }
 
   .welcome-title {
-    font-size: 1.8rem; 
+    font-size: 1.8rem;
   }
 
   .styled-text {
-    font-size: 1.3rem; 
+    font-size: 1.3rem;
   }
 
   ion-button {
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
   }
 }
 
