@@ -37,6 +37,20 @@
     font-weight: bold;
     color: #333;
   }
+
+  ion-content {
+    padding-bottom: 56px; /* Deja espacio para los tabs fijos */
+    height: calc(100vh - 56px); /* Asegura que el contenido ocupe el resto de la pantalla, sin tapar los tabs */
+    overflow-y: auto; /* Permite el scroll vertical */
+  }
+  
+  ion-tabs {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
   
   /* Para pantallas medianas (Tablet) */
   @media screen and (min-width: 768px) {

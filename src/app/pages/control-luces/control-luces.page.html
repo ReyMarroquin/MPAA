@@ -72,3 +72,21 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+<ion-footer>
+  <ion-tab-bar slot="fixed">
+    <ion-tab-button [routerLink]="['/dashboard']">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Dashboard</ion-label>
+    </ion-tab-button>
+    <ion-tab-button [routerLink]="['/control-luces']">
+      <ion-icon name="bulb"></ion-icon>
+      <ion-label>Control Luces</ion-label>
+    </ion-tab-button>
+    <ion-tab-button [routerLink]="['/historial']">
+      <ion-icon name="list"></ion-icon>
+      <ion-label>Historial</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>
+
