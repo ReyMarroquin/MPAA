@@ -47,26 +47,12 @@ ion-content {
   /* Estilo para el texto "Monitoreo y Prevención de Accidentes" */
   .styled-text {
     font-size: 1.5rem;
-    color: #247E3E;
+    color: #247E3E; /* Color sólido */
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background: linear-gradient(to left, #247E3E, #1f7a33);
-    -webkit-background-clip: text;
-    color: transparent;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
-    animation: fadeInText 1s ease-out;
-  }
-
-  /* Animación de desvanecimiento del texto */
-  @keyframes fadeInText {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 
   ion-button {
@@ -110,7 +96,6 @@ ion-toolbar {
 }
 
 ion-footer {
-  --Background: #247E3E;
   background: #247E3E;
   text-align: center;
   padding: 15px;
@@ -121,6 +106,7 @@ ion-footer {
   font-size: 0.9rem;
   margin: 0;
 }
+
 
 
 
