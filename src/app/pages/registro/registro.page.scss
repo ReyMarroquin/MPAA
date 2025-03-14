@@ -95,34 +95,77 @@ ion-footer {
   margin: 0;
 }
 
-/* 📱 Ajuste de tamaño para pantallas pequeñas */
+
 @media (max-width: 600px) {
+  .register-container {
+    padding: 10px; 
+  }
+
+  h2 {
+    font-size: 1.1rem; 
+  }
+
+  p {
+    font-size: 0.9rem; 
+  }
+
   .input-field,
   ion-button,
   .error-message {
-      max-width: 300px;
+    max-width: 300px; 
   }
 
-  /* 🔍 Aumenta la altura de los campos en pantallas pequeñas */
   .input-field {
-      min-height: 45px;
-      font-size: 1.1rem;
+    min-height: 45px;
+    font-size: 1.1rem; 
   }
 
   ion-button {
-      height: 50px;
-      font-size: 0.9rem;
+    height: 50px;
+    font-size: 0.9rem; 
   }
 
+  .register-link {
+    font-size: 0.8rem; 
+  }
+  
   ion-footer {
-  background: #247E3E;
-  text-align: center;
-  padding: 10px;
+    padding: 8px; 
+  }
+
+  .footer-text {
+    font-size: 0.8rem; 
+  }
 }
 
-.footer-text {
-  color: white;
-  font-size: 0.9rem;
-  margin: 0;
+
+@media (max-width: 768px) {
+  .register-container {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.2rem; 
+  }
+
+  .input-field,
+  ion-button,
+  .error-message {
+    max-width: 350px; 
+  }
+
+  .input-field {
+    min-height: 45px;
+    font-size: 1rem; 
+  }
+
+  ion-button {
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  .register-link {
+    font-size: 0.9rem; 
+  }
 }
-}
+
