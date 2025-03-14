@@ -1,18 +1,18 @@
 ion-content {
-  --background: linear-gradient(to bottom, white, white); 
+  --background: linear-gradient(to bottom, #f0f0f0, #ffffff); 
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
-  padding: 20px; 
+  height: 100vh;
+  padding: 20px;
 }
 
 .welcome-container {
   text-align: center;
   background: rgba(255, 255, 255, 0.95);
   padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 400px;
   margin: auto;
@@ -20,67 +20,100 @@ ion-content {
   align-items: center;
   flex-direction: column;
   margin-top: 10vh;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
 
   .logo {
     width: 120px; /* Tamaño de la imagen */
     height: auto;
     margin-bottom: 20px;
-    display: block; /* Asegura que la imagen se trate como un bloque */
   }
 
   h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #04730d;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #247E3E;
+    letter-spacing: 1px;
 
     span {
-      color: #04730d;
+      color: #1f7a33; /* tono ligeramente más oscuro para el texto resaltado */
     }
   }
 
-  p {
-    font-size: 1.1rem;
-    color: #000000;
-    margin-bottom: 25px;
+  /* Estilo para el texto "Monitoreo y Prevención de Accidentes" */
+  .styled-text {
+    font-size: 1.5rem;
+    color: #247E3E;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(to left, #247E3E, #1f7a33);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    animation: fadeInText 1s ease-out;
+  }
+
+  /* Animación de desvanecimiento del texto */
+  @keyframes fadeInText {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   ion-button {
     width: 100%;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     border-radius: 8px;
-    
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
 
   .login-btn {
-    --background: #1d9d30;
+    --background: #247E3E;
     color: white;
+    margin-bottom: 15px;
   }
 
   .register-btn {
-    border: 2px solid #1d9d30;
-    color: #1d9d30;
+    border: 2px solid #247E3E;
+    color: #247E3E;
+    background-color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .register-btn:hover {
+    background-color: #247E3E;
+    color: white;
   }
 
   ion-img {
-    height: 50%;
-    width: 50%;
+    height: 60%;
+    width: 60%;
+    margin-bottom: 20px;
   }
-
-  
 }
 
 ion-toolbar {
-  --background: #1d9d30;
+  --background: #247E3E;
 }
 
 ion-footer {
-  --Background: #1d9d30;
-}
-
-ion-footer {
-  background: #1d9d30;
+  --Background: #247E3E;
+  background: #247E3E;
   text-align: center;
-  padding: 10px;
+  padding: 15px;
 }
 
 .footer-text {
