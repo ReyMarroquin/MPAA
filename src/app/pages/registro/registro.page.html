@@ -5,13 +5,12 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div class="login-container">
-    <ion-img src="/assets/MPA.jpg" class="logo"></ion-img>
-
+  <div class="register-container">
     <h2>Crear Cuenta</h2>
     <p>Completa los campos para registrarte</p>
 
     <ion-item class="input-field">
+<<<<<<< HEAD
       <ion-label position="floating">
         <ion-icon name="person"></ion-icon>Nombre
       </ion-label>
@@ -44,6 +43,30 @@
         <ion-icon name="checkmark"></ion-icon>Confirmar Contraseña
       </ion-label>
       <ion-input [(ngModel)]="confirmPassword" type="password" required></ion-input>
+=======
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      <ion-input [(ngModel)]="nombre" type="text" placeholder="Nombre" required></ion-input>
+    </ion-item>
+
+    <ion-item class="input-field">
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-input [(ngModel)]="correo" type="email" placeholder="Correo Electrónico" required></ion-input>
+    </ion-item>
+
+    <ion-item class="input-field">
+      <ion-icon slot="start" name="people-circle-outline"></ion-icon>
+      <ion-input [(ngModel)]="username" type="text" placeholder="Usuario" required></ion-input>
+    </ion-item>
+
+    <ion-item class="input-field">
+      <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+      <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña" required></ion-input>
+    </ion-item>
+
+    <ion-item class="input-field">
+      <ion-icon slot="start" name="key-outline"></ion-icon>
+      <ion-input [(ngModel)]="confirmPassword" type="password" placeholder="Confirmar Contraseña" required></ion-input>
+>>>>>>> 0bc162294993491e78560280a590d92c523d62ec
     </ion-item>
 
     <ion-button expand="full" (click)="register()">Registrarse</ion-button>
