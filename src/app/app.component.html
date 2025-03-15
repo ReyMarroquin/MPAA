@@ -1,23 +1,21 @@
 <ion-app>
   <!-- Menú lateral -->
-  <ion-menu contentId="main-content">
+  <ion-menu side="start" content-id="main-content">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Menú</ion-title>
+        <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
-
+  
     <ion-content>
       <ion-list>
-        <ng-container *ngFor="let pagina of paginas">
-          <ion-item *ngIf="!pagina.soloAdmin || rolUsuario === 'admin'" [routerLink]="pagina.url">
-            {{ pagina.titulo }}
-          </ion-item>
-        </ng-container>
+        <ion-item *ngFor="let pagina of paginas" [routerLink]="pagina.url" [ngClass]="{'hidden': pagina.soloAdmin && rolUsuario !== 'admin'}">
+          <ion-icon [name]="pagina.icono" slot="start"></ion-icon>
+          <ion-label>{{ pagina.titulo }}</ion-label>
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
-
   <!-- Contenido principal -->
   <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>
