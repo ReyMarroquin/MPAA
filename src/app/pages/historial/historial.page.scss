@@ -1,4 +1,4 @@
-ion-header {
+  ion-header {
     --background: #247E3E;
   }
   
@@ -38,7 +38,6 @@ ion-header {
     --color: rgb(255, 255, 255);
     --background:rgb(255, 255, 255);
     cursor: pointer; /* Esto fuerza el cursor a ser una mano (puntero) */
-<<<<<<< HEAD
   }
   
   ion-list{
@@ -59,13 +58,14 @@ ion-header {
     color: #666;
     margin-top: 4px;
   }
-  
-=======
-}
-ion-tab-bar, ion-tab-button{
+
+  ion-tab-bar, ion-tab-button{
     background:#247E3E;
-}
-ion-label{
+  }
+    ion-label{
     color: white;
-}
->>>>>>> 2100880d66abbb06a5c55be336a1b802a15175df
+  }
+
+
+
+
