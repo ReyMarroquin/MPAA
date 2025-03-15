@@ -3,6 +3,8 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -16,28 +18,23 @@ export class LoginPage {
   password: string = '';
   errorMessage: string = '';
 
-  constructor(public router: Router) {}
+  constructor(private authService: AuthService,public router: Router) {}
 
   login() {
-    this.errorMessage = ''; // Limpiar mensaje de error antes de validar
-
-    // Verificar si ambos campos están llenos
-    if (!this.username || !this.password) {
-      this.errorMessage = 'Por favor, llena todos los campos';
-      return;
-    }
-
-    // Lógica de autenticación
-    if (this.username === 'admin' && this.password === 'admin123') {
-      this.router.navigate(['/control-luces']);
-    } else if (this.username === 'user' && this.password === 'user123') {
-      this.router.navigate(['/dashboard']);
+    if (this.authService.login(this.username, this.password)) {
+      const rol = this.authService.getRol();
+      if (rol === 'admin') {
+        this.router.navigate(['/control-luces']); // Si es admin, lo manda a /admin
+      } else {
+        this.router.navigate(['/dashboard']); // Si es usuario normal, lo manda a /home
+      }
     } else {
       this.errorMessage = 'Usuario o contraseña incorrectos';
     }
   }
+  
 
-  goToRegister() {
+  goToRegister(){
     this.router.navigate(['/registro']);
   }
 }

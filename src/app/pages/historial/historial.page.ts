@@ -32,13 +32,7 @@ export class HistorialPage implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  toggleMenu() {
-    this.menuExpanded = !this.menuExpanded;
-  }
 
-  toggleAdminMenu() {
-    this.adminExpanded = !this.adminExpanded;
-  }
 
 
   ngOnInit() {

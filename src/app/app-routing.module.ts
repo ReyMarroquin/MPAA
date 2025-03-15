@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard'; 
 
 const routes: Routes = [
   {
@@ -13,11 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule),canActivate: [AuthGuard]
   },
   {
     path: 'control-luces',
-    loadChildren: () => import('./pages/control-luces/control-luces.module').then( m => m.ControlLucesPageModule)
+    loadChildren: () => import('./pages/control-luces/control-luces.module').then( m => m.ControlLucesPageModule),canActivate: [AuthGuard]
   },
   {
     path: 'historial',
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'sensores',
+    loadChildren: () => import('./pages/sensores/sensores.module').then( m => m.SensoresPageModule)
   },
   {
     path: 'configuracion',
@@ -39,6 +44,11 @@ const routes: Routes = [
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
   },
+  {
+    path: 'vista',
+    loadChildren: () => import('./pages/vista/vista.module').then( m => m.VistaPageModule)
+  },
+
 ];
 
 @NgModule({
