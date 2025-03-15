@@ -17,7 +17,10 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: 10px;
-    height: 150px; /* Ajusta la altura de la card si es necesario */
+    height: 150px; 
+    --background: rgb(230, 230, 230);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+
   }
   
   /* Aseguramos que el contenido de la card ocupe el 100% */

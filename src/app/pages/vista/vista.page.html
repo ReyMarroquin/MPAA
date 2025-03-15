@@ -1,17 +1,108 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>vista</ion-title>
+    <ion-title>Vista</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">vista</ion-title>
+      <ion-title size="large">Vista General</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
 
+  <!-- Contenido principal: 4 secciones -->
+  <div class="general-view">
+    <!-- Sección 1: Vista de Luces -->
+    <div class="section section-1">
+      <h2>Vista de Luces</h2>
+      <div class="lights-container">
+        <div class="light" [class.on]="lightStatus[0]">
+          <p>Luces 1</p>
+        </div>
+        <div class="light" [class.on]="lightStatus[1]">
+          <p>Luces 2</p>
+        </div>
+        <div class="light" [class.on]="lightStatus[2]">
+          <p>Luces 3</p>
+        </div>
+        <div class="light" [class.on]="lightStatus[3]">
+          <p>Luces 4</p>
+        </div>
+        <div class="light" [class.on]="lightStatus[4]">
+          <p>Luces 5</p>
+        </div>
+        <div class="light" [class.on]="lightStatus[5]">
+          <p>Luces 6</p>
+        </div>
+        <div class="light" [class.on]="lightStatus[6]">
+          <p>Luces 7</p>
+        </div>
+        <div class="light" [class.on]="lightStatus[7]">
+          <p>Luces 8</p>
+        </div>
+        <div class="light" [class.on]="lightStatus[8]">
+          <p>Luces 9</p>
+        </div>
+        <div class="light" [class.on]="lightStatus[9]">
+          <p>Luces 10</p>
+        </div>
+        <div class="light" [class.on]="lightStatus[10]">
+          <p>Luces 11</p>
+        </div>
+        <div class="light" [class.on]="lightStatus[11]">
+          <p>Luces 12</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 2: Vista de Puertas -->
+    <div class="section section-2">
+      <h2>Vista de Puertas</h2>
+      <div class="doors-container">
+        <div class="door" [class.open]="doorStatus[0]">
+          <p>Puerta 1</p>
+        </div>
+        <div class="door" [class.open]="doorStatus[1]">
+          <p>Puerta 2</p>
+        </div>
+        <div class="door" [class.open]="doorStatus[2]">
+          <p>Puerta 3</p>
+        </div>
+        <div class="door" [class.open]="doorStatus[3]">
+          <p>Puerta 4</p>
+        </div>
+        <div class="door" [class.open]="doorStatus[4]">
+          <p>Puerta 5</p>
+        </div>
+        <div class="door" [class.open]="doorStatus[5]">
+          <p>Puerta 6</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 3: Elevadores -->
+    <div class="section section-3">
+      <h2>Elevadores</h2>
+      <div class="elevators-container">
+        <div class="elevator">
+          <p>Elevador 1 - Piso: {{ elevatorStatus[0] }}</p>
+        </div>
+        <div class="elevator">
+          <p>Elevador 2 - Piso: {{ elevatorStatus[1] }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 4: Ventiladores Eólicos -->
+    <div class="section section-4">
+      <h2>Ventiladores Eólicos</h2>
+      <div class="wind-speed">
+        <p>Viento generado: {{ windSpeed }} km/h</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
 
 <ion-footer>
   <ion-tab-bar slot="fixed">
@@ -22,7 +113,7 @@
     <ion-tab-button [routerLink]="['/vista']">
       <ion-icon name="bulb"></ion-icon>
       <ion-label>Vista General</ion-label>
-      </ion-tab-button>
+    </ion-tab-button>
     <ion-tab-button [routerLink]="['/historial']">
       <ion-icon name="list"></ion-icon>
       <ion-label>Historial</ion-label>

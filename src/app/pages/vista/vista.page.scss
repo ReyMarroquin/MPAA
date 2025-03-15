@@ -1,0 +1,159 @@
+
+ion-tabs {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+  ion-toolbar{
+    --background:#247E3E;
+}
+  ion-content{
+    --background:white;
+    --color:black;
+}
+ion-tab-bar, ion-tab-button{
+  background:#247E3E;
+}
+ion-label{
+  color: white;
+}
+
+
+.general-view {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  grid-template-rows: repeat(2, 1fr);    /* Dos filas */
+  gap: 10px;
+  height: calc(100vh - 57px - 56px); /* Resta el tamaño de los headers y footer */
+  padding: 10px;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.section h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #3880ff;
+}
+
+.section p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Estilo específico para la sección 1 */
+.section-1 {
+  background-color: #efefef;
+  color: white;
+  display: grid;
+  align-items: center;
+}
+
+.lights-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 3 luces por fila */
+  gap: 10px;
+}
+
+.light {
+  background-color: #e10000;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  transition: background-color 0.3s ease;
+}
+
+.light.on {
+  background-color: #32cd32; /* Verde cuando está encendida */
+  color: white;
+}
+
+/* Estilo específico para la sección 2 (Puertas) */
+.section-2 {
+  background-color: #efefef;
+  color: white;
+  display: grid;
+  align-items: center;
+}
+
+.doors-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 puertas por fila */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.door {
+  background-color: #dcdcdc;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  transition: background-color 0.3s ease;
+}
+
+.door.open {
+  background-color: #32cd32; /* Verde cuando está abierta */
+  color: white;
+}
+
+/* Estilo específico para la sección 3 (Elevadores) */
+.section-3 {
+  background-color: #efefef;
+  color: white;
+  display: grid;
+  align-items: center;
+}
+
+.elevators-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.elevator {
+  background-color: #c1c1c1;
+  padding: 20px;
+  margin: 0px 20px 0px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Estilo específico para la sección 4 (Ventiladores Eólicos) */
+.section-4 {
+  background-color: #efefef;
+  color: white;
+  display: grid;
+  align-items: center;
+}
+
+.wind-speed {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.wind-speed p{
+  font-size: 22px;
+}
