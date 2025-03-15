@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -6,27 +7,26 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private usuario: any = null; // Aquí se almacena el usuario logueado
 
-  constructor() {
+  constructor(private router: Router) {
     this.cargarUsuario(); // Cargar usuario al iniciar el servicio
   }
 
   // Método para hacer login
-  login(username: string, password: string): boolean {
-    const usuarios = [
-      { username: 'admin', password: '1234', nombre: 'Administrador', rol: 'admin' },
-      { username: 'user', password: '1234', nombre: 'Usuario Normal', rol: 'usuario' }
-    ];
-
-    const usuario = usuarios.find(u => u.username === username && u.password === password);
-
-    if (usuario) {
-      this.usuario = { nombre: usuario.nombre, rol: usuario.rol };
-      localStorage.setItem('usuario', JSON.stringify(this.usuario)); // Guardar en localStorage
-      return true;
+  login(usuario: any) {
+    const storedUsuario = JSON.parse(localStorage.getItem('usuarios') || '[]'); // Aquí simulas obtener los usuarios de localStorage
+    const foundUser = storedUsuario.find((user: any) => user.nombre === usuario.nombre && user.password === usuario.password);
+  
+    if (foundUser) {
+      // Si el usuario existe y la contraseña es correcta
+      localStorage.setItem('userRole', foundUser.rol); // Guarda el rol del usuario
+      localStorage.setItem('usuario', JSON.stringify(foundUser)); // Guarda el objeto completo del usuario
+      this.usuario = foundUser; // Actualiza el usuario en el servicio
+      return true; // Login exitoso
+    } else {
+      return false; // Usuario o contraseña incorrectos
     }
-
-    return false; // Credenciales incorrectas
   }
+  
 
   // Cargar usuario desde localStorage
   private cargarUsuario() {
@@ -53,5 +53,9 @@ export class AuthService {
   logout() {
     this.usuario = null;
     localStorage.removeItem('usuario');
+    localStorage.removeItem('userRole'); // Eliminar el rol también
+
+    // Redirigir al login
+    this.router.navigate(['/login']);
   }
 }

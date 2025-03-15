@@ -1,35 +1,108 @@
 <ion-app>
-   <div class="ion-page" id="main-content">
+  <div class="ion-page" id="main-content">
+    
+    <!-- Header del historial -->
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>Historial</ion-title>
+        <ion-title>Historial de Sensores</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding"></ion-content>
+    
+    <!-- Contenido de la página de historial -->
+    <ion-content class="ion-padding">
+      <ion-list>
+        <!-- Sensor 1 -->
+        <ion-item>
+          <ion-label>
+            <h2>Sensor 1</h2>
+            <p><strong>Temperatura:</strong> 22°C</p>
+            <p><strong>Calidad de Aire:</strong> 75%</p>
+            <p><strong>Ruido:</strong> 50 dB</p>
+          </ion-label>
+        </ion-item>
+        
+        <!-- Sensor 2 -->
+        <ion-item>
+          <ion-label>
+            <h2>Sensor 2</h2>
+            <p><strong>Temperatura:</strong> 20°C</p>
+            <p><strong>Calidad de Aire:</strong> 80%</p>
+            <p><strong>Ruido:</strong> 40 dB</p>
+          </ion-label>
+        </ion-item>
+
+        <!-- Sensor 3 -->
+        <ion-item>
+          <ion-label>
+            <h2>Sensor 3</h2>
+            <p><strong>Temperatura:</strong> 24°C</p>
+            <p><strong>Calidad de Aire:</strong> 65%</p>
+            <p><strong>Ruido:</strong> 60 dB</p>
+          </ion-label>
+        </ion-item>
+
+        <!-- Sensor 4 -->
+        <ion-item>
+          <ion-label>
+            <h2>Sensor 4</h2>
+            <p><strong>Temperatura:</strong> 19°C</p>
+            <p><strong>Calidad de Aire:</strong> 70%</p>
+            <p><strong>Ruido:</strong> 45 dB</p>
+          </ion-label>
+        </ion-item>
+
+        <!-- Sensor 5 -->
+        <ion-item>
+          <ion-label>
+            <h2>Sensor 5</h2>
+            <p><strong>Temperatura:</strong> 21°C</p>
+            <p><strong>Calidad de Aire:</strong> 60%</p>
+            <p><strong>Ruido:</strong> 55 dB</p>
+          </ion-label>
+        </ion-item>
+
+        <!-- Sensor 6 -->
+        <ion-item>
+          <ion-label>
+            <h2>Sensor 6</h2>
+            <p><strong>Temperatura:</strong> 23°C</p>
+            <p><strong>Calidad de Aire:</strong> 85%</p>
+            <p><strong>Ruido:</strong> 50 dB</p>
+          </ion-label>
+        </ion-item>
+
+        <!-- Sensor 7 -->
+        <ion-item>
+          <ion-label>
+            <h2>Sensor 7</h2>
+            <p><strong>Temperatura:</strong> 25°C</p>
+            <p><strong>Calidad de Aire:</strong> 90%</p>
+            <p><strong>Ruido:</strong> 40 dB</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    
+    <!-- Footer con pestañas de navegación -->
+    <ion-footer>
+      <ion-tab-bar slot="fixed">
+        <ion-tab-button [routerLink]="['/dashboard']">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Dashboard</ion-label>
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/vista']">
+          <ion-icon name="bulb"></ion-icon>
+          <ion-label>Vista General</ion-label>
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/historial']">
+          <ion-icon name="list"></ion-icon>
+          <ion-label>Historial</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-footer>
+
   </div>
 </ion-app>
-
-<!-- Contenido principal -->
-<div id="main-content">
-  <router-outlet></router-outlet>
-</div>
-
-<ion-footer>
-  <ion-tab-bar slot="fixed">
-    <ion-tab-button [routerLink]="['/dashboard']">
-      <ion-icon name="home"></ion-icon>
-      <ion-label>Dashboard</ion-label>
-    </ion-tab-button>
-    <ion-tab-button [routerLink]="['/vista']">
-      <ion-icon name="bulb"></ion-icon>
-      <ion-label>Vista General</ion-label>
-    </ion-tab-button>
-    <ion-tab-button [routerLink]="['/historial']">
-      <ion-icon name="list"></ion-icon>
-      <ion-label>Historial</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-footer>

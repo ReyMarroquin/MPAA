@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard'; 
+import { AdminGuard } from './auth/admin.guard'; 
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'control-luces',
-    loadChildren: () => import('./pages/control-luces/control-luces.module').then( m => m.ControlLucesPageModule),canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/control-luces/control-luces.module').then( m => m.ControlLucesPageModule),
+    canActivate: [AuthGuard, AdminGuard]
   },
   {
     path: 'historial',
