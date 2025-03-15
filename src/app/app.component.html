@@ -3,16 +3,22 @@
   <ion-menu side="start" content-id="main-content">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Menu</ion-title>
+        <ion-title>MPA</ion-title>
       </ion-toolbar>
     </ion-header>
   
     <ion-content>
+<<<<<<< HEAD
       <ion-list>
         <ion-item *ngFor="let pagina of paginas" [routerLink]="pagina.url" 
                   [ngClass]="{'hidden': pagina.soloAdmin && rolUsuario !== 'admin'}" 
                   (click)="handleMenuClick(pagina)">
           <ion-icon [name]="pagina.icono" slot="start"></ion-icon>
+=======
+      <ion-list class="iono">
+        <ion-item class="ionion" *ngFor="let pagina of paginas" [routerLink]="pagina.url" [ngClass]="{'hidden': pagina.soloAdmin && rolUsuario !== 'admin'}">
+          <ion-icon [name]="pagina.icono" slot="start" style="color:#247E3E"></ion-icon>
+>>>>>>> 2100880d66abbb06a5c55be336a1b802a15175df
           <ion-label>{{ pagina.titulo }}</ion-label>
         </ion-item>
       </ion-list>

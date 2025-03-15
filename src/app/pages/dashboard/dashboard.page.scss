@@ -50,7 +50,19 @@
     left: 0;
     width: 100%;
   }
-  
+  ion-toolbar{
+    --background:#247E3E;
+}
+  ion-content{
+    --background:white;
+    --color:black;
+}
+ion-tab-bar, ion-tab-button{
+  background:#247E3E;
+}
+ion-label{
+  color: white;
+}
   
   /* Para pantallas medianas (Tablet) */
   @media screen and (min-width: 768px) {
