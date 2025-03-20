@@ -13,79 +13,182 @@
     
     <!-- Contenido de la página de historial -->
     <ion-content class="ion-padding">
-      <ion-list>
-        <!-- Sensor 1 -->
-        <ion-item>
-          <ion-label>
-            <h2>Sensor 1</h2>
-            <p><strong>Temperatura:</strong> 22°C</p>
-            <p><strong>Calidad de Aire:</strong> 75%</p>
-            <p><strong>Ruido:</strong> 50 dB</p>
-          </ion-label>
-        </ion-item>
+      <div class="sensor-container">
         
-        <!-- Sensor 2 -->
-        <ion-item>
-          <ion-label>
-            <h2>Sensor 2</h2>
-            <p><strong>Temperatura:</strong> 20°C</p>
-            <p><strong>Calidad de Aire:</strong> 80%</p>
-            <p><strong>Ruido:</strong> 40 dB</p>
-          </ion-label>
-        </ion-item>
+        <!-- Fila 1: Sensores 1 - 3 -->
+        <div class="sensor-row">
+          <div class="sensor-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h2>Sensor 1</h2>
+                <div class="sensor-info">
+                  <ion-icon name="thermometer-outline"></ion-icon>
+                  <p><strong>Temperatura:</strong> 22°C</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="leaf-outline"></ion-icon>
+                  <p><strong>Calidad de Aire:</strong> 75%</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="volume-high-outline"></ion-icon>
+                  <p><strong>Ruido:</strong> 50 dB</p>
+                </div>
+              </div>
+              <div class="card-back">
+                <p>Más detalles del sensor 1...</p>
+              </div>
+            </div>
+          </div>
 
-        <!-- Sensor 3 -->
-        <ion-item>
-          <ion-label>
-            <h2>Sensor 3</h2>
-            <p><strong>Temperatura:</strong> 24°C</p>
-            <p><strong>Calidad de Aire:</strong> 65%</p>
-            <p><strong>Ruido:</strong> 60 dB</p>
-          </ion-label>
-        </ion-item>
+          <!-- Repetir para otros sensores -->
+          <div class="sensor-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h2>Sensor 2</h2>
+                <div class="sensor-info">
+                  <ion-icon name="thermometer-outline"></ion-icon>
+                  <p><strong>Temperatura:</strong> 20°C</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="leaf-outline"></ion-icon>
+                  <p><strong>Calidad de Aire:</strong> 80%</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="volume-high-outline"></ion-icon>
+                  <p><strong>Ruido:</strong> 40 dB</p>
+                </div>
+              </div>
+              <div class="card-back">
+                <p>Más detalles del sensor 2...</p>
+              </div>
+            </div>
+          </div>
 
-        <!-- Sensor 4 -->
-        <ion-item>
-          <ion-label>
-            <h2>Sensor 4</h2>
-            <p><strong>Temperatura:</strong> 19°C</p>
-            <p><strong>Calidad de Aire:</strong> 70%</p>
-            <p><strong>Ruido:</strong> 45 dB</p>
-          </ion-label>
-        </ion-item>
+          <div class="sensor-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h2>Sensor 3</h2>
+                <div class="sensor-info">
+                  <ion-icon name="thermometer-outline"></ion-icon>
+                  <p><strong>Temperatura:</strong> 24°C</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="leaf-outline"></ion-icon>
+                  <p><strong>Calidad de Aire:</strong> 65%</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="volume-high-outline"></ion-icon>
+                  <p><strong>Ruido:</strong> 60 dB</p>
+                </div>
+              </div>
+              <div class="card-back">
+                <p>Más detalles del sensor 3...</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <!-- Sensor 5 -->
-        <ion-item>
-          <ion-label>
-            <h2>Sensor 5</h2>
-            <p><strong>Temperatura:</strong> 21°C</p>
-            <p><strong>Calidad de Aire:</strong> 60%</p>
-            <p><strong>Ruido:</strong> 55 dB</p>
-          </ion-label>
-        </ion-item>
+        <!-- Fila 2: Sensores 4 - 6 -->
+        <div class="sensor-row">
+          <div class="sensor-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h2>Sensor 4</h2>
+                <div class="sensor-info">
+                  <ion-icon name="thermometer-outline"></ion-icon>
+                  <p><strong>Temperatura:</strong> 19°C</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="leaf-outline"></ion-icon>
+                  <p><strong>Calidad de Aire:</strong> 70%</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="volume-high-outline"></ion-icon>
+                  <p><strong>Ruido:</strong> 45 dB</p>
+                </div>
+              </div>
+              <div class="card-back">
+                <p>Más detalles del sensor 4...</p>
+              </div>
+            </div>
+          </div>
 
-        <!-- Sensor 6 -->
-        <ion-item>
-          <ion-label>
-            <h2>Sensor 6</h2>
-            <p><strong>Temperatura:</strong> 23°C</p>
-            <p><strong>Calidad de Aire:</strong> 85%</p>
-            <p><strong>Ruido:</strong> 50 dB</p>
-          </ion-label>
-        </ion-item>
+          <div class="sensor-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h2>Sensor 5</h2>
+                <div class="sensor-info">
+                  <ion-icon name="thermometer-outline"></ion-icon>
+                  <p><strong>Temperatura:</strong> 21°C</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="leaf-outline"></ion-icon>
+                  <p><strong>Calidad de Aire:</strong> 85%</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="volume-high-outline"></ion-icon>
+                  <p><strong>Ruido:</strong> 55 dB</p>
+                </div>
+              </div>
+              <div class="card-back">
+                <p>Más detalles del sensor 5...</p>
+              </div>
+            </div>
+          </div>
 
-        <!-- Sensor 7 -->
-        <ion-item>
-          <ion-label>
-            <h2>Sensor 7</h2>
-            <p><strong>Temperatura:</strong> 25°C</p>
-            <p><strong>Calidad de Aire:</strong> 90%</p>
-            <p><strong>Ruido:</strong> 40 dB</p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
+          <div class="sensor-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h2>Sensor 6</h2>
+                <div class="sensor-info">
+                  <ion-icon name="thermometer-outline"></ion-icon>
+                  <p><strong>Temperatura:</strong> 23°C</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="leaf-outline"></ion-icon>
+                  <p><strong>Calidad de Aire:</strong> 60%</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="volume-high-outline"></ion-icon>
+                  <p><strong>Ruido:</strong> 52 dB</p>
+                </div>
+              </div>
+              <div class="card-back">
+                <p>Más detalles del sensor 6...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fila 3: Sensor 7 (Centrado) -->
+        <div class="sensor-row">
+          <div class="sensor-card center">
+            <div class="card-inner">
+              <div class="card-front">
+                <h2>Sensor 7</h2>
+                <div class="sensor-info">
+                  <ion-icon name="thermometer-outline"></ion-icon>
+                  <p><strong>Temperatura:</strong> 25°C</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="leaf-outline"></ion-icon>
+                  <p><strong>Calidad de Aire:</strong> 55%</p>
+                </div>
+                <div class="sensor-info">
+                  <ion-icon name="volume-high-outline"></ion-icon>
+                  <p><strong>Ruido:</strong> 58 dB</p>
+                </div>
+              </div>
+              <div class="card-back">
+                <p>Más detalles del sensor 7...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </ion-content>
-    
+
     <!-- Footer con pestañas de navegación -->
     <ion-footer>
       <ion-tab-bar slot="fixed">
@@ -106,28 +209,4 @@
 
   </div>
 </ion-app>
-<<<<<<< HEAD
-=======
 
-<!-- Contenido principal -->
-<div id="main-content">
-  <router-outlet></router-outlet>
-</div>
-
-<ion-footer>
-  <ion-tab-bar slot="fixed">
-    <ion-tab-button [routerLink]="['/dashboard']">
-      <ion-icon name="home" style="color:white"></ion-icon>
-      <ion-label>Dashboard</ion-label>
-    </ion-tab-button>
-    <ion-tab-button [routerLink]="['/vista']">
-      <ion-icon name="bulb" style="color:white"></ion-icon>
-      <ion-label>Vista General</ion-label>
-    </ion-tab-button>
-    <ion-tab-button [routerLink]="['/historial']">
-      <ion-icon name="list" style="color:white"></ion-icon>
-      <ion-label>Historial</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-footer>
->>>>>>> 2100880d66abbb06a5c55be336a1b802a15175df
