@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
     { titulo: 'Sensores', url: '/sensores', icono: 'pulse' },
     { titulo: 'Administrar luces', url: '/control-luces', icono: 'bulb', soloAdmin: true },
     { titulo: 'Configuración', url: '/configuracion', icono: 'settings' },
-    { titulo: 'Perfil', url: '/perfil', icono: 'settings' },
-    { titulo: 'Cerrar Sesion', url: '', icono: 'settings' }
+    { titulo: 'Perfil', url: '/perfil', icono: 'person' },
+    { titulo: 'Cerrar Sesion', url: '', icono: 'log-out' }
   ];
 
   constructor(private authService: AuthService, private router: Router) {
