@@ -23,11 +23,8 @@ export class LoginPage {
   login() {
     if (this.authService.login(this.username, this.password)) {
       const rol = this.authService.getRol();
-      if (rol === 'admin') {
-        this.router.navigate(['/control-luces']);
-      } else {
-        this.router.navigate(['/dashboard']); 
-      }
+      const returnUrl = this.authService.getDefaultRedirectForRole(rol); // Obtener la ruta por defecto para el rol
+      this.router.navigate([returnUrl]);
     } else {
       this.errorMessage = 'Usuario o contraseña incorrectos';
     }

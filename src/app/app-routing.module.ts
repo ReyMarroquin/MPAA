@@ -15,16 +15,20 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule),canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardPageModule),
+    canActivate: [AuthGuard],
+    data: { defaultRoleRedirect: 'usuario' } // Redirigir aquí si el rol es 'usuario'
   },
   {
     path: 'control-luces',
-    loadChildren: () => import('./pages/control-luces/control-luces.module').then( m => m.ControlLucesPageModule),
-    canActivate: [AuthGuard, AdminGuard]
+    loadChildren: () => import('./pages/control-luces/control-luces.module').then(m => m.ControlLucesPageModule),
+    canActivate: [AuthGuard, AdminGuard],
+    data: { defaultRoleRedirect: 'admin' } // Redirigir aquí si el rol es 'admin'
   },
   {
     path: 'historial',
-    loadChildren: () => import('./pages/historial/historial.module').then( m => m.HistorialPageModule)
+    loadChildren: () => import('./pages/historial/historial.module').then( m => m.HistorialPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -32,11 +36,13 @@ const routes: Routes = [
   },
   {
     path: 'sensores',
-    loadChildren: () => import('./pages/sensores/sensores.module').then( m => m.SensoresPageModule)
+    loadChildren: () => import('./pages/sensores/sensores.module').then( m => m.SensoresPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'configuracion',
-    loadChildren: () => import('./pages/configuracion/configuracion.module').then( m => m.ConfiguracionPageModule)
+    loadChildren: () => import('./pages/configuracion/configuracion.module').then( m => m.ConfiguracionPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'perfil',
@@ -48,7 +54,8 @@ const routes: Routes = [
   },
   {
     path: 'vista',
-    loadChildren: () => import('./pages/vista/vista.module').then( m => m.VistaPageModule)
+    loadChildren: () => import('./pages/vista/vista.module').then( m => m.VistaPageModule),
+    canActivate: [AuthGuard]
   },
 
 ];

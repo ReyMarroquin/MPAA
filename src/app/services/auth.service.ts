@@ -10,22 +10,44 @@ export class AuthService {
     this.cargarUsuario(); // Cargar usuario al iniciar el servicio
   }
 
-  // Método para hacer login
-  login(username: string, password: string): boolean {
-    const usuarios = [
-      { username: 'admin', password: '1234', nombre: 'Administrador', rol: 'admin' },
-      { username: 'user', password: '1234', nombre: 'Usuario Normal', rol: 'usuario' }
-    ];
+  private loginError: string = '';
 
-    const usuario = usuarios.find(u => u.username === username && u.password === password);
+login(username: string, password: string): boolean {
+  const usuarios = [
+    { username: 'admin', password: '1234', nombre: 'Administrador', rol: 'admin' },
+    { username: 'user', password: '1234', nombre: 'Usuario Normal', rol: 'usuario' }
+  ];
 
-    if (usuario) {
-      this.usuario = { nombre: usuario.nombre, rol: usuario.rol };
-      localStorage.setItem('usuario', JSON.stringify(this.usuario)); // Guardar en localStorage
-      return true;
+  const usuario = usuarios.find(u => u.username === username);
+
+  if (!usuario) {
+    this.loginError = 'Usuario no encontrado';
+    return false;
+  }
+
+  if (usuario.password !== password) {
+    this.loginError = 'Contraseña incorrecta';
+    return false;
+  }
+
+  this.usuario = { nombre: usuario.nombre, rol: usuario.rol };
+  localStorage.setItem('usuario', JSON.stringify(this.usuario));
+  return true;
+}
+
+getLoginError(): string {
+  return this.loginError;
+}
+
+  getDefaultRedirectForRole(rol: string): string {
+    switch (rol) {
+      case 'admin':
+        return '/control-luces';
+      case 'usuario':
+        return '/dashboard';
+      default:
+        return '/home';
     }
-
-    return false; // Credenciales incorrectas
   }
 
   // Cargar usuario desde localStorage
