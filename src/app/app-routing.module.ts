@@ -56,7 +56,11 @@ const routes: Routes = [
     path: 'vista',
     loadChildren: () => import('./pages/vista/vista.module').then( m => m.VistaPageModule),
     canActivate: [AuthGuard]
+  },  {
+    path: 'conocenos',
+    loadChildren: () => import('./conocenos/conocenos.module').then( m => m.ConocenosPageModule)
   },
+
 
 ];
 

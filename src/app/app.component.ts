@@ -19,7 +19,8 @@ export class AppComponent implements OnInit {
     { titulo: 'Administrar luces', url: '/control-luces', icono: 'bulb', soloAdmin: true },
     { titulo: 'Configuración', url: '/configuracion', icono: 'settings' },
     { titulo: 'Perfil', url: '/perfil', icono: 'person' },
-    { titulo: 'Cerrar Sesion', url: '', icono: 'log-out' }
+    { titulo: 'Conócenos', url: '/conocenos', icono: 'information-circle' }, // ✅ Nueva opción añadida
+    { titulo: 'Cerrar Sesión', url: '', icono: 'log-out' }
   ];
 
   constructor(private authService: AuthService, private router: Router) {
@@ -27,13 +28,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Obtener el rol del usuario desde localStorage
     const rolGuardado = localStorage.getItem('userRole');
     
     if (rolGuardado) {
       this.rolUsuario = rolGuardado;
     } else {
-      this.rolUsuario = 'invitado'; // Si no hay rol guardado, asignar como invitado
+      this.rolUsuario = 'invitado';
     }
     
     // Filtrar las páginas según el rol del usuario
@@ -41,26 +41,18 @@ export class AppComponent implements OnInit {
       return !(pagina.soloAdmin && this.rolUsuario !== 'admin');
     });
   }
-  
 
   handleMenuClick(pagina: any) {
-    if (pagina.titulo === 'Cerrar Sesion') {
+    if (pagina.titulo === 'Cerrar Sesión') {
       this.logout();
     } else {
-      // Si no es la opción de cerrar sesión, redirigimos normalmente
       this.router.navigate([pagina.url]);
     }
   }
   
   logout() {
-    // Eliminar el rol y la información del usuario
     localStorage.removeItem('userRole');
-    localStorage.removeItem('usuario'); // Limpiar el objeto completo del usuario
-  
-    // Redirigir al login
+    localStorage.removeItem('usuario');
     this.router.navigate(['/login']);
   }
-  
-  
-  
 }

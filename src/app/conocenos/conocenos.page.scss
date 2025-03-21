@@ -1,0 +1,162 @@
+ion-header {
+  background-color: #4CAF50; /* Verde más brillante y atractivo */
+}
+
+ion-toolbar {
+  --background: #4CAF50; /* Verde en la barra de herramientas */
+}
+
+ion-content {
+  --background: white;
+}
+
+ion-title {
+  color: white;
+  font-size: 24px;
+}
+
+/* Contenedor con animación de giro */
+.flip-container {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 320px;
+  height: 160px;
+}
+
+.flipper {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  position: relative;
+}
+
+.flip-container:hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 10px;
+}
+
+.front {
+  background-color: #4CAF50; /* Verde más brillante */
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front ion-icon {
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+.back {
+  background-color: white;
+  color: #000000; /* Negro fuerte */
+  font-size: 16px;
+  transform: rotateY(180deg);
+  border: 2px solid #4CAF50; /* Bordes con el mismo verde */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Otros estilos */
+.intro {
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.mision-vision {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  background-color: white;
+}
+
+.card {
+  width: 48%;
+  margin: 10px 0;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.mision-vision .card ion-card-title,
+.nosotros .card ion-card-title {
+  font-size: 20px;
+  color: #000000; /* Negro fuerte */
+}
+
+.mision-vision .card ion-card-content,
+.nosotros .card ion-card-content {
+  font-size: 16px;
+  color: #000000; /* Negro fuerte */
+}
+
+.nosotros {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.card.nosotros-card {
+  width: 80%;
+}
+
+.card ion-card-header {
+  background-color: #4CAF50; 
+  color: white;
+  border-radius: 12px 12px 0 0;
+}
+
+.card ion-card-title {
+  font-size: 20px;
+  color: #000000; 
+}
+
+.card ion-card-content {
+  font-size: 16px;
+  color: #000000; 
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
