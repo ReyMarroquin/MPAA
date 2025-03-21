@@ -8,13 +8,41 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>{{ username }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Tipo de usuario: <strong>{{ tipoUsuario }}</strong></p>
-      <ion-button expand="full" color="danger" (click)="logout()">Cerrar Sesión</ion-button>
-    </ion-card-content>
-  </ion-card>
+  <div class="profile-container">
+    <!-- Perfil de Rey Marroquín (Administrador) -->
+    <ion-card class="profile-card">
+      <div class="card-glassmorphism">
+        <ion-card-header>
+          <div class="icon-container admin-bg">
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </div>
+          <div class="user-info">
+            <ion-card-title>Rey Marroquín</ion-card-title>
+            <p class="user-type admin">Administrador</p>
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button expand="full" color="danger" (click)="logout()">Cerrar Sesión</ion-button>
+        </ion-card-content>
+      </div>
+    </ion-card>
+
+    <!-- Perfil de Samantha Luna (Usuario) -->
+    <ion-card class="profile-card">
+      <div class="card-glassmorphism">
+        <ion-card-header>
+          <div class="icon-container user-bg">
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </div>
+          <div class="user-info">
+            <ion-card-title>Samantha Luna</ion-card-title>
+            <p class="user-type user">Usuario</p>
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button expand="full" color="danger" (click)="logout()">Cerrar Sesión</ion-button>
+        </ion-card-content>
+      </div>
+    </ion-card>
+  </div>
 </ion-content>

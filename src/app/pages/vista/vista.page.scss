@@ -1,159 +1,211 @@
-
+/* Barra de navegación */
 ion-tabs {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-  ion-toolbar{
-    --background:#247E3E;
-}
-  ion-content{
-    --background:white;
-    --color:black;
-}
-ion-tab-bar, ion-tab-button{
-  background:#247E3E;
-}
-ion-label{
-  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
+ion-toolbar {
+  --background: #247E3E;
+}
+
+ion-content {
+  --background: #f8f9fa;
+  --color: #333;
+}
+
+ion-tab-bar, ion-tab-button {
+  background: #247E3E;
+}
+
+ion-label {
+  color: white;
+  font-weight: bold;
+}
 
 .general-view {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-  grid-template-rows: repeat(2, 1fr);    /* Dos filas */
-  gap: 10px;
-  height: calc(100vh - 57px - 56px); /* Resta el tamaño de los headers y footer */
-  padding: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 12px;
+  height: calc(100vh - 57px - 56px);
+  padding: 16px;
 }
 
 .section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 16px;
   text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.section:hover {
+  transform: scale(1.05);
 }
 
 .section h2 {
-  margin-bottom: 10px;
-  font-size: 18px;
-  color: #3880ff;
+  margin-bottom: 8px;
+  font-size: 20px;
+  color: #1E5631;
+  font-weight: bold;
 }
 
 .section p {
   font-size: 14px;
-  color: #666;
+  color: #555;
 }
 
-/* Estilo específico para la sección 1 */
-.section-1 {
-  background-color: #efefef;
-  color: white;
-  display: grid;
-  align-items: center;
-}
-
+/* Luces */
 .lights-container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 3 luces por fila */
-  gap: 10px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  padding: 10px;
+  justify-content: center;
 }
 
 .light {
-  background-color: #e10000;
+  background-color: #d00000;
   padding: 20px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 10px;
   text-align: center;
-  font-size: 14px;
-  color: #666;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.5s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
 .light.on {
-  background-color: #32cd32; /* Verde cuando está encendida */
-  color: white;
+  background-color: #32cd32;
+  animation: blinkGreen 0.3s ease-in-out 2;
 }
 
-/* Estilo específico para la sección 2 (Puertas) */
-.section-2 {
-  background-color: #efefef;
-  color: white;
-  display: grid;
-  align-items: center;
+.light:hover {
+  transform: scale(1.1);
 }
 
+/* Animación de parpadeo */
+@keyframes blinkGreen {
+  0% { background-color: #32cd32; }
+  50% { background-color: #28a428; }
+  100% { background-color: #32cd32; }
+}
+
+/* Puertas */
 .doors-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 puertas por fila */
-  gap: 10px;
-  margin-top: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
 }
 
 .door {
-  background-color: #dcdcdc;
+  background-color: #b0b0b0;
   padding: 20px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 10px;
   text-align: center;
   font-size: 14px;
-  color: #666;
-  transition: background-color 0.3s ease;
+  color: white;
+  transition: background-color 0.5s ease, transform 0.3s ease;
+  cursor: pointer;
 }
 
 .door.open {
-  background-color: #32cd32; /* Verde cuando está abierta */
-  color: white;
+  background-color: #32cd32;
+  animation: fadeEffect 0.3s ease-in-out;
 }
 
-/* Estilo específico para la sección 3 (Elevadores) */
-.section-3 {
-  background-color: #efefef;
-  color: white;
-  display: grid;
-  align-items: center;
+.door:hover {
+  transform: scale(1.1);
 }
 
+/* Elevadores */
 .elevators-container {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-top: 12px;
+  gap: 12px;
 }
 
 .elevator {
   background-color: #c1c1c1;
   padding: 20px;
-  margin: 0px 20px 0px 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   font-size: 14px;
-  color: #666;
-}
-
-/* Estilo específico para la sección 4 (Ventiladores Eólicos) */
-.section-4 {
-  background-color: #efefef;
   color: white;
-  display: grid;
-  align-items: center;
+  transition: background-color 0.4s ease-in-out, transform 0.3s ease;
+  cursor: pointer;
 }
 
+.elevator.active {
+  background-color: #32cd32;
+  transform: scale(1.1);
+}
+
+/* Efecto de transición */
+@keyframes fadeEffect {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* Ventiladores Eólicos */
 .wind-speed {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 12px;
+  color: #1E5631;
 }
 
-.wind-speed p{
-  font-size: 22px;
+/* Media Query para móviles */
+@media (max-width: 767px) {
+  .general-view {
+    grid-template-columns: 1fr; /* Cambiar a una sola columna */
+    gap: 10px;
+  }
+
+  .section {
+    padding: 12px;
+  }
+
+  .lights-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 luces por fila */
+  }
+
+  .light {
+    font-size: 14px;
+    padding: 16px;
+  }
+
+  .doors-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 puertas por fila */
+  }
+
+  .elevators-container {
+    flex-direction: column; /* Mostrar elevadores en columna */
+    gap: 10px;
+  }
+
+  .wind-speed-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .wind-speed-container .wind-speed {
+    min-width: 100px; 
+    flex-shrink: 0;
+  }
 }
+
