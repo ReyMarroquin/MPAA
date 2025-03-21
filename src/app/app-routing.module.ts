@@ -61,7 +61,7 @@ const routes: Routes = [
   },
   {
     path: 'conocenos',
-    loadChildren: () => import('./conocenos/conocenos.module').then( m => m.ConocenosPageModule)
+    loadChildren: () => import('./pages/conocenos/conocenos.module').then( m => m.ConocenosPageModule)
   }
 
 ];
