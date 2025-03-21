@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { Router } from '@angular/router';
-
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   rolUsuario: string = 'invitado';
-  
+  mostrarMenu: boolean = false; // Propiedad para controlar la visibilidad del menú
+
   // Definimos las páginas del menú
   paginas = [
     { titulo: 'Inicio', url: '/dashboard', icono: 'home' },
@@ -24,6 +25,13 @@ export class AppComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {
     this.rolUsuario = this.authService.getRol(); // Obtener el rol del usuario
+
+    // Escuchar cambios en la ruta para mostrar/ocultar el menú
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        this.verificarVisibilidadMenu(event.url);
+      });
   }
 
   ngOnInit() {
@@ -41,7 +49,16 @@ export class AppComponent implements OnInit {
       return !(pagina.soloAdmin && this.rolUsuario !== 'admin');
     });
   }
-  
+
+  verificarVisibilidadMenu(url: string) {
+    // Ocultar el menú en las páginas de login y otras páginas públicas
+    if (url === '/login' || url === '/registro' || url === '/home') {
+      this.mostrarMenu = false;
+    } else {
+      // Mostrar el menú si el usuario está autenticado
+      this.mostrarMenu = this.authService.estaAutenticado();
+    }
+  }
 
   handleMenuClick(pagina: any) {
     if (pagina.titulo === 'Cerrar Sesion') {
@@ -60,7 +77,4 @@ export class AppComponent implements OnInit {
     // Redirigir al login
     this.router.navigate(['/login']);
   }
-  
-  
-  
 }
