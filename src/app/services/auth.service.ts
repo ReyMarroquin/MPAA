@@ -5,40 +5,47 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private usuario: any = null; // Aquí se almacena el usuario logueado
+  private loginError: string = '';
 
   constructor() {
     this.cargarUsuario(); // Cargar usuario al iniciar el servicio
   }
 
-  private loginError: string = '';
-
-login(username: string, password: string): boolean {
-  const usuarios = [
-    { username: 'admin', password: '1234', nombre: 'Administrador', rol: 'admin' },
-    { username: 'user', password: '1234', nombre: 'Usuario Normal', rol: 'usuario' }
-  ];
-
-  const usuario = usuarios.find(u => u.username === username);
-
-  if (!usuario) {
-    this.loginError = 'Usuario no encontrado';
-    return false;
+  // Método para verificar si el usuario está autenticado
+  estaAutenticado(): boolean {
+    return !!this.usuario;
   }
 
-  if (usuario.password !== password) {
-    this.loginError = 'Contraseña incorrecta';
-    return false;
+  // Método para realizar el login
+  login(username: string, password: string): boolean {
+    const usuarios = [
+      { username: 'admin', password: '1234', nombre: 'Administrador', rol: 'admin' },
+      { username: 'user', password: '1234', nombre: 'Usuario Normal', rol: 'usuario' }
+    ];
+
+    const usuario = usuarios.find(u => u.username === username);
+
+    if (!usuario) {
+      this.loginError = 'Usuario no encontrado';
+      return false;
+    }
+
+    if (usuario.password !== password) {
+      this.loginError = 'Contraseña incorrecta';
+      return false;
+    }
+
+    this.usuario = { nombre: usuario.nombre, rol: usuario.rol };
+    localStorage.setItem('usuario', JSON.stringify(this.usuario));
+    return true;
   }
 
-  this.usuario = { nombre: usuario.nombre, rol: usuario.rol };
-  localStorage.setItem('usuario', JSON.stringify(this.usuario));
-  return true;
-}
+  // Método para obtener el mensaje de error del login
+  getLoginError(): string {
+    return this.loginError;
+  }
 
-getLoginError(): string {
-  return this.loginError;
-}
-
+  // Método para obtener la redirección por defecto según el rol
   getDefaultRedirectForRole(rol: string): string {
     switch (rol) {
       case 'admin':
@@ -67,7 +74,7 @@ getLoginError(): string {
   }
 
   // Obtener el rol del usuario
-  getRol() {
+  getRol(): string {
     return this.usuario?.rol || 'invitado';
   }
 

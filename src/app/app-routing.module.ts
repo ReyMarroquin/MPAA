@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard'; 
@@ -11,8 +12,9 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
+},
+
   {
     path: 'dashboard',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardPageModule),
@@ -56,11 +58,11 @@ const routes: Routes = [
     path: 'vista',
     loadChildren: () => import('./pages/vista/vista.module').then( m => m.VistaPageModule),
     canActivate: [AuthGuard]
-  },  {
+  },
+  {
     path: 'conocenos',
     loadChildren: () => import('./conocenos/conocenos.module').then( m => m.ConocenosPageModule)
-  },
-
+  }
 
 ];
 
