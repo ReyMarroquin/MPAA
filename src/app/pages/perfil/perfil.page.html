@@ -9,7 +9,7 @@
 
 <ion-content class="ion-padding">
   <div class="profile-container">
-    <!-- Perfil de Rey Marroquín (Administrador) -->
+    <!-- Perfil del usuario -->
     <ion-card class="profile-card">
       <div class="card-glassmorphism">
         <ion-card-header>
@@ -17,32 +17,50 @@
             <ion-icon name="person-circle-outline"></ion-icon>
           </div>
           <div class="user-info">
-            <ion-card-title>Rey Marroquín</ion-card-title>
-            <p class="user-type admin">Administrador</p>
+            <ion-card-title>{{ username }}</ion-card-title> <!-- Nombre del usuario -->
+            <p class="user-type admin">{{ tipoUsuario }}</p> <!-- Tipo de usuario -->
+            <p>{{ correoElectronico }}</p> <!-- Correo electrónico -->
           </div>
         </ion-card-header>
         <ion-card-content>
-          <ion-button expand="full" color="danger" (click)="logout()">Cerrar Sesión</ion-button>
-        </ion-card-content>
-      </div>
-    </ion-card>
-
-    <!-- Perfil de Samantha Luna (Usuario) -->
-    <ion-card class="profile-card">
-      <div class="card-glassmorphism">
-        <ion-card-header>
-          <div class="icon-container user-bg">
-            <ion-icon name="person-circle-outline"></ion-icon>
-          </div>
-          <div class="user-info">
-            <ion-card-title>Samantha Luna</ion-card-title>
-            <p class="user-type user">Usuario</p>
-          </div>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-button expand="full" color="danger" (click)="logout()">Cerrar Sesión</ion-button>
+          <!-- Botones de Cerrar Sesión y Editar Perfil -->
+          <ion-button expand="full" class="edit" (click)="abrirModal()">Editar Perfil</ion-button>
+          <ion-button expand="full" class="logout" (click)="logout()">Cerrar Sesión</ion-button>
         </ion-card-content>
       </div>
     </ion-card>
   </div>
+
+  <!-- Modal para editar el perfil -->
+  <ion-modal [isOpen]="modalOpen" (willDismiss)="cerrarModal()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Editar Perfil</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <form (submit)="guardarCambios()" class="">
+          <ion-item>
+            <ion-label position="floating" class="label-white">Nombre de Usuario</ion-label>
+            <ion-input [(ngModel)]="nuevoNombreUsuario" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating" class="label-white">Nueva Contraseña</ion-label>
+            <ion-input type="password" [(ngModel)]="nuevaContrasena"></ion-input>
+          </ion-item>
+
+          <ion-button type="submit" expand="block" color="success">Guardar Cambios</ion-button>
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
+<ion-footer>
+  <p class="footer-text">© 2025 MPA Seguridad Inteligente</p>
+</ion-footer>

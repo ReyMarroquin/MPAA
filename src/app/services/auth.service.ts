@@ -19,8 +19,8 @@ export class AuthService {
   // Método para realizar el login
   login(username: string, password: string): boolean {
     const usuarios = [
-      { username: 'admin', password: '1234', nombre: 'Administrador', rol: 'admin' },
-      { username: 'user', password: '1234', nombre: 'Usuario Normal', rol: 'usuario' }
+      { username: 'admin', password: '1234', nombre: 'Administrador', correo: 'admin@dominio.com', rol: 'admin' },
+      { username: 'user', password: '1234', nombre: 'Usuario Normal', correo: 'user@dominio.com', rol: 'usuario' }
     ];
 
     const usuario = usuarios.find(u => u.username === username);
@@ -35,14 +35,9 @@ export class AuthService {
       return false;
     }
 
-    this.usuario = { nombre: usuario.nombre, rol: usuario.rol };
+    this.usuario = { nombre: usuario.nombre, correo: usuario.correo, rol: usuario.rol };
     localStorage.setItem('usuario', JSON.stringify(this.usuario));
     return true;
-  }
-
-  // Método para obtener el mensaje de error del login
-  getLoginError(): string {
-    return this.loginError;
   }
 
   // Método para obtener la redirección por defecto según el rol
@@ -57,7 +52,7 @@ export class AuthService {
     }
   }
 
-  // Cargar usuario desde localStorage
+  // Método para cargar usuario desde localStorage
   private cargarUsuario() {
     try {
       const datos = localStorage.getItem('usuario');
@@ -82,5 +77,11 @@ export class AuthService {
   logout() {
     this.usuario = null;
     localStorage.removeItem('usuario');
+  }
+
+  // Método para actualizar los datos del usuario
+  actualizarUsuario(updatedUserData: any) {
+    this.usuario = { ...this.usuario, ...updatedUserData };
+    localStorage.setItem('usuario', JSON.stringify(this.usuario));
   }
 }

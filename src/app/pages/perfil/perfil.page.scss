@@ -1,3 +1,6 @@
+ion-item ion-label.label-white {
+  color: white !important;
+}
 /* Barra de navegación */
 ion-toolbar {
     --background: #247E3E; /* Fondo verde */
@@ -13,6 +16,9 @@ ion-toolbar {
     align-items: center;
     padding: 20px;
   }
+  /* Cambia el color de los labels a blanco */
+
+
   
   /* Contenedor principal */
   .profile-container {
@@ -70,11 +76,11 @@ ion-toolbar {
   
   /* Colores de fondo para cada tipo de usuario */
   .admin-bg {
-    background: #e74c3c; /* Fondo rojo para administrador */
+    background: #247E3E;/* Fondo rojo para administrador */
   }
   
   .user-bg {
-    background: #3498db; /* Fondo azul para usuario */
+    background: #247E3E;/* Fondo azul para usuario */
   }
   
   /* Información del usuario */
@@ -90,28 +96,50 @@ ion-toolbar {
     font-weight: bold;
     padding: 4px 10px;
     border-radius: 12px;
-    color: white;
+    color:black;
     display: flex;
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
     text-align: center; /* Asegura que el texto esté centrado */
   }
-  
-  
+
+  .logout, .edit{
+    --background: #247E3E;
+  }
   /* Diferente color según el tipo de usuario */
   .admin {
-    background: #e74c3c; /* Fondo rojo */
+    background: #247E3E; /* Fondo rojo */
+  }
+ 
+  ion-footer {
+    background: #247E3E;
+    text-align: center;
+    padding: 10px;
+  }
+  .footer-text {
+    color: white;
+    font-size: 0.9rem;
+    margin: 0;
   }
   
   .user {
     background: #3498db; /* Fondo azul */
+  }
+  .user-info, ion-card-tittle{
+    color:black;
   }
   
   /* Botón con animaciones */
   ion-button {
     transition: all 0.3s ease-in-out;
   }
-  
+  ion-item {
+    --color: white; /* Cambia el color del texto del label */
+}
+  ion-card-title{
+    color:black;
+  }
+
   ion-button:hover {
     transform: scale(1.05); /* Aumento de tamaño en hover */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
@@ -124,14 +152,15 @@ ion-toolbar {
     }
   
     .card-glassmorphism {
-      background: rgba(50, 50, 50, 0.7); /* Fondo oscuro con opacidad */
+      background:white; /* Fondo oscuro con opacidad */
       box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.1);
     }
-  
-    ion-card-title,
-    .user-type {
+      .user-type {
       color: white;
     }
+    ion-item ion-label.label-white {
+      color: white !important;
+  }
   }
   
   
