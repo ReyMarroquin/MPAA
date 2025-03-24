@@ -144,6 +144,16 @@ ion-title {
   font-size: 16px;
   color: #000000; 
 }
+ion-footer {
+  background: #247E3E;
+  text-align: center;
+  padding: 10px;
+}
+.footer-text {
+  color: white;
+  font-size: 0.9rem;
+  margin: 0;
+}
 
 @keyframes fadeIn {
   from {

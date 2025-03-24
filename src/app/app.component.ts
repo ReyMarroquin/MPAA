@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     { titulo: 'Administrar luces', url: '/control-luces', icono: 'bulb', soloAdmin: true },
     { titulo: 'Configuración', url: '/configuracion', icono: 'settings' },
     { titulo: 'Perfil', url: '/perfil', icono: 'person' },
-    { titulo: 'Conócenos', url: '/conocenos', icono: 'information-circle' }, // ✅ Nueva opción añadida
+    { titulo: 'conocenos', url: '/conocenos', icono: 'information-circle' }, // ✅ Nueva opción añadida
     { titulo: 'Cerrar Sesión', url: '', icono: 'log-out' }
   ];
 
