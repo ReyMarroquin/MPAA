@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { MenuController } from '@ionic/angular'; // Añade esta importación
 
 @Component({
   selector: 'app-root',
@@ -11,27 +12,29 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   rolUsuario: string = 'invitado';
-  mostrarMenu: boolean = false; // Propiedad para controlar la visibilidad del menú
+  mostrarMenu: boolean = false;
 
-  // Definimos las páginas del menú
   paginas = [
     { titulo: 'Inicio', url: '/dashboard', icono: 'home' },
     { titulo: 'Sensores', url: '/sensores', icono: 'pulse' },
     { titulo: 'Administrar luces', url: '/control-luces', icono: 'bulb', soloAdmin: true },
     { titulo: 'Configuración', url: '/configuracion', icono: 'settings' },
     { titulo: 'Perfil', url: '/perfil', icono: 'person' },
-    { titulo: 'conocenos', url: '/conocenos', icono: 'information-circle' }, // ✅ Nueva opción añadida
+    { titulo: 'conocenos', url: '/conocenos', icono: 'information-circle' },
     { titulo: 'Cerrar Sesión', url: '', icono: 'log-out' }
   ];
 
-  constructor(private authService: AuthService, private router: Router) {
-    this.rolUsuario = this.authService.getRol(); // Obtener el rol del usuario
-
-    // Escuchar cambios en la ruta para mostrar/ocultar el menú
+  constructor(
+    private authService: AuthService, 
+    private router: Router,
+    private menuCtrl: MenuController // Añade MenuController al constructor
+  ) {
+    this.rolUsuario = this.authService.getRol();
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
         this.verificarVisibilidadMenu(event.url);
+        this.menuCtrl.close(); // Cierra el menú al cambiar de ruta
       });
   }
 
@@ -50,6 +53,16 @@ export class AppComponent implements OnInit {
     });
   }
 
+  async handleMenuClick(pagina: any) {
+    if (pagina.titulo === 'Cerrar Sesión') {
+      await this.menuCtrl.close(); // Cierra el menú antes de logout
+      this.logout();
+    } else {
+      await this.menuCtrl.close(); // Cierra el menú antes de navegar
+      this.router.navigate([pagina.url]);
+    }
+  }
+
 
   verificarVisibilidadMenu(url: string) {
     // Ocultar el menú en las páginas de login y otras páginas públicas
@@ -61,14 +74,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-
-  handleMenuClick(pagina: any) {
-    if (pagina.titulo === 'Cerrar Sesión') {
-      this.logout();
-    } else {
-      this.router.navigate([pagina.url]);
-    }
-  }
   
   logout() {
     localStorage.removeItem('userRole');

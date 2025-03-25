@@ -10,12 +10,14 @@
     <ion-content>
       <ion-list>
         <!-- Iteramos sobre las páginas y verificamos el rol del usuario para mostrar el menú -->
-        <ion-item *ngFor="let pagina of paginas" [routerLink]="pagina.url" 
-                  [ngClass]="{'hidden': pagina.soloAdmin && rolUsuario !== 'admin'}" 
-                  (click)="handleMenuClick(pagina)">
-          <ion-icon [name]="pagina.icono" slot="start" style="color:#247E3E"></ion-icon>
-          <ion-label>{{ pagina.titulo }}</ion-label>
-        </ion-item>
+          <ion-item *ngFor="let pagina of paginas" 
+              [routerLink]="pagina.url" 
+              routerDirection="root"
+              [ngClass]="{'hidden': pagina.soloAdmin && rolUsuario !== 'admin'}" 
+              (click)="handleMenuClick(pagina)">
+            <ion-icon [name]="pagina.icono" slot="start" style="color:#247E3E"></ion-icon>
+            <ion-label>{{ pagina.titulo }}</ion-label>
+          </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
