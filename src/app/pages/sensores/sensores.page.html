@@ -1,52 +1,182 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>sensores</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Sensores</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleSimulation()">
+        <ion-icon slot="icon-only" [name]="simulationActive ? 'pause' : 'play'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">sensores</ion-title>
+      <ion-title size="large">Sensores</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
 
+  <!-- Tarjetas de sensores -->
+  <div class="sensors-grid">
+    <!-- Sensor de Proximidad -->
+    <ion-card [class.active]="proximityActive" (click)="toggleSensor('proximity')">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="move"></ion-icon> Sensor de Proximidad
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ proximityActive ? 'Activo' : 'Inactivo' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-progress-bar [value]="proximityValue" color="warning"></ion-progress-bar>
+        <p>Distancia: {{ proximityValue * 100 | number:'1.0-0' }} cm</p>
+      </ion-card-content>
+    </ion-card>
 
-<!-- Menú lateral -->
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>MPA</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    <ion-list>
-      <ion-menu-toggle autoHide="false">
-        <ion-item routerLink="/dashboard">🏠 Dashboard</ion-item>
-        <ion-item routerLink="/sensores">📊 Sensores</ion-item>
-        <ion-item routerLink="/historial">📜 Historial</ion-item>
-
-        <!-- Sección de administración desplegable -->
-        <ion-item (click)="toggleAdminMenu()">
-          🛠 Administración
-          <ion-icon slot="end" name="{{ adminExpanded ? 'chevron-up' : 'chevron-down' }}"></ion-icon>
-        </ion-item>
-        <div *ngIf="adminExpanded">
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Luces</ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Puertas</ion-item>
-          <ion-item *ngIf="isAdmin" routerLink="/control-luces">💡 Control de Elevador</ion-item>
-          <ion-item routerLink="/configuracion">⚙️ Configuración</ion-item>
+    <!-- Sensor de Fuego -->
+    <ion-card [class.active]="fireActive" (click)="toggleSensor('fire')">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="flame"></ion-icon> Sensor de Fuego
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ fireActive ? 'Detección' : 'Normal' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="fire-indicator" [class.detected]="fireActive">
+          <ion-icon [name]="fireActive ? 'flame' : 'flame-outline'"></ion-icon>
         </div>
+      </ion-card-content>
+    </ion-card>
 
-        <ion-item (click)="logout()">🚪 Cerrar sesión</ion-item>
-      </ion-menu-toggle>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+    <!-- Sensor de Gas -->
+    <ion-card [class.active]="gasActive" (click)="toggleSensor('gas')">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="warning"></ion-icon> Sensor de Gas
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ gasActive ? 'Peligro' : 'Seguro' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-progress-bar [value]="gasValue" color="danger"></ion-progress-bar>
+        <p>Concentración: {{ gasValue * 100 | number:'1.0-0' }}%</p>
+      </ion-card-content>
+    </ion-card>
 
-<!-- Contenido principal -->
-<div id="main-content">
-  <router-outlet></router-outlet>
-</div>
+    <!-- Sensor Atmosférico -->
+    <ion-card [class.active]="atmosphericActive" (click)="toggleSensor('atmospheric')">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="cloudy"></ion-icon> Sensor Atmosférico
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ atmosphericActive ? 'Activo' : 'Inactivo' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="sensor-data-row">
+          <div>
+            <ion-icon name="thermometer"></ion-icon>
+            <p>{{ temperature }}°C</p>
+          </div>
+          <div>
+            <ion-icon name="water"></ion-icon>
+            <p>{{ humidity }}%</p>
+          </div>
+          <div>
+            <ion-icon name="speedometer"></ion-icon>
+            <p>{{ pressure }} hPa</p>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    
+
+    <!-- Sensor de Lluvia -->
+    <ion-card [class.active]="rainActive" (click)="toggleSensor('rain')">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="rainy"></ion-icon> Sensor de Lluvia
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ rainActive ? 'Lluvia' : 'Seco' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="rain-indicator" [class.raining]="rainActive">
+          <ion-icon [name]="rainActive ? 'rainy' : 'rainy-outline'"></ion-icon>
+          <p>{{ rainActive ? 'Detectando lluvia' : 'No hay lluvia' }}</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- RFID -->
+    <ion-card [class.active]="rfidActive" (click)="toggleSensor('rfid')">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="card"></ion-icon> Lector RFID
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ rfidActive ? 'Leyendo' : 'Inactivo' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="rfid-reader">
+          <ion-icon name="radio"></ion-icon>
+          <p *ngIf="rfidTag">{{ rfidTag }}</p>
+          <p *ngIf="!rfidTag">Acerca una tarjeta...</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Fotoresistencia -->
+    <ion-card [class.active]="lightActive" (click)="toggleSensor('light')">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="sunny"></ion-icon> Fotoresistencia
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ lightActive ? 'Activo' : 'Inactivo' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-progress-bar [value]="lightValue" color="warning"></ion-progress-bar>
+        <p>Luminosidad: {{ lightValue * 100 | number:'1.0-0' }}%</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Generador Eólico -->
+    <ion-card [class.active]="windActive" (click)="toggleSensor('wind')">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="flag"></ion-icon> Generador Eólico
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ windActive ? 'Generando' : 'Inactivo' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="wind-turbine" [class.active]="windActive">
+          <ion-icon name="leaf"></ion-icon>
+          <p>Velocidad: {{ windSpeed }} km/h</p>
+          <p>Energía: {{ energyGenerated }} kWh</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Panel de control -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="toggleAllSensors()">
+      <ion-icon [name]="allSensorsActive ? 'power' : 'power-outline'"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
