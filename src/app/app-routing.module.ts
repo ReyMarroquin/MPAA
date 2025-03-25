@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'control-luces',
     loadChildren: () => import('./pages/control-luces/control-luces.module').then(m => m.ControlLucesPageModule),
-    canActivate: [AuthGuard, AdminGuard],
+    canActivate: [AuthGuard, /*AdminGuard*/],
     data: { defaultRoleRedirect: 'admin' } // Redirigir aquí si el rol es 'admin'
   },
   {

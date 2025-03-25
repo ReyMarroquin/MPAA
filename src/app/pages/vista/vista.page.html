@@ -20,11 +20,12 @@
     <div class="section section-1">
       <h2>Vista de Luces</h2>
       <div class="lights-container">
-        <div class="light" *ngFor="let light of lightStatus; let i = index" 
-             [class.on]="light" 
-             (click)="toggleLight(i)">
+        <div class="light" *ngFor="let light of lightStatus; let i = index"
+             [class.on]="light"
+             [ngClass]="{'disabled': !isAdmin}" 
+             (click)="isAdmin ? toggleLight(i) : null">
           <ion-icon [name]="light ? 'bulb' : 'bulb-outline'" 
-          style="font-size: 48px; color: light  '#32cd32'  '#d40000';"></ion-icon>
+                    style="font-size: 48px; color: light '#32cd32' '#d40000';"></ion-icon>
         </div>
       </div>
     </div>
@@ -33,9 +34,10 @@
     <div class="section section-2">
       <h2>Vista de Puertas</h2>
       <div class="doors-container">
-        <div class="door" *ngFor="let door of doorStatus; let i = index" 
-             [class.open]="door" 
-             (click)="toggleDoor(i)">
+        <div class="door" *ngFor="let door of doorStatus; let i = index"
+             [class.open]="door"
+             [ngClass]="{'disabled': !isAdmin}" 
+             (click)="isAdmin ? toggleDoor(i) : null">
           <ion-icon [name]="door ? 'lock-open' : 'lock-closed'" 
                     style="font-size: 48px; color: door  '#32cd32'  '#d40000';"></ion-icon>
         </div>
@@ -46,9 +48,10 @@
     <div class="section section-3">
       <h2>Elevadores</h2>
       <div class="elevators-container">
-        <div class="elevator" *ngFor="let elevator of elevatorStatus; let i = index" 
-             [class.active]="elevator === 2" 
-             (click)="toggleElevator(i)">
+        <div class="elevator" *ngFor="let elevator of elevatorStatus; let i = index"
+             [class.active]="elevator === 2"
+             [ngClass]="{'disabled': !isAdmin}" 
+             (click)="isAdmin ? toggleElevator(i) : null">
           <p>Elevador {{ i + 1 }} - Piso: {{ elevator }}</p>
         </div>
       </div>
@@ -59,6 +62,7 @@
       <h2>Ventiladores Eólicos</h2>
       <div class="wind-speed">
         <p>Viento generado: {{ windSpeed }} km/h</p>
+        
       </div>
     </div>
   </div>

@@ -24,6 +24,12 @@ ion-label {
   font-weight: bold;
 }
 
+.disabled {
+  pointer-events: none;  /* Desactiva interacciones */
+  opacity: 0.5;           /* Baja la opacidad para indicar que está deshabilitado */
+}
+
+
 .general-view {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
