@@ -23,7 +23,8 @@
         <div class="light" *ngFor="let light of lightStatus; let i = index" 
              [class.on]="light" 
              (click)="toggleLight(i)">
-          <p>Luces {{ i + 1 }}</p>
+          <ion-icon [name]="light ? 'bulb' : 'bulb-outline'" 
+          style="font-size: 48px; color: light  '#32cd32'  '#d40000';"></ion-icon>
         </div>
       </div>
     </div>
@@ -35,7 +36,8 @@
         <div class="door" *ngFor="let door of doorStatus; let i = index" 
              [class.open]="door" 
              (click)="toggleDoor(i)">
-          <p>Puerta {{ i + 1 }}</p>
+          <ion-icon [name]="door ? 'lock-open' : 'lock-closed'" 
+                    style="font-size: 48px; color: door  '#32cd32'  '#d40000';"></ion-icon>
         </div>
       </div>
     </div>
@@ -78,4 +80,3 @@
     </ion-tab-button>
   </ion-tab-bar>
 </ion-footer>
-

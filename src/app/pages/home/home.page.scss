@@ -49,6 +49,7 @@ ion-content {
   font-size: 2.3rem;
 }
 
+
 .styled-text {
   font-size: 1.4rem;
   color: #247E3E;
@@ -77,15 +78,17 @@ ion-button:hover {
 }
 
 .register-btn {
-  border: 2px solid #247E3E;
+  border: 3px solid #247E3E;
   color: #247E3E;
   background-color: white;
   transition: background-color 0.3s ease, color 0.3s ease;
+  --border-width: 0; 
 }
 
 .register-btn:hover {
   background-color: #247E3E;
   color: white;
+  border-color: #ffffff;
 }
 
 ion-toolbar {

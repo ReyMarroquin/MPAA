@@ -1,4 +1,4 @@
-/* Barra de navegación */
+
 ion-tabs {
   position: absolute;
   bottom: 0;
@@ -62,6 +62,12 @@ ion-label {
   color: #555;
 }
 
+.light ion-icon {
+  font-size: 10px;  
+  transition: color 0.3s ease; 
+}
+
+
 /* Luces */
 .lights-container {
   display: grid;
@@ -72,7 +78,7 @@ ion-label {
 }
 
 .light {
-  background-color: #d40000; /* Rojo por defecto */
+  background-color: #d40000; 
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -81,16 +87,15 @@ ion-label {
   font-weight: bold;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.2s ease;
-  outline: none; /* Evita que el borde de enfoque sea visible */
+  outline: none; 
 }
 
 .light.on {
-  background-color: #32cd32; /* Verde cuando está encendida */
+  background-color: #32cd32; 
 }
 
-/* Cambio de color cuando se hace clic */
 .light:focus {
-  background-color: #ff8c00; /* Naranja cuando se hace clic */
+  background-color: #d40000; 
 }
 
 /* Puertas */
@@ -102,27 +107,27 @@ ion-label {
 }
 
 .door {
-  background-color: #d40000; /* Rojo */
+  background-color: #d40000; 
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   font-size: 14px;
   color: white;
   transition: background-color 0.5s ease, transform 0.3s ease;
-  outline: none; /* Evita que el borde de enfoque sea visible */
+  outline: none; 
 }
 
 .door.open {
-  background-color: #32cd32; /* Verde cuando está abierta */
+  background-color: #32cd32; 
   animation: fadeEffect 0.3s ease-in-out;
 }
 
-/* Cambio de color cuando se hace clic */
+
 .door:focus {
-  background-color: #ff8c00; /* Naranja cuando se hace clic */
+  background-color: #d40000; 
 }
 
-/* Elevadores */
+
 .elevators-container {
   display: flex;
   flex-direction: row;
@@ -131,29 +136,86 @@ ion-label {
 }
 
 .elevator {
-  background-color: #d40000; /* Rojo */
+  background-color: #d40000; 
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   font-size: 14px;
   color: white;
   transition: background-color 0.4s ease-in-out, transform 0.3s ease;
-  outline: none; /* Evita que el borde de enfoque sea visible */
+  outline: none; 
 }
 
 .elevator.active {
-  background-color: #32cd32; /* Verde cuando está activo */
+  background-color: #32cd32;
   transform: scale(1.1);
 }
 
 .elevator:active {
-  background-color: #d40000; /* Naranja cuando se hace clic */
+  background-color: #d40000; 
 }
 
-/* Efecto de transición */
+
 @keyframes fadeEffect {
   0% { opacity: 0.6; }
   100% { opacity: 1; }
 }
 
+
+@media (max-width: 768px) {
+  .general-view {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .lights-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .doors-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .elevators-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .light, .door, .elevator {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .section h2 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .general-view {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lights-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .doors-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .elevators-container {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .light, .door, .elevator {
+    font-size: 15px;
+    padding: 18px;
+  }
+
+  .section h2 {
+    font-size: 19px;
+  }
+}
 
