@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -22,17 +22,17 @@
   <!-- Tarjetas de sensores -->
   <div class="sensors-grid">
     <!-- Sensor de Proximidad -->
-    <ion-card [class.active]="proximityActive" (click)="toggleSensor('proximity')">
+    <ion-card [class.active]="proximityActive"  (click)="toggleSensor('proximity')">
       <ion-card-header>
-        <ion-card-title>
-          <ion-icon name="move"></ion-icon> Sensor de Proximidad
+        <ion-card-title style=" color: var(--ion-color-primary);">
+          <ion-icon name="move" ></ion-icon> Sensor de Proximidad
         </ion-card-title>
         <ion-card-subtitle>
           Estado: {{ proximityActive ? 'Activo' : 'Inactivo' }}
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-progress-bar [value]="proximityValue" color="warning"></ion-progress-bar>
+        <ion-progress-bar [value]="proximityValue"></ion-progress-bar>
         <p>Distancia: {{ proximityValue * 100 | number:'1.0-0' }} cm</p>
       </ion-card-content>
     </ion-card>
@@ -40,7 +40,7 @@
     <!-- Sensor de Fuego -->
     <ion-card [class.active]="fireActive" (click)="toggleSensor('fire')">
       <ion-card-header>
-        <ion-card-title>
+        <ion-card-title style=" color: var(--ion-color-primary);">
           <ion-icon name="flame"></ion-icon> Sensor de Fuego
         </ion-card-title>
         <ion-card-subtitle>
@@ -57,7 +57,7 @@
     <!-- Sensor de Gas -->
     <ion-card [class.active]="gasActive" (click)="toggleSensor('gas')">
       <ion-card-header>
-        <ion-card-title>
+        <ion-card-title style=" color: var(--ion-color-primary);">
           <ion-icon name="warning"></ion-icon> Sensor de Gas
         </ion-card-title>
         <ion-card-subtitle>
@@ -65,7 +65,7 @@
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-progress-bar [value]="gasValue" color="danger"></ion-progress-bar>
+        <ion-progress-bar [value]="gasValue"></ion-progress-bar>
         <p>Concentración: {{ gasValue * 100 | number:'1.0-0' }}%</p>
       </ion-card-content>
     </ion-card>
@@ -103,7 +103,7 @@
     <!-- Sensor de Lluvia -->
     <ion-card [class.active]="rainActive" (click)="toggleSensor('rain')">
       <ion-card-header>
-        <ion-card-title>
+        <ion-card-title style=" color: var(--ion-color-primary);">
           <ion-icon name="rainy"></ion-icon> Sensor de Lluvia
         </ion-card-title>
         <ion-card-subtitle>
@@ -121,7 +121,7 @@
     <!-- RFID -->
     <ion-card [class.active]="rfidActive" (click)="toggleSensor('rfid')">
       <ion-card-header>
-        <ion-card-title>
+        <ion-card-title style=" color: var(--ion-color-primary);">
           <ion-icon name="card"></ion-icon> Lector RFID
         </ion-card-title>
         <ion-card-subtitle>
@@ -140,7 +140,7 @@
     <!-- Fotoresistencia -->
     <ion-card [class.active]="lightActive" (click)="toggleSensor('light')">
       <ion-card-header>
-        <ion-card-title>
+        <ion-card-title style=" color: var(--ion-color-primary);">
           <ion-icon name="sunny"></ion-icon> Fotoresistencia
         </ion-card-title>
         <ion-card-subtitle>
@@ -148,7 +148,7 @@
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-progress-bar [value]="lightValue" color="warning"></ion-progress-bar>
+        <ion-progress-bar [value]="lightValue" ></ion-progress-bar>
         <p>Luminosidad: {{ lightValue * 100 | number:'1.0-0' }}%</p>
       </ion-card-content>
     </ion-card>
@@ -156,7 +156,7 @@
     <!-- Generador Eólico -->
     <ion-card [class.active]="windActive" (click)="toggleSensor('wind')">
       <ion-card-header>
-        <ion-card-title>
+        <ion-card-title style=" color: var(--ion-color-primary);">
           <ion-icon name="flag"></ion-icon> Generador Eólico
         </ion-card-title>
         <ion-card-subtitle>
@@ -180,3 +180,6 @@
     </ion-fab-button>
   </ion-fab>
 </ion-content>
+<ion-footer>
+  <p class="footer-text">© 2025 MPA Seguridad Inteligente</p>
+</ion-footer>
