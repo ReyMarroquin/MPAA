@@ -8,14 +8,21 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h2>Sensores en Tiempo Real</h2>
+  
+  <h1>
+    <ion-icon name="trending-up" style="color:#247E3E;"></ion-icon>
+    Sensores en Tiempo Real
+  </h1>
+  
 
   <!-- Contenedor principal que se muestra en horizontal -->
   <div class="sensor-container">
     <!-- Card: Temperatura -->
     <div class="sensor-item">
       <ion-card>
-        <ion-card-header>🌡 Temperatura</ion-card-header>
+        <ion-card-header>
+          <ion-icon name="thermometer"></ion-icon>Temperatura
+        </ion-card-header>
         <ion-card-content>
           <div class="sensor-bar" 
                [ngStyle]="{
