@@ -4,3 +4,87 @@ ion-content{
 ion-toolbar{
     --background:#247E3E;
 }
+.sensors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  ion-card {
+    --background: #c90000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    &.active {
+      border-left: 5px solid var(--ion-color-primary);
+      ion-card-title {
+        color: var(--ion-color-primary);
+      }
+    }
+  }
+  
+  .fire-indicator {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--ion-color-medium);
+    
+    &.detected {
+      color: var(--ion-color-danger);
+      animation: pulse 1s infinite;
+    }
+  }
+  
+  .rain-indicator {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--ion-color-medium);
+    
+    &.raining {
+      color: var(--ion-color-primary);
+    }
+  }
+  
+  .wind-turbine {
+    text-align: center;
+    
+    &.active ion-icon {
+      animation: spin 2s linear infinite;
+    }
+  }
+  
+  .sensor-data-row {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      ion-icon {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  
+  .rfid-reader {
+    text-align: center;
+    ion-icon {
+      font-size: 2rem;
+      color: var(--ion-color-primary);
+    }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }

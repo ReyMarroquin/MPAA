@@ -6,6 +6,15 @@
     <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
+<style>
+  p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+}
+</style>
 
 <ion-content class="ion-padding">
   <div class="profile-container">
@@ -19,7 +28,7 @@
           <div class="user-info">
             <ion-card-title>{{ username }}</ion-card-title> <!-- Nombre del usuario -->
             <p class="user-type admin">{{ tipoUsuario }}</p> <!-- Tipo de usuario -->
-            <p>{{ correoElectronico }}</p> <!-- Correo electrónico -->
+            <p><ion-icon name="mail" class="email" style="color:#247E3E;"></ion-icon>{{correoElectronico}}</p>
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -37,9 +46,7 @@
       <ion-header>
         <ion-toolbar>
           <ion-title>Editar Perfil</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="cerrarModal()">Cerrar</ion-button>
-          </ion-buttons>
+          
         </ion-toolbar>
       </ion-header>
 
@@ -54,8 +61,9 @@
             <ion-label position="floating" class="label-white">Nueva Contraseña</ion-label>
             <ion-input type="password" [(ngModel)]="nuevaContrasena"></ion-input>
           </ion-item>
+          <ion-button type="submit" class="gc" expand="full">Guardar Cambios</ion-button>
+          <ion-button (click)="cerrarModal()" slot="end" class="close" expand="full">Cerrar</ion-button>
 
-          <ion-button type="submit" expand="block" color="success">Guardar Cambios</ion-button>
         </form>
       </ion-content>
     </ng-template>

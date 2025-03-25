@@ -3,8 +3,8 @@ ion-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Cambié la altura a 100vh para que ocupe toda la pantalla */
-  padding: 10px;
+  height: 100%; /* Asegúrate de que ocupe toda la altura del contenedor */
+  padding: 0; /* Elimina el padding por defecto */
 }
 
 .welcome-container {
@@ -17,27 +17,28 @@ ion-content {
   max-width: 400px;
   margin: auto;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  margin-top: 10vh; /* Ajuste para dispositivos pequeños */
-  height: 70vh;
+  justify-content: center; /* Asegura que el contenido esté centrado */
+  margin-top: 5vh; /* Ajuste para dispositivos pequeños */
+  height: 65vh;
   transition: all 0.3s ease;
 }
 
 .welcome-container:hover {
-  transform: scale(1.03);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-  width: 120px;
-  height: auto;
-  margin-bottom: 20px;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px auto; /* Centra la imagen */
+  display: block;
 }
 
 .welcome-title {
   font-size: 2rem;
   font-weight: 700;
+  text-align: center;
   color: #247E3E;
   letter-spacing: 1.5px;
   margin-bottom: 20px;
@@ -46,14 +47,15 @@ ion-content {
 .welcome-title span {
   color: #1f7a33;
   text-transform: uppercase;
+  text-align: center;
   font-size: 2.3rem;
 }
-
 
 .styled-text {
   font-size: 1.4rem;
   color: #247E3E;
   font-weight: bold;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -61,15 +63,12 @@ ion-content {
 }
 
 ion-button {
-  width: 100%;
+  width: 80%;
   font-size: 1.2rem;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-bottom: 15px;
-}
-
-ion-button:hover {
-  transform: translateY(-2px);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 2px;
+  margin: 3px auto;
 }
 
 .login-btn {
@@ -149,10 +148,33 @@ ion-footer {
     font-size: 1.1rem;
   }
 }
+@media (min-width: 1024px) {
+  ion-content {
+    padding: 20px;
+  }
 
+  .welcome-container {
+    min-height: 60vh; /* Asegura que el contenedor tenga una altura adecuada en laptops */
+    margin-top: 10vh; /* Agrega espacio arriba */
+    width: 50%; /* Aumenta el ancho para pantallas más grandes */
+  }
 
+  .logo {
+    width: 100px; /* Aumenta el tamaño de la imagen en pantallas grandes */
+  }
 
+  .welcome-title {
+    font-size: 2.5rem; /* Aumenta el tamaño de la fuente en pantallas grandes */
+  }
 
+  .styled-text {
+    font-size: 1.6rem; /* Aumenta el tamaño de la fuente */
+  }
 
-
-
+  ion-button {
+    width: 45%; /* En pantallas grandes, los botones tendrán un 50% de ancho */
+    font-size: 1.2rem; /* Aumento un poco el tamaño de la fuente */
+    margin-bottom: 20px; /* Aumento el margen entre los botones */
+    padding: 10px auto; /* Ajusto el relleno para un aspecto más grande */
+  }
+}
