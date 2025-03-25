@@ -20,41 +20,10 @@
     <div class="section section-1">
       <h2>Vista de Luces</h2>
       <div class="lights-container">
-        <div class="light" [class.on]="lightStatus[0]">
-          <p>Luces 1</p>
-        </div>
-        <div class="light" [class.on]="lightStatus[1]">
-          <p>Luces 2</p>
-        </div>
-        <div class="light" [class.on]="lightStatus[2]">
-          <p>Luces 3</p>
-        </div>
-        <div class="light" [class.on]="lightStatus[3]">
-          <p>Luces 4</p>
-        </div>
-        <div class="light" [class.on]="lightStatus[4]">
-          <p>Luces 5</p>
-        </div>
-        <div class="light" [class.on]="lightStatus[5]">
-          <p>Luces 6</p>
-        </div>
-        <div class="light" [class.on]="lightStatus[6]">
-          <p>Luces 7</p>
-        </div>
-        <div class="light" [class.on]="lightStatus[7]">
-          <p>Luces 8</p>
-        </div>
-        <div class="light" [class.on]="lightStatus[8]">
-          <p>Luces 9</p>
-        </div>
-        <div class="light" [class.on]="lightStatus[9]">
-          <p>Luces 10</p>
-        </div>
-        <div class="light" [class.on]="lightStatus[10]">
-          <p>Luces 11</p>
-        </div>
-        <div class="light" [class.on]="lightStatus[11]">
-          <p>Luces 12</p>
+        <div class="light" *ngFor="let light of lightStatus; let i = index" 
+             [class.on]="light" 
+             (click)="toggleLight(i)">
+          <p>Luces {{ i + 1 }}</p>
         </div>
       </div>
     </div>
@@ -63,23 +32,10 @@
     <div class="section section-2">
       <h2>Vista de Puertas</h2>
       <div class="doors-container">
-        <div class="door" [class.open]="doorStatus[0]">
-          <p>Puerta 1</p>
-        </div>
-        <div class="door" [class.open]="doorStatus[1]">
-          <p>Puerta 2</p>
-        </div>
-        <div class="door" [class.open]="doorStatus[2]">
-          <p>Puerta 3</p>
-        </div>
-        <div class="door" [class.open]="doorStatus[3]">
-          <p>Puerta 4</p>
-        </div>
-        <div class="door" [class.open]="doorStatus[4]">
-          <p>Puerta 5</p>
-        </div>
-        <div class="door" [class.open]="doorStatus[5]">
-          <p>Puerta 6</p>
+        <div class="door" *ngFor="let door of doorStatus; let i = index" 
+             [class.open]="door" 
+             (click)="toggleDoor(i)">
+          <p>Puerta {{ i + 1 }}</p>
         </div>
       </div>
     </div>
@@ -88,11 +44,10 @@
     <div class="section section-3">
       <h2>Elevadores</h2>
       <div class="elevators-container">
-        <div class="elevator">
-          <p>Elevador 1 - Piso: {{ elevatorStatus[0] }}</p>
-        </div>
-        <div class="elevator">
-          <p>Elevador 2 - Piso: {{ elevatorStatus[1] }}</p>
+        <div class="elevator" *ngFor="let elevator of elevatorStatus; let i = index" 
+             [class.active]="elevator === 2" 
+             (click)="toggleElevator(i)">
+          <p>Elevador {{ i + 1 }} - Piso: {{ elevator }}</p>
         </div>
       </div>
     </div>
@@ -123,3 +78,4 @@
     </ion-tab-button>
   </ion-tab-bar>
 </ion-footer>
+

@@ -72,7 +72,7 @@ ion-label {
 }
 
 .light {
-  background-color: #d00000;
+  background-color: #d40000; /* Rojo por defecto */
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -80,24 +80,17 @@ ion-label {
   color: white;
   font-weight: bold;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.5s ease, transform 0.2s ease;
-  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  outline: none; /* Evita que el borde de enfoque sea visible */
 }
 
 .light.on {
-  background-color: #32cd32;
-  animation: blinkGreen 0.3s ease-in-out 2;
+  background-color: #32cd32; /* Verde cuando está encendida */
 }
 
-.light:hover {
-  transform: scale(1.1);
-}
-
-/* Animación de parpadeo */
-@keyframes blinkGreen {
-  0% { background-color: #32cd32; }
-  50% { background-color: #28a428; }
-  100% { background-color: #32cd32; }
+/* Cambio de color cuando se hace clic */
+.light:focus {
+  background-color: #ff8c00; /* Naranja cuando se hace clic */
 }
 
 /* Puertas */
@@ -109,23 +102,24 @@ ion-label {
 }
 
 .door {
-  background-color: #b0b0b0;
+  background-color: #d40000; /* Rojo */
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   font-size: 14px;
   color: white;
   transition: background-color 0.5s ease, transform 0.3s ease;
-  cursor: pointer;
+  outline: none; /* Evita que el borde de enfoque sea visible */
 }
 
 .door.open {
-  background-color: #32cd32;
+  background-color: #32cd32; /* Verde cuando está abierta */
   animation: fadeEffect 0.3s ease-in-out;
 }
 
-.door:hover {
-  transform: scale(1.1);
+/* Cambio de color cuando se hace clic */
+.door:focus {
+  background-color: #ff8c00; /* Naranja cuando se hace clic */
 }
 
 /* Elevadores */
@@ -137,19 +131,23 @@ ion-label {
 }
 
 .elevator {
-  background-color: #c1c1c1;
+  background-color: #d40000; /* Rojo */
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   font-size: 14px;
   color: white;
   transition: background-color 0.4s ease-in-out, transform 0.3s ease;
-  cursor: pointer;
+  outline: none; /* Evita que el borde de enfoque sea visible */
 }
 
 .elevator.active {
-  background-color: #32cd32;
+  background-color: #32cd32; /* Verde cuando está activo */
   transform: scale(1.1);
+}
+
+.elevator:active {
+  background-color: #d40000; /* Naranja cuando se hace clic */
 }
 
 /* Efecto de transición */
@@ -158,54 +156,4 @@ ion-label {
   100% { opacity: 1; }
 }
 
-/* Ventiladores Eólicos */
-.wind-speed {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 12px;
-  color: #1E5631;
-}
-
-/* Media Query para móviles */
-@media (max-width: 767px) {
-  .general-view {
-    grid-template-columns: 1fr; /* Cambiar a una sola columna */
-    gap: 10px;
-  }
-
-  .section {
-    padding: 12px;
-  }
-
-  .lights-container {
-    grid-template-columns: repeat(3, 1fr); /* 3 luces por fila */
-  }
-
-  .light {
-    font-size: 14px;
-    padding: 16px;
-  }
-
-  .doors-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 puertas por fila */
-  }
-
-  .elevators-container {
-    flex-direction: column; /* Mostrar elevadores en columna */
-    gap: 10px;
-  }
-
-  .wind-speed-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding: 12px;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .wind-speed-container .wind-speed {
-    min-width: 100px; 
-    flex-shrink: 0;
-  }
-}
 
