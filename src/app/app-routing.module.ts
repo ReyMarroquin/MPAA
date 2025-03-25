@@ -48,7 +48,8 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'registro',
@@ -61,7 +62,8 @@ const routes: Routes = [
   },
   {
     path: 'conocenos',
-    loadChildren: () => import('./pages/conocenos/conocenos.module').then( m => m.ConocenosPageModule)
+    loadChildren: () => import('./pages/conocenos/conocenos.module').then( m => m.ConocenosPageModule),
+    canActivate: [AuthGuard]
   }
 
 ];
