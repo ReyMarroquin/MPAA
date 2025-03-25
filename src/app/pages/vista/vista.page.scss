@@ -25,10 +25,9 @@ ion-label {
 }
 
 .disabled {
-  pointer-events: none;  /* Desactiva interacciones */
-  opacity: 0.5;           /* Baja la opacidad para indicar que está deshabilitado */
+  pointer-events: none;
+  opacity: 0.5;
 }
-
 
 .general-view {
   display: grid;
