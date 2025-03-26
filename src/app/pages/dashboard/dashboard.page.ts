@@ -11,7 +11,7 @@ import { Router,RouterModule  } from '@angular/router';
   imports: [IonicModule, CommonModule,RouterModule],
 })
 export class DashboardPage implements OnInit {
-  temperatura: number = 10; // Temperatura en °C
+  temperatura: number = 40; // Temperatura en °C
   calidadAire: number = 80; // Calidad de aire en porcentaje
   ruido: number = 50; // Nivel de ruido en dB
   humedad: number = 45; // Humedad en porcentaje

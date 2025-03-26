@@ -4,17 +4,31 @@ ion-content{
 ion-toolbar{
     --background:#247E3E;
 }
+ion-card-subtitle{
+  color:black;
+}
+ion-tittle{
+  color: var(--ion-color-primary);
+
+}
+ion-card{
+  color: var(--ion-color-primary);
+
+}
 .sensors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 16px;
     padding: 16px;
+    color: var(--ion-color-primary);    
   }
   
   ion-card {
-    --background: #c90000;
+    --background:white;
     transition: all 0.3s ease;
     cursor: pointer;
+    color: var(--ion-color-primary);
+
     
     &.active {
       border-left: 5px solid var(--ion-color-primary);
@@ -23,14 +37,25 @@ ion-toolbar{
       }
     }
   }
+  ion-footer {
+    background: #247E3E;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .footer-text {
+    color: white;
+    font-size: 0.9rem;
+    margin: 0;
+  }
   
   .fire-indicator {
     text-align: center;
     font-size: 2rem;
-    color: var(--ion-color-medium);
+    color: var(--ion-color-primary);
     
     &.detected {
-      color: var(--ion-color-danger);
+      color: var(--ion-color-primary);
       animation: pulse 1s infinite;
     }
   }
@@ -38,7 +63,7 @@ ion-toolbar{
   .rain-indicator {
     text-align: center;
     font-size: 2rem;
-    color: var(--ion-color-medium);
+    color: var(--ion-color-primary);
     
     &.raining {
       color: var(--ion-color-primary);
@@ -47,8 +72,11 @@ ion-toolbar{
   
   .wind-turbine {
     text-align: center;
+    color: var(--ion-color-primary);
+
     
     &.active ion-icon {
+      color: var(--ion-color-primary);
       animation: spin 2s linear infinite;
     }
   }
@@ -57,11 +85,18 @@ ion-toolbar{
     display: flex;
     justify-content: space-around;
     text-align: center;
+    color: var(--ion-color-primary);
+    
+    &.raining {
+      color: var(--ion-color-primary);
+    }
     
     div {
       display: flex;
       flex-direction: column;
       align-items: center;
+      color: var(--ion-color-primary);
+
       
       ion-icon {
         font-size: 1.5rem;
@@ -77,6 +112,9 @@ ion-toolbar{
       color: var(--ion-color-primary);
     }
   }
+  ion-fab-button{
+    --background: #247E3E;
+  }
   
   @keyframes pulse {
     0% { transform: scale(1); }
@@ -88,3 +126,4 @@ ion-toolbar{
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
+  

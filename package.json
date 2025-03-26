@@ -30,6 +30,7 @@
     "@ionic/angular": "^8.5.1",
     "@ionic/storage-angular": "^4.0.0",
     "firebase": "^11.5.0",
+    "chart.js": "^4.4.8",
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
