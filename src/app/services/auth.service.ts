@@ -154,6 +154,7 @@ export class AuthService {
       console.error('Error al cerrar sesión', error);
     }
   }
+  
 
   // Método para actualizar los datos del usuario
   async actualizarUsuario(updatedUserData: any) {
@@ -171,6 +172,7 @@ export class AuthService {
       console.error('Error al actualizar usuario', error);
     }
   }
+  
 
   
 
@@ -202,4 +204,11 @@ export class AuthService {
         return 'Error al autenticar. Por favor, inténtalo de nuevo.';
     }
   }
+  // Añade este método para mantener consistencia
+getUserRole(): string {
+  return this.getRol(); // Ya que tienes getRol() definido
+}
+
+// Asegúrate que logout() limpie todo correctamente
+
 }

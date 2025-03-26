@@ -1,47 +1,17 @@
-<ion-app>
-  <ion-menu contentId="main-content">
-    <ion-header>
-      <ion-toolbar class="color-menu">
-        <ion-title>MPA</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-menu-toggle autoHide="false">
-          <ion-item routerLink="/dashboard"><ion-icon name="home" style="color:#247E3E"></ion-icon>Dashboard</ion-item>
-          <ion-item routerLink="/sensores"><ion-icon name="podium" style="color:#247E3E"></ion-icon>Sensores</ion-item>
-          <ion-item routerLink="/historial"><ion-icon name="archive" style="color:#247E3E;"></ion-icon>Historial</ion-item>
-  
-          <!-- Sección de administración desplegable -->
-          <ion-item (click)="toggleAdminMenu()">
-            <ion-icon name="construct" style="color: #247E3E;"></ion-icon>Administración
-          </ion-item>
-          <div *ngIf="adminExpanded">
-            <ion-item *ngIf="isAdmin" routerLink="/control-luces"><ion-icon name="bulb" style="color:#247E3E"></ion-icon>Control de Luces</ion-item>
-            <ion-item *ngIf="isAdmin" routerLink="/control-puertas">Control de Puertas</ion-item>
-            <ion-item *ngIf="isAdmin" routerLink="/control-elevador">Control de Elevador</ion-item>
-            <ion-item routerLink="/configuracion"><ion-icon name="settings" style="color:#247E3E"></ion-icon>Configuración</ion-item>
-          </div>
-  
-          <ion-item (click)="logout()"><ion-icon name="log-out" style="color:#247E3E"></ion-icon>Cerrar sesión</ion-item>
-        </ion-menu-toggle>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-  <div class="ion-page" id="main-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>configuracion</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding"></ion-content>
-  </div>
-</ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Configuracion</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<!-- Contenido principal -->
-<div id="main-content">
-  <router-outlet></router-outlet>
-</div>
+
+
+  <ion-content>
+  </ion-content>
+  
+  <ion-footer>
+    <p class="footer-text">© 2025 MPA Seguridad Inteligente</p>
+  </ion-footer>
