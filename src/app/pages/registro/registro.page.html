@@ -9,44 +9,47 @@
     <h2>Crear Cuenta</h2>
     <p>Completa los campos para registrarte</p>
 
-    <ion-item class="input-field">
-      <ion-icon slot="start" name="person-outline"></ion-icon>
-      <ion-input [(ngModel)]="nombre" type="text" placeholder="Nombre" required></ion-input>
-    </ion-item>
+    <form #registerForm="ngForm" (ngSubmit)="register()">
+      <!-- Nombre -->
+      <ion-item class="input-field">
+        <ion-icon slot="start" name="person-outline"></ion-icon>
+        <ion-input [(ngModel)]="nombre" name="nombre" type="text" placeholder="Nombre" required></ion-input>
+      </ion-item>
 
-    <ion-item class="input-field">
-      <ion-icon slot="start" name="mail-outline"></ion-icon>
-      <ion-input [(ngModel)]="correo" type="email" placeholder="Correo Electrónico" required></ion-input>
-    </ion-item>
+      <!-- Correo Electrónico -->
+      <ion-item class="input-field">
+        <ion-icon slot="start" name="mail-outline"></ion-icon>
+        <ion-input [(ngModel)]="email" name="email" type="email" placeholder="Correo Electrónico" required></ion-input>
+      </ion-item>
 
-    <ion-item class="input-field">
-      <ion-icon slot="start" name="people-circle-outline"></ion-icon>
-      <ion-input [(ngModel)]="username" type="text" placeholder="Usuario" required></ion-input>
-    </ion-item>
+      <!-- Contraseña -->
+      <ion-item class="input-field">
+        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+        <ion-input [(ngModel)]="password" name="password" type="password" placeholder="Contraseña" required></ion-input>
+      </ion-item>
 
-    <ion-item class="input-field">
-      <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
-      <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña" required></ion-input>
-    </ion-item>
+      <!-- Confirmar Contraseña -->
+      <ion-item class="input-field">
+        <ion-icon slot="start" name="key-outline"></ion-icon>
+        <ion-input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" placeholder="Confirmar Contraseña" required></ion-input>
+      </ion-item>
 
-    <ion-item class="input-field">
-      <ion-icon slot="start" name="key-outline"></ion-icon>
-      <ion-input [(ngModel)]="confirmPassword" type="password" placeholder="Confirmar Contraseña" required></ion-input>
-    </ion-item>
+      <ion-button expand="full" type="submit" [disabled]="loading">
+        <ion-spinner *ngIf="loading"></ion-spinner>
+        <span *ngIf="!loading">Registrarse</span>
+      </ion-button>
 
-    <ion-button expand="full" (click)="register()">Registrarse</ion-button>
+      <p class="register-link">
+        ¿Ya tienes cuenta? <a (click)="goToLogin()" class="rea">Inicia sesión</a>
+      </p>
 
-    <p class="register-link">
-      ¿Ya tienes cuenta? <a (click)="router.navigate(['/login'])" class="rea">Inicia sesión</a>
-    </p>
-
-    <div class="error-message" *ngIf="errorMessage">
-      {{ errorMessage }}
-    </div>
+      <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+    </form>
   </div>
 </ion-content>
 
 <ion-footer>
   <p class="footer-text">© 2025 MPA Seguridad Inteligente</p>
 </ion-footer>
-

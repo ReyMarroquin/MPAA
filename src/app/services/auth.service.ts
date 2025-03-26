@@ -11,6 +11,7 @@ export class AuthService {
   private usuario: any = null;
   private loginError: string = '';
   private authState = new BehaviorSubject<boolean>(false);
+  
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -51,6 +52,8 @@ export class AuthService {
       return false;
     }
   }
+
+  
 
   // Método para registrar un nuevo usuario
   async register(email: string, password: string, nombre: string): Promise<boolean> {
@@ -127,6 +130,8 @@ export class AuthService {
     }
   }
 
+  
+
   // Obtener el usuario logueado
   getUsuario() {
     return this.usuario;
@@ -167,12 +172,14 @@ export class AuthService {
     }
   }
 
+  
+
   // Determinar rol basado en el email (puedes personalizar esta lógica)
   private determinarRol(email?: string | null): string {
     if (!email) return 'invitado';
     
     // Ejemplo: si el email contiene 'admin' o está en una lista de admins
-    if (email.includes('admin') || email === 'admin@dominio.com') {
+    if (email.includes('admin') || email === 'admin@mpa.com') {
       return 'admin';
     }
     return 'usuario';

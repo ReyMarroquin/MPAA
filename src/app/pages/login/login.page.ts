@@ -14,7 +14,7 @@ import { AlertController } from '@ionic/angular';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LoginPage {
-  email: string = '';  // Cambiamos username por email
+  email: string = '';
   password: string = '';
   errorMessage: string = '';
   loading: boolean = false;
@@ -42,7 +42,9 @@ export class LoginPage {
         const returnUrl = this.authService.getDefaultRedirectForRole(rol);
         this.router.navigate([returnUrl]);
       } else {
-        this.errorMessage = this.authService.getLoginError();
+        // Obtenemos el error del servicio
+        this.errorMessage = this.authService.getLoginError() || 
+          'Usuario o contraseña incorrectos';
       }
     } catch (error) {
       console.error('Error en login:', error);
@@ -75,10 +77,16 @@ export class LoginPage {
         {
           text: 'Enviar',
           handler: async (data) => {
+            if (!data.email) {
+              this.showAlert('Error', 'Por favor ingresa un correo electrónico');
+              return;
+            }
+
             try {
               await this.authService.sendPasswordResetEmail(data.email);
               this.showAlert('Éxito', 'Se ha enviado un correo para restablecer tu contraseña');
             } catch (error) {
+              console.error('Error al enviar correo de recuperación:', error);
               this.showAlert('Error', 'No pudimos enviar el correo. Verifica la dirección.');
             }
           }

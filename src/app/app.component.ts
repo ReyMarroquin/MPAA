@@ -73,6 +73,7 @@ export class AppComponent implements OnInit {
       this.mostrarMenu = this.authService.estaAutenticado();
     }
   }
+  
 
   
   logout() {
