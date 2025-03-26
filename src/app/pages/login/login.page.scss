@@ -114,3 +114,28 @@ ion-footer {
   font-size: 0.9rem;
   margin: 0;
 }
+
+
+
+
+
+
+
+.error-message {
+  color: var(--ion-color-danger);
+  margin: 10px 0;
+  text-align: center;
+}
+
+.forgot-password {
+  text-align: center;
+  margin-top: 15px;
+  color: var(--ion-color-primary);
+  cursor: pointer;
+}
+
+
+ion-spinner {
+  width: 20px;
+  height: 20px;
+}

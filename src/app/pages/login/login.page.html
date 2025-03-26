@@ -12,13 +12,13 @@
     <p>Ingresa tus credenciales para continuar</p>
 
     <form #loginForm="ngForm" (ngSubmit)="login()" novalidate>
-      <!-- Input de Usuario -->
+      <!-- Cambiamos username por email -->
       <div class="input-group">
-        <ion-icon name="person-circle-outline"></ion-icon>
-        <input [(ngModel)]="username" name="username" type="text" required placeholder="Usuario">
+        <ion-icon name="mail-outline"></ion-icon>
+        <input [(ngModel)]="email" name="email" type="email" required placeholder="Correo electrónico">
       </div>
 
-      <!-- Input de Contraseña -->
+      <!-- Input de Contraseña (se mantiene igual) -->
       <div class="input-group">
         <ion-icon name="lock-closed-outline"></ion-icon>
         <input [(ngModel)]="password" name="password" type="password" required placeholder="Contraseña">
@@ -29,7 +29,14 @@
         {{ errorMessage }}
       </div>
 
-      <ion-button expand="full" type="submit">Iniciar Sesión</ion-button>
+      <ion-button expand="full" type="submit" [disabled]="loading">
+        <ion-spinner *ngIf="loading"></ion-spinner>
+        <span *ngIf="!loading">Iniciar Sesión</span>
+      </ion-button>
+
+      <p class="forgot-password" (click)="resetPassword()">
+        ¿Olvidaste tu contraseña?
+      </p>
     </form>
 
     <p class="register-link">
@@ -37,7 +44,7 @@
     </p>
   </div>
 </ion-content>
+
 <ion-footer>
   <p class="footer-text">© 2025 MPA Seguridad Inteligente</p>
 </ion-footer>
-
