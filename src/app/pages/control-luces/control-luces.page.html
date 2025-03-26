@@ -1,37 +1,81 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Control-Luces</ion-title>
+    <ion-title>Control de Luces</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Control Completo</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
+  <!-- Contenido principal con todas las secciones -->
+  <div class="general-view">
+    <!-- Sección 1: Control de Luces -->
+    <div class="section section-1">
+      <h2>Control de Luces</h2>
+      <div class="lights-container">
+        <div class="light" *ngFor="let light of lightStatus; let i = index"
+             [class.on]="light"
+             (click)="toggleLight(i)">
+          <ion-icon [name]="light ? 'bulb' : 'bulb-outline'"></ion-icon>
+        </div>
+      </div>
+    </div>
 
+    <!-- Sección 2: Control de Puertas -->
+    <div class="section section-2">
+      <h2>Control de Puertas</h2>
+      <div class="doors-container">
+        <div class="door" *ngFor="let door of doorStatus; let i = index"
+             [class.open]="door"
+             (click)="toggleDoor(i)">
+          <ion-icon [name]="door ? 'lock-open' : 'lock-closed'"></ion-icon>
+        </div>
+      </div>
+    </div>
 
-<ion-content class="ion-padding">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Edificio Principal</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-button (click)="toggleLuz(1)" color="{{ luces[1] ? 'success' : 'danger' }}">
-        {{ luces[1] ? 'Apagar' : 'Encender' }} Luces
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
+    <!-- Sección 3: Elevadores -->
+    <div class="section section-3">
+      <h2>Control de Elevadores</h2>
+      <div class="elevators-container">
+        <div class="elevator" *ngFor="let elevator of elevatorStatus; let i = index"
+             [class.active]="elevator === 2"
+             (click)="toggleElevator(i)">
+          <p>Elevador {{i + 1}} - Piso: {{elevator}}</p>
+        </div>
+      </div>
+    </div>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Edificio Secundario</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-button (click)="toggleLuz(2)" color="{{ luces[2] ? 'success' : 'danger' }}">
-        {{ luces[2] ? 'Apagar' : 'Encender' }} Luces
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
+    <!-- Sección 4: Ventiladores -->
+    <div class="section section-4">
+      <h2>Ventiladores Eólicos</h2>
+      <div class="wind-container">
+        <p>Viento generado: {{ windSpeed | number: '1.0-0' }} km/h</p>
+      </div>
+    </div>
+  </div>
 </ion-content>
 
+<ion-footer>
+  <ion-tab-bar slot="fixed">
+    <ion-tab-button [routerLink]="['/dashboard']">
+      <ion-icon name="home" style="color:white"></ion-icon>
+      <ion-label>Dashboard</ion-label>
+    </ion-tab-button>
+    <ion-tab-button [routerLink]="['/vista']">
+      <ion-icon name="bulb" style="color:white"></ion-icon>
+      <ion-label>Vista General</ion-label>
+    </ion-tab-button>
+    <ion-tab-button [routerLink]="['/historial']">
+      <ion-icon name="list" style="color:white"></ion-icon>
+      <ion-label>Historial</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>
 

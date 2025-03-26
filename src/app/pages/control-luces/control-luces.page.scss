@@ -1,14 +1,239 @@
-ion-content{
-    --background:white;
-}
-ion-toolbar{
-    --background:#247E3E;
-}
-
-ion-card{
-    --background:rgb(205, 205, 205);
+ion-tabs {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
-ion-card-title{
-    color: black;
+ion-toolbar {
+  --background: #247E3E;
+}
+
+ion-content {
+  --background: #f8f9fa;
+  --color: #333;
+}
+
+ion-tab-bar, ion-tab-button {
+  background: #247E3E;
+}
+
+ion-label {
+  color: white;
+  font-weight: bold;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.general-view {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Mismo tamaño de los cuadros */
+  grid-template-rows: repeat(2, 1fr); /* Mismo tamaño de los cuadros */
+  gap: 12px; /* Mismo tamaño de espacio entre los elementos */
+  height: calc(100vh - 57px - 56px);
+  padding: 16px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.section:hover {
+  transform: scale(1.05);
+}
+
+.section h2 {
+  margin-bottom: 8px;
+  font-size: 20px;
+  color: #1E5631;
+  font-weight: bold;
+}
+
+.section p {
+  font-size: 14px;
+  color: #555;
+}
+
+.light ion-icon {
+  font-size: 10px;
+  transition: color 0.3s ease;
+}
+
+/* Luces */
+.lights-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    padding: 20px; /* Aumenté el padding */
+    justify-content: center;
+  }
+  
+  .light {
+    background-color: #d40000;
+    padding: 30px; /* Aumenté el padding */
+    border-radius: 12px; /* Aumenté el border-radius */
+    text-align: center;
+    font-size: 18px; /* Aumenté el tamaño de la fuente */
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    outline: none;
+  }
+  
+  .light.on {
+    background-color: #32cd32;
+  }
+  
+  .light:focus {
+    background-color: #d40000;
+  }
+  
+  /* Puertas */
+  .doors-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Aumenté el gap */
+    margin-top: 12px;
+  }
+  
+  .door {
+    background-color: #d40000;
+    padding: 30px; /* Aumenté el padding */
+    border-radius: 12px; /* Aumenté el border-radius */
+    text-align: center;
+    font-size: 18px; /* Aumenté el tamaño de la fuente */
+    color: white;
+    transition: background-color 0.5s ease, transform 0.3s ease;
+    outline: none;
+  }
+  
+  .door.open {
+    background-color: #32cd32;
+    animation: fadeEffect 0.3s ease-in-out;
+  }
+  
+  .door:focus {
+    background-color: #d40000;
+  }
+  
+  .light ion-icon {
+    font-size: 30px; /* Aumenté el tamaño del icono */
+    transition: color 0.3s ease;
+  }
+
+  .door ion-icon {
+    font-size: 30px; /* Tamaño de los iconos de las puertas */
+    transition: color 0.3s ease;
+  }
+
+.elevators-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 12px;
+  gap: 12px;
+}
+
+
+
+.elevator {
+  background-color: #d40000;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  transition: background-color 0.4s ease-in-out, transform 0.3s ease;
+  outline: none;
+}
+
+.elevator.active {
+  background-color: #32cd32;
+  transform: scale(1.1);
+}
+
+.elevator:active {
+  background-color: #d40000;
+}
+
+@keyframes fadeEffect {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .general-view {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .lights-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .doors-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .elevators-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .light,
+  .door,
+  .elevator {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .section h2 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .general-view {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lights-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .doors-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .elevators-container {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .light,
+  .door,
+  .elevator {
+    font-size: 15px;
+    padding: 18px;
+  }
+
+  .section h2 {
+    font-size: 19px;
+  }
 }
