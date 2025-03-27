@@ -1,7 +1,19 @@
 {
     "CONFIGURACION":"Settings",
     "SELECCION_IDIOMA":"Select a language",
-    "CONOCENOS":"Get to know us"
+    "CONOCENOS":"About us",
+    "PERFIL":"Perfil",
+    "MENU_HOME": "Home",
+    "MENU_SENSORS": "Sensors",
+    "MENU_LIGHT_CONTROL": "Light Control",
+    "MENU_SETTINGS": "Settings",
+    "MENU_PROFILE": "Profile",
+    "MENU_CONOCENOS": "About Us",
+    "MENU_LOGOUT": "Logout"
+      
+      
+    
+
     
 
 }

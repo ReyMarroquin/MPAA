@@ -1,6 +1,13 @@
 {
     "CONFIGURACION":"Configuracion",
     "SELECCION_IDIOMA":"Seleccione un idioma",
-    "CONOCENOS":"Conocenos"
+    "CONOCENOS":"Conocenos",
+    "MENU_HOME": "Inicio",
+  "MENU_SENSORS": "Sensores",
+  "MENU_LIGHT_CONTROL": "Administrar luces",
+  "MENU_SETTINGS": "Configuración",
+  "MENU_PROFILE": "Perfil",
+  "MENU_CONOCENOS": "Conócenos",
+  "MENU_LOGOUT": "Cerrar Sesión"
 
 }

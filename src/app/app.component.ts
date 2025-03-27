@@ -30,6 +30,11 @@ export class AppComponent implements OnInit {
         this.verificarVisibilidadMenu(event.url);
         this.menuCtrl.close();
       });
+
+    // Escuchar el cambio de idioma y actualizar el menú
+    this.translateService.onLangChange.subscribe(() => {
+      this.actualizarMenu(); // Volver a cargar las traducciones
+    });
   }
 
   ngOnInit() {
@@ -41,28 +46,39 @@ export class AppComponent implements OnInit {
       this.actualizarMenu();
     });
 
-    // Inicializar idioma
+    // Inicializar idioma por defecto
     this.translateService.setDefaultLang('es');
     this.initApp();
   }
 
-  actualizarMenu() {
+  async actualizarMenu() {
     const rol = this.authService.getRol();
     this.mostrarMenu = this.authService.estaAutenticado();
-    
-    // Definir todas las páginas posibles
-    const todasLasPaginas = [
-      { titulo: 'Inicio', url: '/dashboard', icono: 'home' },
-      { titulo: 'Sensores', url: '/sensores', icono: 'pulse', soloAdmin: true },
-      { titulo: 'Administrar luces', url: '/control-luces', icono: 'bulb', soloAdmin: true },
-      { titulo: 'Configuración', url: '/configuracion', icono: 'settings' },
-      { titulo: 'Perfil', url: '/perfil', icono: 'person' },
-      { titulo: 'Conócenos', url: '/conocenos', icono: 'information-circle' },
-      { titulo: 'Cerrar Sesión', url: '', icono: 'log-out' }
+
+    // Cargar las traducciones de los títulos del menú
+    const todasLasPaginas = await this.translateService.get([
+      'MENU_HOME',
+      'MENU_SENSORS',
+      'MENU_LIGHT_CONTROL',
+      'MENU_SETTINGS',
+      'MENU_PROFILE',
+      'MENU_CONOCENOS',
+      'MENU_LOGOUT'
+    ]).toPromise();
+
+    // Definir todas las páginas posibles con traducciones
+    const paginasConTraduccion = [
+      { titulo: todasLasPaginas['MENU_HOME'], url: '/dashboard', icono: 'home' },
+      { titulo: todasLasPaginas['MENU_SENSORS'], url: '/sensores', icono: 'pulse', soloAdmin: true },
+      { titulo: todasLasPaginas['MENU_LIGHT_CONTROL'], url: '/control-luces', icono: 'bulb', soloAdmin: true },
+      { titulo: todasLasPaginas['MENU_SETTINGS'], url: '/configuracion', icono: 'settings' },
+      { titulo: todasLasPaginas['MENU_PROFILE'], url: '/perfil', icono: 'person' },
+      { titulo: todasLasPaginas['MENU_CONOCENOS'], url: '/conocenos', icono: 'information-circle' },
+      { titulo: todasLasPaginas['MENU_LOGOUT'], url: '', icono: 'log-out' }
     ];
 
-    // Filtrar según el rol
-    this.paginas = todasLasPaginas.filter(pagina => {
+    // Filtrar según el rol y asignar las páginas traducidas al menú
+    this.paginas = paginasConTraduccion.filter(pagina => {
       return !(pagina.soloAdmin && rol !== 'admin');
     });
   }
