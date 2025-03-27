@@ -1,9 +1,7 @@
 ion-content{
     --background:white;
 }
-ion-content{
-    --background:white;
-}
+
 ion-footer{
     --background:#247E3E;
     background-color: #247E3E;
@@ -25,13 +23,53 @@ ion-menu::part(backdrop) {
 ion-toolbar{
     --background:#247E3E;
 }
+ion-footer {
+    background: #247E3E;
+    text-align: center;
+    padding: 10px;
+  }
+  .footer-text {
+    color: white;
+    font-size: 0.9rem;
+    margin: 0;
+  }
 ion-content{
     --background:white;
-    --color:black;
+}
+ion-label{
+    --background:white;
 }
 ion-item{
+    --background: white;
     --color:black;
 }
+.configuracion-content {
+    --background: #f5f5f5; // Fondo claro para el contenido
+  
+    .language-selector {
+      margin-top: 20px;
+      --background: #ffffff;
+      border-radius: 12px;
+      margin: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      
+      ion-icon {
+        color: var(--ion-color-primary);
+        font-size: 1.5em;
+      }
+    }
+  
+    .language-select {
+      width: 100%;
+      justify-content: flex-end;
+      
+      .select-icon {
+        color: var(--ion-color-primary);
+      }
+    }
+  }
+  
+  
 ion-item {
     cursor: pointer; /* Esto fuerza el cursor a ser una mano (puntero) */
 }

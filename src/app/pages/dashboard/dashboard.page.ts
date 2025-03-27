@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Router,RouterModule  } from '@angular/router';
-
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule,RouterModule],
+  imports: [IonicModule, CommonModule,RouterModule, TranslateModule],
 })
 export class DashboardPage implements OnInit {
   temperatura: number = 20; // Temperatura en °C

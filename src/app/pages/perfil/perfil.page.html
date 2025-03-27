@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{'PERFIL' | translate}}</ion-title>
+    <ion-title>{{'MENU_PROFILE' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <style>
@@ -33,8 +33,8 @@
         </ion-card-header>
         <ion-card-content>
           <!-- Botones de Cerrar Sesión y Editar Perfil -->
-          <ion-button expand="full" class="edit" (click)="abrirModal()">Editar Perfil</ion-button>
-          <ion-button expand="full" class="logout" (click)="logout()">Cerrar Sesión</ion-button>
+          <ion-button expand="full" class="edit" (click)="abrirModal()">{{'EDITAR_PERFIL' | translate}}</ion-button>
+          <ion-button expand="full" class="logout" (click)="logout()">{{'MENU_LOGOUT' | translate}}</ion-button>
         </ion-card-content>
       </div>
     </ion-card>
@@ -45,7 +45,7 @@
     <ng-template>
       <ion-header>
         <ion-toolbar>
-          <ion-title>Editar Perfil</ion-title>
+          <ion-title>{{'EDITAR_PERFIL' | translate}}</ion-title>
           
         </ion-toolbar>
       </ion-header>
@@ -53,22 +53,28 @@
       <ion-content>
         <form (submit)="guardarCambios()" class="">
           <ion-item>
-            <ion-label position="floating" class="label-white">Nombre de Usuario</ion-label>
+            <!-- Traducción de "Nombre de Usuario" -->
+            <ion-label position="floating" class="label-white">{{ 'NOMBRE_USUARIO' | translate }}</ion-label>
             <ion-input [(ngModel)]="nuevoNombreUsuario" required></ion-input>
           </ion-item>
-
+      
           <ion-item>
-            <ion-label position="floating" class="label-white">Nueva Contraseña</ion-label>
+            <!-- Traducción de "Nueva Contraseña" -->
+            <ion-label position="floating" class="label-white">{{ 'NUEVA_CONTRASENA' | translate }}</ion-label>
             <ion-input type="password" [(ngModel)]="nuevaContrasena"></ion-input>
           </ion-item>
-          <ion-button type="submit" class="gc" expand="full">Guardar Cambios</ion-button>
-          <ion-button (click)="cerrarModal()" slot="end" class="close" expand="full">Cerrar</ion-button>
-
+      
+          <!-- Traducción del botón "Guardar Cambios" -->
+          <ion-button type="submit" class="gc" expand="full">{{ 'GUARDAR_CAMBIOS' | translate }}</ion-button>
+          
+          <!-- Traducción del botón "Cerrar" -->
+          <ion-button (click)="cerrarModal()" slot="end" class="close" expand="full">{{ 'CERRAR' | translate }}</ion-button>
         </form>
       </ion-content>
+      
     </ng-template>
   </ion-modal>
 </ion-content>
 <ion-footer>
-  <p class="footer-text">© 2025 MPA Seguridad Inteligente</p>
+  <p class="footer-text">{{'FOOTER_TEXT'| translate}}</p>
 </ion-footer>

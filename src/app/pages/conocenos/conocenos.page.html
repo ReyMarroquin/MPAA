@@ -15,12 +15,12 @@
       <div class="flipper">
         <!-- Lado frontal -->
         <div class="front">
-          MPA <ion-icon name="shield-checkmark-outline"></ion-icon>
+          {{ 'MPA' | translate }} <ion-icon name="shield-checkmark-outline"></ion-icon>
         </div>
         <!-- Lado trasero -->
         <div class="back">
-          <strong>Monitoreo y Prevención de Accidentes</strong>
-          <p>Un sistema diseñado para mejorar la seguridad dentro de las instalaciones universitarias, a través de sensores.</p>
+          <strong>{{ 'MPA' | translate }}</strong>
+          <p>{{ 'MPA_DESCRIPTION' | translate }}</p>
         </div>
       </div>
     </div>
@@ -29,19 +29,19 @@
   <section class="mision-vision">
     <ion-card class="card">
       <ion-card-header>
-        <ion-card-title style="text-align: center; font-size: 1.5rem; color:white;">Misión</ion-card-title>
+        <ion-card-title style="text-align: center; font-size: 1.5rem; color:white;">{{ 'MISION' | translate }}</ion-card-title>
       </ion-card-header>
       <ion-card-content style="text-align: center;">
-        <p>Proporcionar soluciones innovadoras que prevengan y monitoreen accidentes en el entorno universitario, utilizando tecnología de sensores avanzados para asegurar un espacio seguro para todos.</p>
+        <p>{{ 'MISION_DESCRIPTION' | translate }}</p>
       </ion-card-content>
     </ion-card>
 
     <ion-card class="card">
       <ion-card-header>
-        <ion-card-title style="text-align: center; font-size: 1.5rem; color:white;">Visión</ion-card-title>
+        <ion-card-title style="text-align: center; font-size: 1.5rem; color:white;">{{ 'VISION' | translate }}</ion-card-title>
       </ion-card-header>
       <ion-card-content style="text-align: center;">
-        <p>Consolidarnos como líderes en seguridad universitaria, impulsando la innovación en tecnologías de monitoreo en tiempo real para promover un ambiente académico más seguro y protegido.</p>
+        <p>{{ 'VISION_DESCRIPTION' | translate }}</p>
       </ion-card-content>
     </ion-card>
   </section>
@@ -49,15 +49,16 @@
   <section class="nosotros">
     <ion-card class="card">
       <ion-card-header>
-        <ion-card-title style="text-align: center; font-size: 1.5rem; color: white;">¿Quiénes Somos?</ion-card-title>
+        <ion-card-title style="text-align: center; font-size: 1.5rem; color: white;">{{ 'QUIENES_SOMOS' | translate }}</ion-card-title>
       </ion-card-header>
       <ion-card-content style="text-align: center;">
-        <p>Somos un grupo de estudiantes que monitorean la seguridad universitaria. Nuestro propósito es ofrecer soluciones integrales mediante sensores que nos ayuden a prevenir y gestionar incidentes.</p>
+        <p>{{ 'QUIENES_SOMOS_DESCRIPTION' | translate }}</p>
       </ion-card-content>
     </ion-card>
   </section>
 
 </ion-content>
+
 <ion-footer>
-  <p class="footer-text">© 2025 MPA Seguridad Inteligente</p>
+  <p class="footer-text">{{ 'FOOTER_TEXT' | translate }}</p>
 </ion-footer>
