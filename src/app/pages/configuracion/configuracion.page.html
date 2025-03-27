@@ -1,17 +1,16 @@
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Configuracion</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'CONFIGURACION' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-
-
-  <ion-content>
-  </ion-content>
-  
-  <ion-footer>
-    <p class="footer-text">© 2025 MPA Seguridad Inteligente</p>
-  </ion-footer>
+<ion-content>
+  <!-- Dropdown (select) para seleccionar el idioma -->
+  <ion-item>
+    <ion-label>{{ 'SELECCION_IDIOMA' | translate }}</ion-label>
+    <ion-select (ionChange)="changeLanguage($event.detail.value)">
+      <ion-select-option value="es"></ion-select-option>
+      <ion-select-option value="en"></ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-content>

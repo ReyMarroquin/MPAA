@@ -11,9 +11,15 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {TranslateLoader, TranslateModule}  from '@ngx-translate/core'
 
 // Ionic Storage import
 import { IonicStorageModule } from '@ionic/storage-angular';  
+export function HttpLoaderFactory(http: HttpClient){
+  return new TranslateHttpLoader (http, 'assets/i18n/','.json')
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,8 +30,19 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    IonicStorageModule.forRoot()
-  ],
+    IonicStorageModule.forRoot(),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide: TranslateLoader,
+        useFactory:HttpLoaderFactory,
+        deps:[HttpClient]
+      }
+  
+    })],
+  
+
+
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AuthService
