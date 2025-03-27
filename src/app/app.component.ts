@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
     // Definir todas las páginas posibles
     const todasLasPaginas = [
       { titulo: 'Inicio', url: '/dashboard', icono: 'home' },
-      { titulo: 'Sensores', url: '/sensores', icono: 'pulse' },
+      { titulo: 'Sensores', url: '/sensores', icono: 'pulse',soloAdmin: true  },
       { titulo: 'Administrar luces', url: '/control-luces', icono: 'bulb', soloAdmin: true },
       { titulo: 'Configuración', url: '/configuracion', icono: 'settings' },
       { titulo: 'Perfil', url: '/perfil', icono: 'person' },

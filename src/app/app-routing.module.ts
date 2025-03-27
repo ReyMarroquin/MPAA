@@ -38,7 +38,7 @@ const routes: Routes = [
   {
     path: 'sensores',
     loadChildren: () => import('./pages/sensores/sensores.module').then( m => m.SensoresPageModule),
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard,AdminGuard]
   },
   {
     path: 'configuracion',
