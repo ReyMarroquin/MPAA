@@ -36,9 +36,19 @@ export class ThemeService {
     if (dark) {
       root.style.setProperty('--app-background', '#1e1e1e');
       root.style.setProperty('--app-text-color', '#ffffff');
+      root.style.setProperty('--app-light-off', '#515151');
+      root.style.setProperty('--app-elevator-inactive', '#515151');
+      root.style.setProperty('--app-card', '#4e4e4e');
+
+      
     } else {
       root.style.setProperty('--app-background', 'white');
       root.style.setProperty('--app-text-color', 'black');
+      root.style.setProperty('--app-light-off', '#d40000');
+      root.style.setProperty('--app-elevator-inactive', '#d40000');
+      root.style.setProperty('--app-card', '#ffffff');
+
+
     }
     
     this.storage.set('darkMode', dark);

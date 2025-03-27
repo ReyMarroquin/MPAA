@@ -53,7 +53,7 @@ export class ConfiguracionPage implements OnInit {
     }
   }
 
-  darkMode = false;
+  darkMode = true;
 
   ngOnInit() {
     this.darkMode = this.themeService.isDarkMode();

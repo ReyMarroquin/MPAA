@@ -7,7 +7,9 @@ ion-content.configuracion-content {
 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+ion-icon{
+  --background:#247E3E;
+}
 
 ion-footer {
   --background: var(--app-footer-background);

@@ -37,7 +37,8 @@
   "RFID": "RFID",
   "DETECCION_LLAMA": "Flame Detection",
   "VISTA_GENERAL": "General View",
-  "HISTORIAL": "History"
+  "HISTORIAL": "History",
+  "MODO_OSCURO":"Darkmode"
 
       
       

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'; // Importa RouterModule
+import { RouterModule } from '@angular/router';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-control-luces',
@@ -19,6 +20,11 @@ export class ControlLucesPage {
   doorStatus = [false, true, false, true, false, true];
   elevatorStatus = [1, 2];
   windSpeed = 5;
+  isDarkMode = false;
+
+  constructor(private themeService: ThemeService) {
+    this.isDarkMode = this.themeService.isDarkMode();
+  }
 
   toggleLight(index: number) {
     this.lightStatus[index] = !this.lightStatus[index];
@@ -34,5 +40,10 @@ export class ControlLucesPage {
 
   changeWindSpeed() {
     this.windSpeed = Math.floor(Math.random() * 20) + 1;
+  }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
+    this.isDarkMode = this.themeService.isDarkMode();
   }
 }

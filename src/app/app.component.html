@@ -8,7 +8,7 @@
     <ion-list>
       <ion-item *ngFor="let pagina of paginas" (click)="handleMenuClick(pagina)">
         <ion-icon [name]="pagina.icono" slot="start" style="color:#247E3E"></ion-icon>
-        <ion-label>{{pagina.titulo}}</ion-label>
+        <ion-label class="cursor">{{pagina.titulo}}</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>

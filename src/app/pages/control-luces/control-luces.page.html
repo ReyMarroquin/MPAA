@@ -47,7 +47,7 @@
         <div class="elevator" *ngFor="let elevator of elevatorStatus; let i = index"
              [class.active]="elevator === 2"
              (click)="toggleElevator(i)">
-          <p>Elevador {{i + 1}} - Piso: {{elevator}}</p>
+          <p >Elevador {{i + 1}} - Piso: {{elevator}}</p>
         </div>
       </div>
     </div>
@@ -60,7 +60,11 @@
       </div>
     </div>
   </div>
+
+  
 </ion-content>
+
+
 
 <ion-footer>
   <ion-tab-bar slot="fixed">

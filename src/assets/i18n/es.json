@@ -37,7 +37,9 @@
   "RFID": "RFID",
   "DETECCION_LLAMA": "Detección de Llama",
   "VISTA_GENERAL": "Vista General",
-  "HISTORIAL": "Historial"
+  "HISTORIAL": "Historial",
+  "MODO_OSCURO":"Modo oscuro"
+
 
 
 }

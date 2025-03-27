@@ -21,13 +21,13 @@
     </ion-select>
   </ion-item>
 
-  <ion-item>
-    <ion-toggle 
+  <ion-item class="language-selector">
+    <ion-icon name="moon" slot="start" style="color:#247E3E"></ion-icon>
+    <ion-label>{{ 'MODO_OSCURO' | translate }}</ion-label>
+    <ion-toggle
       [(ngModel)]="darkMode"
       (ionChange)="toggleDarkMode()"
-      labelPlacement="start"
-    >
-      Modo Oscuro
+      labelPlacement="start">
     </ion-toggle>
   </ion-item>
 </ion-content>

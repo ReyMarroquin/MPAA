@@ -1,46 +1,51 @@
 .hidden {
-    display: none;
-}
-  
-ion-list-header{
-    --background:black;
+  display: none;
 }
 
-ion-content{
-  --background:--app-background;
-  --color:black;
- }
+ion-list-header {
+  --background: var(--app-background);
+}
+.cursor{
+  cursor: pointer;
+}
+
+ion-content {
+--background: var(--app-background) !important;
+--color: var(--app-text-color) !important;
+}
 
 ion-menu::part(backdrop) {
-    background-color: rgb(36, 126, 62);
+  background-color: var(--app-menu-background) !important;
 }
-  
+
 ion-menu::part(container) {
-    border-radius: 0 20px 20px 0;
-  
-    box-shadow: 4px 0px 16px rgb(36, 126, 62);
-}
-.color-menu{
-  --background:#247E3E;
-}
-ion-toolbar{
-  --background:#247E3E; 
-}
-ion-content{
- --background:--app-background;
- --color:black;
-}
-ion-item, .ionion{
-   --color:black;
-   --background:white;
-
+  border-radius: 0 20px 20px 0;
+  box-shadow: 4px 0px 16px var(--app-menu-background);
 }
 
-ion-list {
-  background-color: #ffffff; /* Blanco */
+.color-menu {
+--background: var(--app-menu-background);
+}
+
+ion-toolbar {
+--background: var(--ion-color-primary); 
+}
+
+ion-item, .ionion {
+ --color: var(--app-text-color) !important;
+ --background: var(--app-background) !important;
+}
+
+ion-list{
+background: var(--app-background) !important;
+border: none;
 }
 
 ion-item.ionion {
-  background-color: #ffffff; /* Blanco */
+--background: var(--app-background) !important;
 }
 
+ion-label {
+--background: var(--app-background) !important;
+--color: var(--app-text-color) !important;
+}

@@ -6,20 +6,21 @@ ion-tabs {
 }
 
 ion-toolbar {
-  --background: #247E3E;
+  --background: var(--ion-color-primary);
 }
 
+
 ion-content {
-  --background: #f8f9fa;
-  --color: #333;
+  --background: var(--app-background) !important;
+  --color: var(--app-text-color) !important;
 }
 
 ion-tab-bar, ion-tab-button {
-  background: #247E3E;
+  --background: var(--app-menu-background) !important;
 }
 
 ion-label {
-  color: white;
+  --color: var(--app-text-color) !important;
   font-weight: bold;
 }
 
@@ -30,9 +31,9 @@ ion-label {
 
 .general-view {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Mismo tamaño de los cuadros */
-  grid-template-rows: repeat(2, 1fr); /* Mismo tamaño de los cuadros */
-  gap: 12px; /* Mismo tamaño de espacio entre los elementos */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 12px;
   height: calc(100vh - 57px - 56px);
   padding: 16px;
 }
@@ -42,7 +43,7 @@ ion-label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--app-section-background);
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
   padding: 16px;
@@ -57,13 +58,13 @@ ion-label {
 .section h2 {
   margin-bottom: 8px;
   font-size: 20px;
-  color: #1E5631;
+  color: var(--app-primary-text);
   font-weight: bold;
 }
 
 .section p {
   font-size: 14px;
-  color: #555;
+  color: var(--app-secondary-text);
 }
 
 .light ion-icon {
@@ -76,80 +77,79 @@ ion-label {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 12px;
-    padding: 20px; /* Aumenté el padding */
+    padding: 20px;
     justify-content: center;
-  }
+    cursor: pointer;
+
+}
   
-  .light {
-    background-color: #d40000;
-    padding: 30px; /* Aumenté el padding */
-    border-radius: 12px; /* Aumenté el border-radius */
+.light {
+    background-color: var(--app-light-off) !important;
+    padding: 30px;
+    border-radius: 12px;
     text-align: center;
-    font-size: 18px; /* Aumenté el tamaño de la fuente */
-    color: white;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
     font-weight: bold;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.2s ease;
     outline: none;
-  }
+}
   
-  .light.on {
-    background-color: #32cd32;
-  }
+.light.on {
+    background-color:var(--app-light-on) !important;
+    color: yellow;
+}
   
-  .light:focus {
-    background-color: #d40000;
-  }
+.light:focus {
+    background-color: var(--app-light-off);
+}
   
-  /* Puertas */
-  .doors-container {
+/* Puertas */
+.doors-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px; /* Aumenté el gap */
+    gap: 20px;
+    cursor: pointer;
     margin-top: 12px;
-  }
+}
   
-  .door {
-    background-color: #d40000;
-    padding: 30px; /* Aumenté el padding */
-    border-radius: 12px; /* Aumenté el border-radius */
+.door {
+    background-color: var(--app-light-off);
+    padding: 30px;
+    border-radius: 12px;
     text-align: center;
-    font-size: 18px; /* Aumenté el tamaño de la fuente */
+    font-size: 18px;
     color: white;
     transition: background-color 0.5s ease, transform 0.3s ease;
     outline: none;
-  }
+}
   
-  .door.open {
-    background-color: #32cd32;
+.door.open {
+    background-color: var(--app-door-open);
     animation: fadeEffect 0.3s ease-in-out;
-  }
+}
   
-  .door:focus {
-    background-color: #d40000;
-  }
+.door:focus {
+    background-color: var(--app-door-closed);
+}
   
-  .light ion-icon {
-    font-size: 30px; /* Aumenté el tamaño del icono */
+.light ion-icon, .door ion-icon {
+    font-size: 30px;
     transition: color 0.3s ease;
-  }
+}
 
-  .door ion-icon {
-    font-size: 30px; /* Tamaño de los iconos de las puertas */
-    transition: color 0.3s ease;
-  }
-
+/* Elevadores */
 .elevators-container {
   display: flex;
   flex-direction: row;
   margin-top: 12px;
   gap: 12px;
+  cursor: pointer;
 }
 
-
-
 .elevator {
-  background-color: #d40000;
+  background-color: var(--app-elevator-inactive);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -160,12 +160,12 @@ ion-label {
 }
 
 .elevator.active {
-  background-color: #32cd32;
+  background-color: var(--app-elevator-active);
   transform: scale(1.1);
 }
 
 .elevator:active {
-  background-color: #d40000;
+  background-color: var(--app-elevator-inactive);
 }
 
 @keyframes fadeEffect {
