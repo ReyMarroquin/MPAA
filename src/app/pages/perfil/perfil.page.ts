@@ -3,13 +3,13 @@ import { AuthService } from 'src/app/services/auth.service';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',
   styleUrls: ['./perfil.page.scss'],
   standalone:true,
-  imports:[IonicModule, CommonModule, FormsModule]
+  imports:[IonicModule, CommonModule, FormsModule, TranslateModule]
 })
 export class PerfilPage implements OnInit {
   username: string = '';

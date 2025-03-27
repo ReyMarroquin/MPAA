@@ -1,0 +1,48 @@
+{
+    "CONFIGURACION":"Settings",
+    "SELECCION_IDIOMA":"Select a language",
+    "MENU_HOME": "Home",
+    "MENU_SENSORS": "Sensors",
+    "MENU_LIGHT_CONTROL": "Light Control",
+    "MENU_SETTINGS": "Settings",
+    "MENU_PROFILE": "Profile",
+    "MENU_CONOCENOS": "About Us",
+    "MENU_LOGOUT": "Logout",
+    "CONOCENOS": "About Us",
+    "MPA": "MPA",
+    "MPA_DESCRIPTION": "A system designed to improve safety within university facilities through sensors.",
+    "MISION": "Mission",
+    "MISION_DESCRIPTION": "Provide innovative solutions that prevent and monitor accidents in the university environment, using advanced sensor technology to ensure a safe space for everyone.",
+    "VISION": "Vision",
+    "VISION_DESCRIPTION": "Establish ourselves as leaders in university safety, driving innovation in real-time monitoring technologies to promote a safer and more protected academic environment.",
+    "QUIENES_SOMOS": "Who Are We?",
+    "QUIENES_SOMOS_DESCRIPTION": "We are a group of students monitoring university safety. Our purpose is to offer comprehensive solutions through sensors to help us prevent and manage incidents.",
+    "FOOTER_TEXT": "© 2025 MPA Intelligent Security",
+   "NOMBRE_USUARIO": "Username",
+   "EDITAR_PERFIL":"Edit profile",
+  "NUEVA_CONTRASENA": "New Password",
+  "GUARDAR_CAMBIOS": "Save Changes",
+  "CERRAR": "Close",
+  "TEMPERATURA":"Temperature",
+  "RUIDO":"Noise",
+  "CALIDAD_AIRE":"Air quality",
+  "HUMEDAD":"Humidity",
+  "CALIDAD_AGUA": "Water Quality",
+  "CO2": "CO2",
+  "INTENSIDAD_LUZ": "Light Intensity",
+  "MONOXIDO": "Carbon Monoxide",
+  "GAS_METANO": "Methane Gas",
+  "VIBRACION": "Vibration",
+  "PROXIMIDAD": "Proximity",
+  "RFID": "RFID",
+  "DETECCION_LLAMA": "Flame Detection",
+  "VISTA_GENERAL": "General View",
+  "HISTORIAL": "History"
+
+      
+      
+    
+
+    
+
+}

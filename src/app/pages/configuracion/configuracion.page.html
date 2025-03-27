@@ -1,24 +1,37 @@
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Configuracion</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-      <ion-item>
-        <ion-toggle 
-          [(ngModel)]="darkMode"
-          (ionChange)="toggleDarkMode()"
-          labelPlacement="start"
-        >
-          Modo Oscuro
-        </ion-toggle>
-      </ion-item>
-  </ion-content>
-  
-  <ion-footer>
-    <p class="footer-text">© 2025 MPA Seguridad Inteligente</p>
-  </ion-footer>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'CONFIGURACION' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="configuracion-content">
+  <!-- Dropdown (select) para seleccionar el idioma -->
+  <ion-item class="language-selector">
+    <ion-icon name="language-outline" slot="start"></ion-icon>
+    <ion-label>{{ 'SELECCION_IDIOMA' | translate }}</ion-label>
+    <ion-select 
+      (ionChange)="changeLanguage($event.detail.value)" 
+      class="language-select"
+      interface="action-sheet">
+      <ion-select-option value="es">Español</ion-select-option>
+      <ion-select-option value="en">English</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-toggle 
+      [(ngModel)]="darkMode"
+      (ionChange)="toggleDarkMode()"
+      labelPlacement="start"
+    >
+      Modo Oscuro
+    </ion-toggle>
+  </ion-item>
+</ion-content>
+<ion-footer>
+  <p class="footer-text">{{ 'FOOTER_TEXT' | translate }}</p>
+</ion-footer>
+

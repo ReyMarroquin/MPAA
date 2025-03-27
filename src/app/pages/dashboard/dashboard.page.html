@@ -16,7 +16,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="thermometer"></ion-icon>
-            <span>Temperatura</span> 
+            <span>{{'TEMPERATURA' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -36,7 +36,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="cloud"></ion-icon>
-            <span>Calidad del aire</span> 
+            <span>{{'CALIDAD_AIRE' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -56,7 +56,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="megaphone"></ion-icon>
-            <span>Nivel de ruido</span> 
+            <span>{{'RUIDO' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -76,7 +76,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="water"></ion-icon>
-            <span>Humedad</span> 
+            <span>{{'HUMEDAD' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -96,7 +96,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="rainy"></ion-icon>
-            <span>Calidad del agua</span> 
+            <span>{{'CALIDAD_AGUA' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -116,7 +116,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="water"></ion-icon>
-            <span>CO2</span> 
+            <span>{{'CO2' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -136,7 +136,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="flashlight"></ion-icon>
-            <span>Intensidad de luz</span> 
+            <span>{{'INTENSIDAD_LUZ' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -159,7 +159,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="skull"></ion-icon>
-            <span>Monóxido Carbono</span> 
+            <span>{{'MONOXIDO' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -180,7 +180,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="warning"></ion-icon>
-            <span>Gas Metano</span> 
+            <span>{{'GAS_METANO' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -201,7 +201,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="pulse"></ion-icon>
-            <span>Vibración</span> 
+            <span>{{'VIBRACION' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -222,7 +222,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="move"></ion-icon>
-            <span>Proximidad</span> 
+            <span>{{'PROXIMIDAD' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -243,7 +243,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon name="card"></ion-icon>
-            <span>RFID</span> 
+            <span>{{'RFID' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -260,7 +260,7 @@
         <ion-card-header>
           <div class="temp">
             <ion-icon [name]="getFlameIcon(llama)" [color]="getFlameColor(llama)"></ion-icon>
-            <span>Detección de llama</span> 
+            <span>{{'DETECCION_LLAMA' | translate }}</span> 
           </div>
         </ion-card-header>
         <ion-card-content>
@@ -281,11 +281,11 @@
     </ion-tab-button>
     <ion-tab-button [routerLink]="['/vista']">
       <ion-icon name="bulb" style="color:white"></ion-icon>
-      <ion-label>Vista General</ion-label>
+      <ion-label>{{'VISTA_GENERAL' | translate }}</ion-label>
     </ion-tab-button>
     <ion-tab-button [routerLink]="['/historial']">
       <ion-icon name="list" style="color:white"></ion-icon>
-      <ion-label>Historial</ion-label>
+      <ion-label>{{'HISTORIAL' | translate }}</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-footer>
