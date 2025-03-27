@@ -2,48 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Router,RouterModule } from '@angular/router';
-import {
-  IonApp,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonMenu,
-  IonMenuButton,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/angular/standalone';
-
+import { ThemeService } from '../../services/theme.service';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // Añade esta línea
+import { ConfiguracionPageRoutingModule } from './configuracion-routing.module';
 
 
 @Component({
   selector: 'app-configuracion',
   templateUrl: './configuracion.page.html',
   styleUrls: ['./configuracion.page.scss'],
-  imports:[IonicModule,CommonModule,RouterModule],
+  imports:[IonicModule,CommonModule,RouterModule,FormsModule],
   standalone:true
 })
 export class ConfiguracionPage implements OnInit {
 
-  isAdmin = true; // Simulación de rol, cambiar según autenticación
-  menuExpanded = false; // Estado del menú desplegable
-  adminExpanded = false; // Estado del submenú de administración
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private themeService: ThemeService) {}
 
-  logout() {
-    this.router.navigate(['/login']);
-  }
-
-  toggleMenu() {
-    this.menuExpanded = !this.menuExpanded;
-  }
-
-  toggleAdminMenu() {
-    this.adminExpanded = !this.adminExpanded;
-  }
-
+  darkMode = false;
 
   ngOnInit() {
+    this.darkMode = this.themeService.isDarkMode();
   }
 
+  toggleDarkMode() {
+    this.themeService.toggleTheme();
+  }
 }

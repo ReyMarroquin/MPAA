@@ -1,37 +1,40 @@
-ion-content{
-    --background:white;
-}
-ion-content{
-    --background:white;
-}
-ion-footer{
-    --background:#247E3E;
-    background-color: #247E3E;
-}
-
-
-ion-menu::part(backdrop) {
-    background-color: rgb(36, 126, 62);
+/* Usa las variables en lugar de valores fijos */
+ion-content {
+    --background: var(--app-background);
+    --color: var(--app-text-color);
+  }
+  
+  ion-footer {
+    --background: var(--app-footer-background);
+    background-color: var(--app-footer-background);
+  }
+  
+  ion-menu::part(backdrop) {
+    background-color: var(--app-menu-background);
   }
   
   ion-menu::part(container) {
     border-radius: 0 20px 20px 0;
+    box-shadow: 4px 0px 16px var(--app-menu-shadow);
+  }
   
-    box-shadow: 4px 0px 16px rgba(255, 0, 255, 0.18);
-}
-.color-menu{
---background:#247E3E;
-}
-ion-toolbar{
-    --background:#247E3E;
-}
-ion-content{
-    --background:white;
-    --color:black;
-}
-ion-item{
-    --color:black;
-}
-ion-item {
-    cursor: pointer; /* Esto fuerza el cursor a ser una mano (puntero) */
-}
+  .color-menu {
+    --background: var(--app-menu-background);
+  }
+  
+  ion-toolbar {
+    --background: var(--ion-color-primary);
+  }
+
+  ion-toggle{
+    --background: var(--ion-color-primary);
+  }
+  
+  ion-item {
+    --background: var(--app-background);
+    --color: var(--app-text-color);
+    cursor: pointer;
+    
+    /* Transición suave para el modo oscuro */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }

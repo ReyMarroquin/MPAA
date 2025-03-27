@@ -2,13 +2,14 @@
     display: none;
 }
   
-  ion-content{
-    --background:white;
-}
 ion-list-header{
     --background:black;
 }
 
+ion-content{
+  --background:--app-background;
+  --color:black;
+ }
 
 ion-menu::part(backdrop) {
     background-color: rgb(36, 126, 62);
@@ -26,18 +27,13 @@ ion-toolbar{
   --background:#247E3E; 
 }
 ion-content{
- --background:white;
+ --background:--app-background;
  --color:black;
 }
 ion-item, .ionion{
    --color:black;
    --background:white;
 
-}
-
-
-ion-content {
-  --background: #ffffff; /* Blanco */
 }
 
 ion-list {

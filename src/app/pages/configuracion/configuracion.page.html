@@ -6,10 +6,17 @@
       <ion-title>Configuracion</ion-title>
     </ion-toolbar>
   </ion-header>
-
-
-
+  
   <ion-content>
+      <ion-item>
+        <ion-toggle 
+          [(ngModel)]="darkMode"
+          (ionChange)="toggleDarkMode()"
+          labelPlacement="start"
+        >
+          Modo Oscuro
+        </ion-toggle>
+      </ion-item>
   </ion-content>
   
   <ion-footer>
