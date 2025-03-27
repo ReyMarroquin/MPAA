@@ -11,13 +11,19 @@ import { Router,RouterModule  } from '@angular/router';
   imports: [IonicModule, CommonModule,RouterModule],
 })
 export class DashboardPage implements OnInit {
-  temperatura: number = 40; // Temperatura en °C
-  calidadAire: number = 80; // Calidad de aire en porcentaje
+  temperatura: number = 20; // Temperatura en °C
+  calidadAire: number = 60; // Calidad de aire en porcentaje
   ruido: number = 50; // Nivel de ruido en dB
   humedad: number = 45; // Humedad en porcentaje
-  calidadAgua: number = 60; // Calidad del agua en porcentaje
+  calidadAgua: number = 0; // Calidad del agua en porcentaje
   co2: number = 300; // Nivel de CO2 en ppm
   luz: number = 300; // Intensidad de luz en lux
+  monoxidoCarbono: number = 5; // Nivel de CO en ppm
+  gasMetano: number = 100; // Nivel de CH4 en ppm
+  vibracion: number = 2; // Nivel de vibración en escala 0-10
+  proximidad: number = 30; // Distancia en cm
+  rfid: string = "No detectado"; // Estado del RFID
+  llama: boolean = false; // Detección de llama/fuego
 
   // Función para obtener el color de la temperatura
   getTemperatureColor(temperatura: number): string {
@@ -143,13 +149,81 @@ export class DashboardPage implements OnInit {
     return Math.min(luz / 5, 100); // La intensidad de luz determina el ancho
   }
 
+  getCOLevelColor(monoxidoCarbono: number): string {
+    if (monoxidoCarbono >= 35) {
+      return 'red'; // Peligroso
+    } else if (monoxidoCarbono >= 9 && monoxidoCarbono < 35) {
+      return 'orange'; // Advertencia
+    } else {
+      return 'green'; // Seguro
+    }
+  }
+
+  getCOLevelWidth(monoxidoCarbono: number): number {
+    return Math.min(monoxidoCarbono * 3, 100);
+  }
+
+  // Gas Metano (CH4)
+  getMethaneColor(gasMetano: number): string {
+    if (gasMetano >= 10000) {
+      return 'red'; // Peligro de explosión
+    } else if (gasMetano >= 1000 && gasMetano < 10000) {
+      return 'orange'; // Advertencia
+    } else {
+      return 'green'; // Seguro
+    }
+  }
+
+  getMethaneWidth(gasMetano: number): number {
+    return Math.min(gasMetano / 100, 100);
+  }
+
+  // Vibración
+  getVibrationColor(vibracion: number): string {
+    if (vibracion >= 7) {
+      return 'red'; // Vibración fuerte
+    } else if (vibracion >= 4 && vibracion < 7) {
+      return 'yellow'; // Vibración moderada
+    } else {
+      return 'green'; // Vibración normal
+    }
+  }
+
+  getVibrationWidth(vibracion: number): number {
+    return vibracion * 10;
+  }
+
+  // Proximidad
+  getProximityColor(proximidad: number): string {
+    if (proximidad <= 10) {
+      return 'red'; // Muy cerca
+    } else if (proximidad > 10 && proximidad <= 30) {
+      return 'yellow'; // Cercano
+    } else {
+      return 'green'; // Normal
+    }
+  }
+
+  getProximityWidth(proximidad: number): number {
+    return Math.max(0, 100 - (proximidad * 2));
+  }
+
+  // RFID (no necesita funciones de color/ancho)
+  
+  // Llama/Fuego
+  getFlameColor(llama: boolean): string {
+    return llama ? 'red' : 'green';
+  }
+
+  getFlameIcon(llama: boolean): string {
+    return llama ? 'flame' : 'flame-outline';
+  }
 
   constructor(private router: Router) {}
 
   logout() {
     this.router.navigate(['/login']);
   }
-
 
   ngOnInit() {}
 }

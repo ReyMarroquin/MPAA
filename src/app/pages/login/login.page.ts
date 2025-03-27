@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { AlertController } from '@ionic/angular';
+import { LoadingController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +23,52 @@ export class LoginPage {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private loadingCtrl: LoadingController,
+    private platform: Platform
   ) {}
+
+  ngOnInit() {
+    this.authService.initAuthListener(); // Inicializa el listener
+    
+    // Opcional: Si ya está logueado, redirige
+    if (this.authService.estaAutenticado()) {
+      const rol = this.authService.getRol();
+      this.router.navigate([this.authService.getDefaultRedirectForRole(rol)]);
+    }
+  }
+
+  async loginWithGoogle() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Iniciando sesión con Google...'
+    });
+    await loading.present();
+
+    try {
+      await this.authService.googleLogin();
+    } catch (error) {
+      console.error(error);
+      // Mostrar mensaje de error al usuario
+    } finally {
+      await loading.dismiss();
+    }
+  }
+
+  async loginWithFacebook() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Iniciando sesión con Facebook...'
+    });
+    await loading.present();
+  
+    try {
+      await this.authService.facebookLogin();
+    } catch (error) {
+      this.errorMessage = typeof error === 'string' ? error : 'Error al iniciar con Facebook';
+      console.error(error);
+    } finally {
+      await loading.dismiss();
+    }
+  }
 
   async login() {
     if (!this.email || !this.password) {

@@ -22,10 +22,10 @@
   <!-- Tarjetas de sensores -->
   <div class="sensors-grid">
     <!-- Sensor de Proximidad -->
-    <ion-card [class.active]="proximityActive"  (click)="toggleSensor('proximity')">
+    <ion-card [class.active]="proximityActive" (click)="toggleSensor('proximity')">
       <ion-card-header>
-        <ion-card-title style=" color: var(--ion-color-primary);">
-          <ion-icon name="move" ></ion-icon> Sensor de Proximidad
+        <ion-card-title style="color: var(--ion-color-primary);">
+          <ion-icon name="move"></ion-icon> Sensor de Proximidad
         </ion-card-title>
         <ion-card-subtitle>
           Estado: {{ proximityActive ? 'Activo' : 'Inactivo' }}
@@ -40,7 +40,7 @@
     <!-- Sensor de Fuego -->
     <ion-card [class.active]="fireActive" (click)="toggleSensor('fire')">
       <ion-card-header>
-        <ion-card-title style=" color: var(--ion-color-primary);">
+        <ion-card-title style="color: var(--ion-color-primary);">
           <ion-icon name="flame"></ion-icon> Sensor de Fuego
         </ion-card-title>
         <ion-card-subtitle>
@@ -57,7 +57,7 @@
     <!-- Sensor de Gas -->
     <ion-card [class.active]="gasActive" (click)="toggleSensor('gas')">
       <ion-card-header>
-        <ion-card-title style=" color: var(--ion-color-primary);">
+        <ion-card-title style="color: var(--ion-color-primary);">
           <ion-icon name="warning"></ion-icon> Sensor de Gas
         </ion-card-title>
         <ion-card-subtitle>
@@ -98,12 +98,61 @@
       </ion-card-content>
     </ion-card>
 
-    
+    <!-- Sensor de Dióxido de Carbono (CO2) -->
+    <ion-card [class.active]="co2Active" (click)="toggleSensor('co2')">
+      <ion-card-header>
+        <ion-card-title style="color: var(--ion-color-primary);">
+          <ion-icon name="leaf"></ion-icon> Sensor CO2
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ co2Active ? 'Monitoreando' : 'Inactivo' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-progress-bar [value]="co2Value / 2000"></ion-progress-bar>
+        <p>Concentración: {{ co2Value | number:'1.0-0' }} ppm</p>
+        <p [style.color]="getCO2LevelColor(co2Value)">{{ getCO2LevelStatus(co2Value) }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Sensor de Monóxido de Carbono (CO) -->
+    <ion-card [class.active]="coActive" (click)="toggleSensor('co')">
+      <ion-card-header>
+        <ion-card-title style="color: var(--ion-color-primary);">
+          <ion-icon name="skull"></ion-icon> Sensor CO
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ coActive ? 'Monitoreando' : 'Inactivo' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-progress-bar [value]="coValue / 50"></ion-progress-bar>
+        <p>Concentración: {{ coValue | number:'1.0-2' }} ppm</p>
+        <p [style.color]="getCOLevelColor(coValue)">{{ getCOLevelStatus(coValue) }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Sensor de Vibración -->
+    <ion-card [class.active]="vibrationActive" (click)="toggleSensor('vibration')">
+      <ion-card-header>
+        <ion-card-title style="color: var(--ion-color-primary);">
+          <ion-icon name="pulse"></ion-icon> Sensor de Vibración
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ vibrationActive ? 'Monitoreando' : 'Inactivo' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-progress-bar [value]="vibrationValue / 10"></ion-progress-bar>
+        <p>Intensidad: {{ vibrationValue | number:'1.0-1' }} / 10</p>
+        <p [style.color]="getVibrationLevelColor(vibrationValue)">{{ getVibrationLevelStatus(vibrationValue) }}</p>
+      </ion-card-content>
+    </ion-card>
 
     <!-- Sensor de Lluvia -->
     <ion-card [class.active]="rainActive" (click)="toggleSensor('rain')">
       <ion-card-header>
-        <ion-card-title style=" color: var(--ion-color-primary);">
+        <ion-card-title style="color: var(--ion-color-primary);">
           <ion-icon name="rainy"></ion-icon> Sensor de Lluvia
         </ion-card-title>
         <ion-card-subtitle>
@@ -121,7 +170,7 @@
     <!-- RFID -->
     <ion-card [class.active]="rfidActive" (click)="toggleSensor('rfid')">
       <ion-card-header>
-        <ion-card-title style=" color: var(--ion-color-primary);">
+        <ion-card-title style="color: var(--ion-color-primary);">
           <ion-icon name="card"></ion-icon> Lector RFID
         </ion-card-title>
         <ion-card-subtitle>
@@ -140,7 +189,7 @@
     <!-- Fotoresistencia -->
     <ion-card [class.active]="lightActive" (click)="toggleSensor('light')">
       <ion-card-header>
-        <ion-card-title style=" color: var(--ion-color-primary);">
+        <ion-card-title style="color: var(--ion-color-primary);">
           <ion-icon name="sunny"></ion-icon> Fotoresistencia
         </ion-card-title>
         <ion-card-subtitle>
@@ -148,7 +197,7 @@
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-progress-bar [value]="lightValue" ></ion-progress-bar>
+        <ion-progress-bar [value]="lightValue"></ion-progress-bar>
         <p>Luminosidad: {{ lightValue * 100 | number:'1.0-0' }}%</p>
       </ion-card-content>
     </ion-card>
@@ -156,7 +205,7 @@
     <!-- Generador Eólico -->
     <ion-card [class.active]="windActive" (click)="toggleSensor('wind')">
       <ion-card-header>
-        <ion-card-title style=" color: var(--ion-color-primary);">
+        <ion-card-title style="color: var(--ion-color-primary);">
           <ion-icon name="flag"></ion-icon> Generador Eólico
         </ion-card-title>
         <ion-card-subtitle>
@@ -171,6 +220,23 @@
         </div>
       </ion-card-content>
     </ion-card>
+
+    <!-- Sensor de Metano -->
+    <ion-card [class.active]="methaneActive" (click)="toggleSensor('methane')">
+      <ion-card-header>
+        <ion-card-title style="color: var(--ion-color-primary);">
+          <ion-icon name="warning"></ion-icon> Sensor de Metano
+        </ion-card-title>
+        <ion-card-subtitle>
+          Estado: {{ methaneActive ? 'Monitoreando' : 'Inactivo' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-progress-bar [value]="methaneValue / 10000"></ion-progress-bar>
+        <p>Concentración: {{ methaneValue | number:'1.0-0' }} ppm</p>
+        <p [style.color]="getMethaneLevelColor(methaneValue)">{{ getMethaneLevelStatus(methaneValue) }}</p>
+      </ion-card-content>
+    </ion-card>
   </div>
 
   <!-- Panel de control -->
@@ -180,6 +246,7 @@
     </ion-fab-button>
   </ion-fab>
 </ion-content>
+
 <ion-footer>
   <p class="footer-text">© 2025 MPA Seguridad Inteligente</p>
 </ion-footer>

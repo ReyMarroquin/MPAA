@@ -10,7 +10,7 @@
 <ion-content class="ion-padding">
  <!-- Contenedor principal que se muestra en horizontal -->
   <div class="sensor-container">
-    <!-- Card: Temperatura -->
+    <!-- Sensores existentes (se mantienen igual) -->
     <div class="sensor-item">
       <ion-card>
         <ion-card-header>
@@ -31,7 +31,6 @@
       </ion-card>      
     </div>
 
-    <!-- Card: Calidad de Aire -->
     <div class="sensor-item">
       <ion-card>
         <ion-card-header>
@@ -52,7 +51,6 @@
       </ion-card>
     </div>
 
-    <!-- Card: Nivel de Ruido -->
     <div class="sensor-item">
       <ion-card>
         <ion-card-header>
@@ -73,7 +71,6 @@
       </ion-card>
     </div>
 
-    <!-- Card: Humedad -->
     <div class="sensor-item">
       <ion-card>
         <ion-card-header>
@@ -94,7 +91,6 @@
       </ion-card>
     </div>
 
-    <!-- Card: Calidad de Agua -->
     <div class="sensor-item">
       <ion-card>
         <ion-card-header>
@@ -115,7 +111,6 @@
       </ion-card>
     </div>
 
-    <!-- Card: CO2 -->
     <div class="sensor-item">
       <ion-card>
         <ion-card-header>
@@ -136,7 +131,6 @@
       </ion-card>
     </div>
 
-    <!-- Card: Intensidad de Luz -->
     <div class="sensor-item">
       <ion-card>
         <ion-card-header>
@@ -153,6 +147,126 @@
                }">
           </div>
           <div class="sensor-value">{{ luz }} lux</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Nuevos sensores agregados -->
+    
+    <!-- Monóxido de Carbono (CO) -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>
+          <div class="temp">
+            <ion-icon name="skull"></ion-icon>
+            <span>Monóxido Carbono</span> 
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="sensor-bar" 
+               [ngStyle]="{
+                  'background-color': getCOLevelColor(monoxidoCarbono), 
+                  'width': getCOLevelWidth(monoxidoCarbono) + '%'
+               }">
+          </div>
+          <div class="sensor-value">{{ monoxidoCarbono }} ppm</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Gas Metano (CH4) -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>
+          <div class="temp">
+            <ion-icon name="warning"></ion-icon>
+            <span>Gas Metano</span> 
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="sensor-bar" 
+               [ngStyle]="{
+                  'background-color': getMethaneColor(gasMetano), 
+                  'width': getMethaneWidth(gasMetano) + '%'
+               }">
+          </div>
+          <div class="sensor-value">{{ gasMetano }} ppm</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Vibración -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>
+          <div class="temp">
+            <ion-icon name="pulse"></ion-icon>
+            <span>Vibración</span> 
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="sensor-bar" 
+               [ngStyle]="{
+                  'background-color': getVibrationColor(vibracion), 
+                  'width': getVibrationWidth(vibracion) + '%'
+               }">
+          </div>
+          <div class="sensor-value">{{ vibracion }} / 10</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Proximidad -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>
+          <div class="temp">
+            <ion-icon name="move"></ion-icon>
+            <span>Proximidad</span> 
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="sensor-bar" 
+               [ngStyle]="{
+                  'background-color': getProximityColor(proximidad), 
+                  'width': getProximityWidth(proximidad) + '%'
+               }">
+          </div>
+          <div class="sensor-value">{{ proximidad }} cm</div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- RFID -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>
+          <div class="temp">
+            <ion-icon name="card"></ion-icon>
+            <span>RFID</span> 
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="sensor-value" [style.color]="rfid !== 'No detectado' ? 'green' : 'red'">
+            {{ rfid }}
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Llama/Fuego -->
+    <div class="sensor-item">
+      <ion-card>
+        <ion-card-header>
+          <div class="temp">
+            <ion-icon [name]="getFlameIcon(llama)" [color]="getFlameColor(llama)"></ion-icon>
+            <span>Detección de llama</span> 
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="sensor-value" [style.color]="getFlameColor(llama)">
+            {{ llama ? '¡LLAMA DETECTADA!' : 'No hay llama' }}
+          </div>
         </ion-card-content>
       </ion-card>
     </div>

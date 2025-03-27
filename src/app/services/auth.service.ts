@@ -3,6 +3,13 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { User } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
+import { Browser } from '@capacitor/browser';
+import { Capacitor } from '@capacitor/core';
+import * as auth from 'firebase/auth';
+import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
+import { User as FirebaseUser } from '@firebase/auth';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -204,6 +211,136 @@ export class AuthService {
         return 'Error al autenticar. Por favor, inténtalo de nuevo.';
     }
   }
+
+  async googleLogin(): Promise<any> {
+    const provider = new GoogleAuthProvider();
+    
+    if (Capacitor.isNativePlatform()) {
+      try {
+        await Browser.open({ 
+          url: `https://mpaa-9efab.firebaseapp.com/__/auth/handler?provider=google.com`, 
+          windowName: '_self' 
+        });
+        
+        const result = await this.afAuth.getRedirectResult();
+        if (result.user) {
+          await this.handleSocialLoginSuccess(result.user);
+          return result.user;
+        }
+        return null;
+      } catch (error) {
+        console.error('Error en login con Google:', error);
+        throw error;
+      }
+    } else {
+      try {
+        const result = await this.afAuth.signInWithPopup(provider);
+        await this.handleSocialLoginSuccess(result.user);
+        return result.user;
+      } catch (error) {
+        console.error('Error en login con Google:', error);
+        throw error;
+      }
+    }
+  }
+
+  // Nuevo método para Facebook Login
+  async facebookLogin(): Promise<any> {
+    const provider = new FacebookAuthProvider();
+    provider.addScope('email'); // Solicitar acceso al email
+
+    if (Capacitor.isNativePlatform()) {
+      try {
+        await Browser.open({
+          url: `https://mpaa-9efab.firebaseapp.com/__/auth/handler`,
+          windowName: '_self'
+        });
+
+        const result = await this.afAuth.getRedirectResult();
+        if (result.user) {
+          await this.handleSocialLoginSuccess(result.user);
+          return result.user;
+        }
+        return null;
+      } catch (error) {
+        console.error('Error en login con Facebook:', error);
+        throw error;
+      }
+    } else {
+      try {
+        const result = await this.afAuth.signInWithPopup(provider);
+        await this.handleSocialLoginSuccess(result.user);
+        return result.user;
+      } catch (error) {
+        console.error('Error en login con Facebook:', error);
+        throw this.translateFacebookError(error);
+      }
+    }
+  }
+
+  private async handleSocialLoginSuccess(user: any) {
+    this.usuario = {
+      nombre: user.displayName || user.email?.split('@')[0],
+      correo: user.email,
+      rol: this.determinarRol(user.email),
+      providerData: user.providerData // Guarda info del proveedor (Facebook/Google)
+    };
+    
+    localStorage.setItem('usuario', JSON.stringify(this.usuario));
+    this.authState.next(true);
+    await this.router.navigate(['/dashboard']);
+  }
+
+  private translateFacebookError(error: any): string {
+    const errorCode = error.code || error.message;
+    switch (errorCode) {
+      case 'auth/account-exists-with-different-credential':
+        return 'Este email ya está registrado con otro método';
+      case 'auth/popup-closed-by-user':
+        return 'Ventana de login cerrada';
+      case 'auth/facebook-auth/access-denied':
+        return 'Acceso denegado por Facebook';
+      default:
+        return 'Error al autenticar con Facebook';
+    }
+  }
+
+  initAuthListener() {
+    this.afAuth.authState.subscribe(
+      (user) => { // Sin especificar tipo explícito
+        if (user) {
+          this.handleAuthenticatedUser(user);
+        } else {
+          this.handleUnauthenticatedUser();
+        }
+      },
+      (err) => {
+        console.error('Auth error:', err);
+        this.handleUnauthenticatedUser();
+      }
+    );
+  }
+  
+  private handleAuthenticatedUser(user: any) {
+    this.usuario = {
+      nombre: user.displayName || user.email?.split('@')[0],
+      correo: user.email,
+      rol: this.determinarRol(user.email),
+      uid: user.uid,
+      photoURL: user.photoURL
+    };
+    
+    localStorage.setItem('usuario', JSON.stringify(this.usuario));
+    this.authState.next(true);
+    this.router.navigate([this.getDefaultRedirectForRole(this.usuario.rol)]);
+  }
+  
+  private handleUnauthenticatedUser() {
+    this.usuario = null;
+    localStorage.removeItem('usuario');
+    this.authState.next(false);
+  }
+
   // Añade este método para mantener consistencia
 getUserRole(): string {
   return this.getRol(); // Ya que tienes getRol() definido

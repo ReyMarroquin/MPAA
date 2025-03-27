@@ -28,6 +28,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.initAuthListener();
+
     this.actualizarMenu();
     
     // Escuchar cambios de autenticación
@@ -70,5 +72,7 @@ export class AppComponent implements OnInit {
     this.mostrarMenu = this.authService.estaAutenticado() && 
        !['/login', '/registro', '/home'].includes(url);
   }
+
+  
     
 }

@@ -113,7 +113,33 @@ ion-footer {
 }
 
 
-
+.login-container {
+  ion-button {
+    margin-bottom: 15px;
+    
+    &[color="medium"] {
+      --background: #2F2F2F;
+      --color: white;
+    }
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    
+    &:before, &:after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid var(--ion-color-medium);
+    }
+    
+    span {
+      padding: 0 10px;
+      color: var(--ion-color-medium);
+    }
+  }
+}
 
 
 

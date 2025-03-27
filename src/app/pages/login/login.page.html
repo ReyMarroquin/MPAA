@@ -34,6 +34,16 @@
         <span *ngIf="!loading">Iniciar Sesión</span>
       </ion-button>
 
+      <ion-button expand="block" (click)="loginWithGoogle()">
+        <ion-icon slot="start" name="logo-google"></ion-icon>
+        Continuar con Google
+      </ion-button>
+  
+      <ion-button expand="block" color="primary" (click)="loginWithFacebook()">
+        <ion-icon slot="start" name="logo-facebook"></ion-icon>
+        Continuar con Facebook
+      </ion-button>
+
       <p class="forgot-password" (click)="resetPassword()">
         ¿Olvidaste tu contraseña?
       </p>
