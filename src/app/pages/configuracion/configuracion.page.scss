@@ -1,111 +1,95 @@
 /* Usa las variables en lugar de valores fijos */
-ion-content {
-    --background: var(--app-background);
-    --color: var(--app-text-color);
-  }
-  
-  ion-footer {
-    --background: var(--app-footer-background);
-    background-color: var(--app-footer-background);
-  }
-  
-  ion-menu::part(backdrop) {
-    background-color: var(--app-menu-background);
-ion-content{
-    --background:white;
-}
+/* Asegurar que el fondo y color se apliquen correctamente */
+ion-content.configuracion-content {
+  --background: var(--app-background) !important;
+  --background-color: var(--app-background) !important;
+  --color: var(--app-text-color) !important;
 
-ion-footer{
-    --background:#247E3E;
-    background-color: #247E3E;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
-ion-menu::part(backdrop) {
-    background-color: rgb(36, 126, 62);
-  }
-  
-  ion-menu::part(container) {
-    border-radius: 0 20px 20px 0;
-    box-shadow: 4px 0px 16px var(--app-menu-shadow);
-  }
-  
-  .color-menu {
-    --background: var(--app-menu-background);
-  }
-  
-  ion-toolbar {
-    --background: var(--ion-color-primary);
-  }
-
-  ion-toggle{
-    --background: var(--ion-color-primary);
-  }
-  
-  ion-item {
-    --background: var(--app-background);
-    --color: var(--app-text-color);
-    cursor: pointer;
-    
-    /* Transición suave para el modo oscuro */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    box-shadow: 4px 0px 16px rgba(255, 0, 255, 0.18);
-
-  }
-}
-.color-menu{
-  --background:#247E3E;
-}
-ion-toolbar{
-  --background:#247E3E;
-}
 ion-footer {
-  background: #247E3E;
+  --background: var(--app-footer-background);
+  background-color: var(--app-footer-background);
   text-align: center;
   padding: 10px;
 }
+
 .footer-text {
   color: white;
   font-size: 0.9rem;
   margin: 0;
 }
-ion-content{
-    --background:white;
+
+ion-menu::part(backdrop) {
+  background-color: var(--app-menu-background);
 }
-ion-label{
-    --background:white;
+
+ion-menu::part(container) {
+  border-radius: 0 20px 20px 0;
+  box-shadow: 4px 0px 16px var(--app-menu-shadow);
 }
-ion-item{
-    --background: white;
-    --color:black;
+
+.color-menu {
+  --background: var(--app-menu-background);
 }
-.configuracion-content {
-    --background: #f5f5f5; // Fondo claro para el contenido
-  
-    .language-selector {
-      margin-top: 20px;
-      --background: #ffffff;
-      border-radius: 12px;
-      margin: 16px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      
-      ion-icon {
-        color: var(--ion-color-primary);
-        font-size: 1.5em;
-      }
-    }
-  
-    .language-select {
-      width: 100%;
-      justify-content: flex-end;
-      
-      .select-icon {
-        color: var(--ion-color-primary);
-      }
-    }
-  }
-  
-  
+
+ion-toolbar {
+  --background: var(--ion-color-primary);
+}
+
+ion-toggle {
+  --background: var(--ion-color-primary);
+}
+
+
+/* Ajustes específicos de color */
+.color-menu {
+  --background: #247E3E;
+}
+
+ion-toolbar,
+ion-footer {
+  --background: #247E3E;
+}
+
+ion-label {
+  --background: white;
+}
+
 ion-item {
-  cursor: pointer; /* Esto fuerza el cursor a ser una mano (puntero) */
+  --background: var(--app-background) !important;
+  --color: var(--app-text-color) !important;
+  cursor: pointer;
+
+  /* Transición suave para el modo oscuro */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.configuracion-content {
+  --background: #f5f5f5; /* Fondo claro para el contenido */
+}
+
+.language-selector {
+  margin-top: 20px;
+  --background: #ffffff;
+  border-radius: 12px;
+  margin: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.language-selector ion-icon {
+  color: var(--ion-color-primary);
+  font-size: 1.5em;
+}
+
+.language-select {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.language-select .select-icon {
+  color: var(--ion-color-primary);
 }
