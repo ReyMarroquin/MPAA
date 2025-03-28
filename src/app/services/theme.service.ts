@@ -39,6 +39,8 @@ export class ThemeService {
       root.style.setProperty('--app-light-off', '#515151');
       root.style.setProperty('--app-elevator-inactive', '#515151');
       root.style.setProperty('--app-card', '#4e4e4e');
+      root.style.setProperty('--app-sensor', '#ffffff');
+      
 
       
     } else {
@@ -47,6 +49,7 @@ export class ThemeService {
       root.style.setProperty('--app-light-off', '#d40000');
       root.style.setProperty('--app-elevator-inactive', '#d40000');
       root.style.setProperty('--app-card', '#ffffff');
+      root.style.setProperty('--app-sensor', '#247E3E');
 
 
     }

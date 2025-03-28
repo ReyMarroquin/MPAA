@@ -78,52 +78,66 @@
 	--ion-color-primary: #247E3E;
 	--ion-color-primary-rgb: 36,126,62;
 
-	/* Variables personalizadas */
+/* Variables generales */
 	--ion-background-color: #ffffff;
 	--ion-text-color: #000000;
-	
-	/* Tus variables personalizadas */
+  
+	/* Colores de la app */
 	--app-background: #ffffff;
 	--app-footer-background: #247E3E;
 	--app-text-color: black;
 	--app-menu-background: #247E3E;
-	--app-menu-shadow: rgba(255, 0, 255, 0.18);
+	--app-menu-shadow: rgba(51, 51, 51, 0.318);
 	--app-card: rgb(255, 255, 255);
 	--app-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
+	--app-sensor:#247E3E;
+	
 	/* Luces */
 	--app-light-off: #d40000;
 	--app-light-on: #32cd32;
-
+  
 	/* Puertas */
 	--app-door-closed: #d40000;
 	--app-door-open: #32cd32;
-
+  
 	/* Elevadores */
 	--app-elevator-inactive: #d40000;
 	--app-elevator-active: #32cd32;
+
+	--sensor-bar-color: #247E3E;
+  	--sensor-value-color: #525252;
+  
+
   }
   
   @media (prefers-color-scheme: dark) {
 	:root {
 	  --ion-background-color: #121212;
 	  --ion-text-color: #ffffff;
-	  
-	  
+  
+	  /* Modo oscuro */
 	  --app-background: #1e1e1e;
 	  --app-text-color: #ffffff;
-	  --app-card: #4e4e4e; /* Debe coincidir con --ion-card-background */
+	  --app-card: #4e4e4e;
+	  
+	  /* Luces */
+	  --app-light-off: #515151;
+	  --app-light-on: #4caf50;
+  
+	  /* Puertas */
+	  --app-door-closed: #515151;
+	  --app-door-open: #4caf50;
+  
+	  /* Elevadores */
+	  --app-elevator-inactive: #515151;
+	  --app-elevator-active: #4caf50;
 
-	    /* Luces */
- 	  --app-light-off: #515151;
-  	  --app-light-on: #4caf50;
-		  
-  	  /* Puertas */
-  	  --app-door-closed: #515151;
-  	  --app-door-open: #4caf50;
-		  
-  	  /* Elevadores */
-  	  --app-elevator-inactive: #515151;
-  	  --app-elevator-active: #4caf50;
+	  --sensor-bar-color: #247E3E;
+  	  --sensor-value-color: #333;
+
+	  --app-menu-shadow: rgba(35, 183, 28, 0.289);
+	  --app-sensor:#ffffff;
+
 	}
   }
+  

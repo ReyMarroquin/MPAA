@@ -1,102 +1,104 @@
 .sensor-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  /* 1 card por fila en pantallas pequeñas */
-  .sensor-item {
-    width: 100%; /* 1 card por fila */
-    margin-bottom: 20px;
-  }
-  .temp {
-    display: flex;
-    align-items: center;
-  }
-  
-  ion-icon {
-    margin-right: 8px;
-    font-size: 24px; /* Ajusta el tamaño del ícono */
-  }
-  
- 
-  ion-card-header{
-    font-size: 20px;
-    display:flex;
-    align-items: center;
-    --color:#247E3E;
-  }
-  
-  ion-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px;
-    height: 150px; 
-    --background: white;
-    box-shadow: 0px 4px 6px rgb(36, 126, 62);
-    ;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-  }
-  
-  /* Aseguramos que el contenido de la card ocupe el 100% */
-  ion-card-content {
-    width: 100%;
-  }
-  
-  .sensor-bar {
-    width: 100%;
-    height: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .sensor-value {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-  }
+/* 1 card por fila en pantallas pequeñas */
+.sensor-item {
+  width: 100%; /* 1 card por fila */
+  margin-bottom: 20px;
+}
 
-  ion-content {
-    padding-bottom: 56px; /* Deja espacio para los tabs fijos */
-    height: calc(100vh - 56px); /* Asegura que el contenido ocupe el resto de la pantalla, sin tapar los tabs */
-    overflow-y: auto; /* Permite el scroll vertical */
-  }
-  
-  ion-tabs {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-  ion-toolbar{
-    --background:#247E3E;
+.temp {
+  display: flex;
+  align-items: center;
 }
-  ion-content{
-    --background:white;
-    --color:black;
+
+ion-icon {
+  margin-right: 8px;
+  font-size: 24px; /* Ajusta el tamaño del ícono */
 }
-ion-tab-bar, ion-tab-button{
-  background:#247E3E;
+
+ion-card-header {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  --color: var(--app-sensor);
 }
-ion-label{
-  color: white;
+
+ion-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+  height: 150px;
+  --background: var(--app-card);
+  color: var(--app-text-color);
+  box-shadow: 2px 5px 7px var(--app-menu-shadow);
 }
+
+/* Aseguramos que el contenido de la card ocupe el 100% */
+ion-card-content {
+  width: 100%;
+}
+
+.sensor-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.sensor-value {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--app-text-color);
+}
+
+ion-content {
+  padding-bottom: 56px; /* Deja espacio para los tabs fijos */
+  height: calc(100vh - 56px); /* Asegura que el contenido ocupe el resto de la pantalla, sin tapar los tabs */
+  overflow-y: auto; /* Permite el scroll vertical */
+  --background: var(--app-background);
+  --color: var(--app-text-color);
+}
+
+ion-tabs {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+ion-toolbar {
+  --background: var(--app-footer-background);
+}
+
+ion-tab-bar,
+ion-tab-button {
+  background: var(--app-footer-background);
+}
+
+ion-label {
+  color: var(--app-text-color);
+}
+
 @media (max-width: 600px) {
 }
-  /* Para pantallas medianas (Tablet) */
-  @media screen and (min-width: 768px) {
-    .sensor-item {
-      width: 48%; /* 2 cards por fila */
-    }
+
+/* Para pantallas medianas (Tablet) */
+@media screen and (min-width: 768px) {
+  .sensor-item {
+    width: 48%; /* 2 cards por fila */
   }
-  
-  /* Para pantallas grandes (Desktop) */
-  @media screen and (min-width: 1024px) {
-    .sensor-item {
-      width: 32%; /* 4 cards por fila */
-    }
+}
+
+/* Para pantallas grandes (Desktop) */
+@media screen and (min-width: 1024px) {
+  .sensor-item {
+    width: 32%; /* 4 cards por fila */
   }
-  
+}

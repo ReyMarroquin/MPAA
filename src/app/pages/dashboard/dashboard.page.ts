@@ -15,7 +15,7 @@ export class DashboardPage implements OnInit {
   calidadAire: number = 60; // Calidad de aire en porcentaje
   ruido: number = 50; // Nivel de ruido en dB
   humedad: number = 45; // Humedad en porcentaje
-  calidadAgua: number = 0; // Calidad del agua en porcentaje
+  calidadAgua: number = 20; // Calidad del agua en porcentaje
   co2: number = 300; // Nivel de CO2 en ppm
   luz: number = 300; // Intensidad de luz en lux
   monoxidoCarbono: number = 5; // Nivel de CO en ppm
