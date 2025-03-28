@@ -1,4 +1,3 @@
-
 ion-tabs {
   position: absolute;
   bottom: 0;
@@ -7,20 +6,23 @@ ion-tabs {
 }
 
 ion-toolbar {
-  --background: #247E3E;
+  --background: var(--app-footer-background);
 }
 
 ion-content {
-  --background: #f8f9fa;
-  --color: #333;
+  --background: var(--app-background);
+  --color: var(--app-text-color);
 }
 
-ion-tab-bar, ion-tab-button {
-  background: #247E3E;
+ion-tab-bar,
+ion-tab-button {
+  background: var(--app-footer-background);
+  --color: white;
+
 }
 
 ion-label {
-  color: white;
+  color: var(--app-text-color);
   font-weight: bold;
 }
 
@@ -43,35 +45,32 @@ ion-label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--app-menu-shadow);
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 8px var(--app-shadow);
   padding: 16px;
   text-align: center;
-  transition: transform 0.2s ease-in-out;
 }
 
-.section:hover {
-  transform: scale(1.05);
-}
 
 .section h2 {
   margin-bottom: 8px;
   font-size: 20px;
-  color: #1E5631;
+  color: var(--app-footer-background);
   font-weight: bold;
 }
 
 .section p {
   font-size: 14px;
-  color: #555;
+  color: var(--app-text-color);
 }
 
 .light ion-icon {
-  font-size: 10px;  
-  transition: color 0.3s ease; 
+  font-size: 10px;
+  transition: color 0.3s ease;
+  color: #cacaca;
+  
 }
-
 
 /* Luces */
 .lights-container {
@@ -80,27 +79,28 @@ ion-label {
   gap: 12px;
   padding: 10px;
   justify-content: center;
+
 }
 
 .light {
-  background-color: #d40000; 
+  background-color: var(--app-light-off);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   font-size: 16px;
-  color: white;
+  color:yellow;
   font-weight: bold;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 6px var(--app-shadow);
   transition: background-color 0.3s ease, transform 0.2s ease;
-  outline: none; 
+  outline: none;
 }
 
 .light.on {
-  background-color: #32cd32; 
+  background-color: var(--app-light-on);
 }
 
 .light:focus {
-  background-color: #d40000; 
+  background-color: var(--app-light-off);
 }
 
 /* Puertas */
@@ -112,27 +112,26 @@ ion-label {
 }
 
 .door {
-  background-color: #d40000; 
+  background-color: var(--app-light-off);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   font-size: 14px;
-  color: white;
+  color: var(--app-text-color);
   transition: background-color 0.5s ease, transform 0.3s ease;
-  outline: none; 
+  outline: none;
 }
 
 .door.open {
-  background-color: #32cd32; 
+  background-color: var(--app-door-open);
   animation: fadeEffect 0.3s ease-in-out;
 }
 
-
 .door:focus {
-  background-color: #d40000; 
+  background-color: var(--app-door-closed);
 }
 
-
+/* Elevadores */
 .elevators-container {
   display: flex;
   flex-direction: row;
@@ -141,31 +140,33 @@ ion-label {
 }
 
 .elevator {
-  background-color: #d40000; 
+  background-color: var(--app-elevator-inactive);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   font-size: 14px;
-  color: white;
+  color: var(--app-text-color);
   transition: background-color 0.4s ease-in-out, transform 0.3s ease;
-  outline: none; 
+  outline: none;
 }
 
 .elevator.active {
-  background-color: #32cd32;
+  background-color: var(--app-elevator-active);
   transform: scale(1.1);
 }
 
 .elevator:active {
-  background-color: #d40000; 
+  background-color: var(--app-elevator-inactive);
 }
-
 
 @keyframes fadeEffect {
-  0% { opacity: 0.6; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
 
 @media (max-width: 768px) {
   .general-view {
@@ -186,7 +187,9 @@ ion-label {
     gap: 10px;
   }
 
-  .light, .door, .elevator {
+  .light,
+  .door,
+  .elevator {
     font-size: 14px;
     padding: 15px;
   }
@@ -214,7 +217,9 @@ ion-label {
     gap: 15px;
   }
 
-  .light, .door, .elevator {
+  .light,
+  .door,
+  .elevator {
     font-size: 15px;
     padding: 18px;
   }
@@ -223,4 +228,3 @@ ion-label {
     font-size: 19px;
   }
 }
-
