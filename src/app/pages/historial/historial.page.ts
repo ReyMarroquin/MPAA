@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Router,RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   IonApp,
   IonButtons,
@@ -18,7 +19,7 @@ import {
   templateUrl: './historial.page.html',
   styleUrls: ['./historial.page.scss'],
   standalone:true,
-  imports:[IonicModule,CommonModule,RouterModule]
+  imports:[IonicModule,CommonModule,RouterModule, TranslateModule]
 })
 export class HistorialPage implements OnInit {
 

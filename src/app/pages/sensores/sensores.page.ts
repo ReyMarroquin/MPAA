@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sensors',
   templateUrl: './sensores.page.html',
   styleUrls: ['./sensores.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, RouterModule]
+  imports: [IonicModule, CommonModule, RouterModule,  TranslateModule]
 })
 export class SensoresPage implements OnInit {
   // Estados de los sensores
