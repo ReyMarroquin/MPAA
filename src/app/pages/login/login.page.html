@@ -29,21 +29,15 @@
         {{ errorMessage }}
       </div>
 
-      <ion-button expand="full" type="submit" [disabled]="loading">
+      <ion-button  type="submit" [disabled]="loading">
         <ion-spinner *ngIf="loading"></ion-spinner>
         <span *ngIf="!loading">Iniciar Sesión</span>
       </ion-button>
 
-      <ion-button expand="block" (click)="loginWithGoogle()">
+      <ion-button (click)="loginWithGoogle()" class="logingo">
         <ion-icon slot="start" name="logo-google"></ion-icon>
-        Continuar con Google
+        Google
       </ion-button>
-  
-      <ion-button expand="block" color="primary" (click)="loginWithFacebook()">
-        <ion-icon slot="start" name="logo-facebook"></ion-icon>
-        Continuar con Facebook
-      </ion-button>
-
       <p class="forgot-password" (click)="resetPassword()">
         ¿Olvidaste tu contraseña?
       </p>
