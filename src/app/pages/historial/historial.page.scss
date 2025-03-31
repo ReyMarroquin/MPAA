@@ -1,113 +1,106 @@
-/* Fondo blanco */
 ion-content {
-  --background: white;
+  --background: var(--app-background);
 }
-
 
 .sensor-container {
   display: grid;
-  grid-template-columns: 1fr; 
-  gap: 15px; 
-  padding: 10px; 
+  grid-template-columns: 1fr;
+  gap: 15px;
+  padding: 10px;
   justify-content: center;
 }
 
-
 .sensor-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 15px; 
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
 
 .sensor-row .center {
-  grid-column: span 3; 
+  grid-column: span 3;
   justify-self: center;
-  width: 100%; 
-  max-width: 400px; 
-  
+  width: 100%;
+  max-width: 400px;
 }
 
 .sensor-card {
-  background: #ffffff;
-  padding: 15px; 
-  border-radius: 12px; 
-  box-shadow: 0px 5px 10px #247E3E; 
+  background: var(--app-card);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: var(--app-shadow);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  border-left: 4px solid #247E3E; 
+  border-left: 4px solid var(--app-sensor);
   position: relative;
   overflow: hidden;
-  min-height: auto; 
+  min-height: auto;
 }
 
 .sensor-card:hover {
   transform: translateY(-5px);
-  box-shadow: #247E3E;
+  box-shadow: var(--app-sensor);
 }
-
 
 .sensor-card h2 {
-  font-size: 16px; 
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #247E3E;
+  color: var(--app-sensor);
   text-align: center;
 }
-
 
 .sensor-info {
   display: flex;
   align-items: center;
-  gap: 6px; 
-  background: #F8F9FA;
-  padding: 10px; 
+  gap: 6px;
+  background: var(--app-background-color);
+  padding: 10px;
   border-radius: 6px;
-  margin-bottom: 8px; 
+  margin-bottom: 8px;
   transition: background 0.3s ease-in-out;
+  color: var(--app-text-color);
 }
 
+.card-back{
+  color: var(--app-text-color);
+}
 
 .sensor-info:hover {
-  background: #E6F4EA;
+  background: var(--app-menu-shadow);
 }
-
 
 .sensor-info ion-icon {
-  font-size: 18px; 
-  color: #247E3E;
+  font-size: 18px;
+  color: var(--app-sensor);
 }
 
-
 .sensor-info p {
-  font-size: 14px; 
-  color: #333;
+  font-size: 14px;
+  color: var(--sensor-value-color);
   margin: 0;
   font-weight: 600;
 }
 
-
 ion-footer {
-  --background: #247E3E !important; 
+  --background: var(--app-footer-background) !important;
 }
 
-
 ion-tab-bar {
-  --background: #247E3E !important;
+  --background: var(--app-footer-background) !important;
 }
 
 ion-tab-button {
-  --color: white;
-  --color-selected: #E6F4EA; 
+  --color: var(--ion-text-color);
+  --color-selected:white;
 }
 
 ion-label {
-  color: white;
+  color: var(--ion-text-color);
 }
 
 ion-header, ion-toolbar {
-  --background: #247E3E !important; 
-  color: white !important;
+  --background: var(--app-footer-background) !important;
+  color: var(--ion-text-color) !important;
 }
-
 
 @media (max-width: 600px) {
   .sensor-container {
@@ -116,33 +109,23 @@ ion-header, ion-toolbar {
   }
 
   .sensor-row {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
     gap: 15px;
   }
 
   .sensor-card {
-    padding: 12px; 
+    padding: 12px;
   }
 
-  
   .sensor-info ion-icon {
-    font-size: 16px; 
+    font-size: 16px;
   }
 
- 
   .sensor-info p {
-    font-size: 13px; 
+    font-size: 13px;
   }
 
   .sensor-card h2 {
-    font-size: 14px; 
+    font-size: 14px;
   }
 }
-
-
-
-
-
-
-
-

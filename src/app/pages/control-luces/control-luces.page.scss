@@ -17,11 +17,11 @@ ion-content {
 
 ion-tab-bar, ion-tab-button {
   --background: var(--app-menu-background) !important;
+  --color:white;
 }
 
 ion-label {
-  --color: var(--app-text-color) !important;
-  font-weight: bold;
+  --color:white;
 }
 
 .disabled {

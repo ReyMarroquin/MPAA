@@ -219,7 +219,7 @@ export class AuthService {
       try {
         await Browser.open({ 
           url: `https://mpaa-9efab.firebaseapp.com/__/auth/handler?provider=google.com`, 
-          windowName: '_self' 
+          windowName: '_self'   
         });
         
         const result = await this.afAuth.getRedirectResult();

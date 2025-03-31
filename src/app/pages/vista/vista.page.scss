@@ -17,13 +17,11 @@ ion-content {
 ion-tab-bar,
 ion-tab-button {
   background: var(--app-footer-background);
-  --color: white;
-
+  color: white;
 }
 
 ion-label {
-  color: var(--app-text-color);
-  font-weight: bold;
+  color: white;
 }
 
 .disabled {
@@ -158,6 +156,13 @@ ion-label {
 .elevator:active {
   background-color: var(--app-elevator-inactive);
 }
+
+
+
+
+
+
+
 
 @keyframes fadeEffect {
   0% {

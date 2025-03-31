@@ -11,102 +11,101 @@ ion-label{
 
 /* Barra de navegación */
 ion-toolbar {
-    --background: #247E3E; /* Fondo verde */
-    --color: white; /* Color del texto en blanco */
-    --box-shadow: none; /* Quitar sombra para hacerlo más limpio */
-  }
-  
-  /* Fondo blanco */
-  ion-content {
-    --background: white; /* Fondo blanco */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  /* Cambia el color de los labels a blanco */
+  --background: #247E3E; /* Fondo verde */
+  --color: white; /* Color del texto en blanco */
+  --box-shadow: none; /* Quitar sombra para hacerlo más limpio */
+}
+
+/* Fondo blanco */
+ion-content{
+  background-color: var(--app-background); /* Fondo blanco */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+/* Cambia el color de los labels a blanco */
+
+/* Contenedor principal */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  background-color:var(--app-background) ;
+}
+
+/* Tarjetas con estilo moderno y minimalista */
+.profile-card {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+  background-color: var(--app-background);
+}
 
 
-  
-  /* Contenedor principal */
-  .profile-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-  }
-  
-  /* Tarjetas con estilo moderno y minimalista */
-  .profile-card {
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    background: transparent;
-  }
-  
-  
-  
-  /* Tarjeta con fondo blanco */
-  .card-glassmorphism {
-    background: rgba(255, 255, 255, 1); /* Fondo blanco */
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0px 10px 20px rgba(8, 175, 89, 0.1); /* Sombra suave */
-  }
-  
-  /* Encabezado del perfil */
-  ion-card-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .email{
-   height:50px ;
-   width:20px;
-  }
-  /* Icono de usuario */
-  .icon-container {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #247E3E; /* Fondo verde para el icono */
-  }
-  .gc, .close{
-    --background:#247E3E;
-    display: flex;
-    flex-direction: column;
-    padding-top:15px;
-    --padding: 5px; /* Espaciado interno reducido */
-    width: 85%;
-    margin: 3px auto; /* Centrando los botones */
-  }
-  
-  .icon-container ion-icon {
-    font-size: 40px;
-    color: white;
-  }
-  
-  /* Colores de fondo para cada tipo de usuario */
-  .admin-bg {
-    background: #247E3E;/* Fondo rojo para administrador */
-  }
-  
-  .user-bg {
-    background: #247E3E;/* Fondo azul para usuario */
-  }
-  
-  /* Información del usuario */
-  .user-info {
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
-  }
 
+/* Tarjeta con fondo blanco */
+.card-glassmorphism {
+  background-color: var(--app-background); /* Fondo blanco */
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0px 10px 20px rgba(8, 175, 89, 0.1); /* Sombra suave */
+}
+
+/* Encabezado del perfil */
+ion-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.email{
+ height:50px ;
+ width:20px;
+}
+/* Icono de usuario */
+.icon-container {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #247E3E; /* Fondo verde para el icono */
+}
+.gc, .close{
+  --background:#247E3E;
+  display: flex;
+  flex-direction: column;
+  padding-top:15px;
+  --padding: 5px; /* Espaciado interno reducido */
+  width: 85%;
+  margin: 3px auto; /* Centrando los botones */
+}
+
+.icon-container ion-icon {
+  font-size: 40px;
+  color: white;
+}
+
+/* Colores de fondo para cada tipo de usuario */
+.admin-bg {
+  background: #247E3E;/* Fondo rojo para administrador */
+}
+
+.user-bg {
+  background: #247E3E;/* Fondo azul para usuario */
+}
+
+/* Información del usuario */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
 /* Información del tipo de usuario (Administrador / Usuario) */
 .user-type {
     font-size: 14px;

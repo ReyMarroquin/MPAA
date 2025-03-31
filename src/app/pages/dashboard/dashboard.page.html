@@ -6,6 +6,12 @@
     <ion-title>Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
+<style>
+  .yiyi{
+    color: white;
+  }
+
+</style>
 
 <ion-content class="ion-padding">
  <!-- Contenedor principal que se muestra en horizontal -->
@@ -277,15 +283,15 @@
   <ion-tab-bar slot="fixed">
     <ion-tab-button [routerLink]="['/dashboard']">
       <ion-icon name="home" style="color:white"></ion-icon>
-      <ion-label>Dashboard</ion-label>
+      <ion-label style="color: white;">Dashboard</ion-label>
     </ion-tab-button>
     <ion-tab-button [routerLink]="['/vista']">
       <ion-icon name="bulb" style="color:white"></ion-icon>
-      <ion-label>{{'VISTA_GENERAL' | translate }}</ion-label>
+      <ion-label style="color: white;">{{'VISTA_GENERAL' | translate }}</ion-label>
     </ion-tab-button>
     <ion-tab-button [routerLink]="['/historial']">
-      <ion-icon name="list" style="color:white"></ion-icon>
-      <ion-label>{{'HISTORIAL' | translate }}</ion-label>
+      <ion-icon name="list" class="yiyi"></ion-icon>
+      <ion-label style="color: white;">{{'HISTORIAL' | translate }}</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-footer>

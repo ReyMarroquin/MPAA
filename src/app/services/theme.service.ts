@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage-angular';
 export class ThemeService {
   private darkMode = false;
 
+  
   constructor(private storage: Storage) {
     this.storage.create();
     

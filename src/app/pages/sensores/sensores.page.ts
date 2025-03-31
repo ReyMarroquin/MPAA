@@ -25,9 +25,10 @@ export class SensoresPage implements OnInit {
   coActive = false;
   vibrationActive = false;
   methaneActive = false;
-  
+
+
   // Valores de los sensores
-  proximityValue = 0.5;
+   proximityValue = 0.5;
   gasValue = 0.2;
   temperature = 24;
   humidity = 65;
@@ -134,6 +135,11 @@ export class SensoresPage implements OnInit {
         } else {
           this.methaneValue = 100;
         }
+        
+
+
+
+
         break;
     }
   }
