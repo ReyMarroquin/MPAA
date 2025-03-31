@@ -234,7 +234,7 @@
       <ion-card-content>
         <ion-progress-bar [value]="methaneValue / 10000"></ion-progress-bar>
         <p>{{'CONCENTRACION' | translate}}: {{ methaneValue | number:'1.0-0' }} ppm</p>
-        <p [style.color]="getMethaneLevelColor(methaneValue)">{{ getMethaneLevelStatus(methaneValue) }}</p>
+        <p [style.color]="getMethaneLevelColor(methaneValue)">{{'NIVELL' | translate}} {{ getMethaneLevelStatus(methaneValue) }}</p>
       </ion-card-content>
     </ion-card>
   </div>

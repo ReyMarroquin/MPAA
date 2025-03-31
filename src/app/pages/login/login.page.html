@@ -29,12 +29,12 @@
         {{ errorMessage }}
       </div>
 
-      <ion-button  type="submit" [disabled]="loading">
+      <ion-button  type="submit" [disabled]="loading" class="trans">
         <ion-spinner *ngIf="loading"></ion-spinner>
         <span *ngIf="!loading">Iniciar Sesión</span>
       </ion-button>
 
-      <ion-button (click)="loginWithGoogle()" class="logingo">
+      <ion-button (click)="loginWithGoogle()" class="logingo" >
         <ion-icon slot="start" name="logo-google"></ion-icon>
         Google
       </ion-button>

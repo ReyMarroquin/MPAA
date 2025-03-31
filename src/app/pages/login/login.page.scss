@@ -46,6 +46,10 @@ p {
   color: black;
   margin-right: 10px;
 }
+.trans{
+  text-transform: none;
+
+}
 
 /* Input sin borde extra y texto visible */
 .input-group input {
@@ -70,6 +74,8 @@ ion-button {
 .logingo{
   width: 35%;
   border-radius: 50%;
+  text-transform: none;
+
 }
 
 /* Enlace de Registro */
@@ -148,9 +154,6 @@ ion-footer {
     }
   }
 }
-
-
-
 
 .error-message {
   color: var(--ion-color-danger);

@@ -74,9 +74,13 @@ ion-button {
 .login-btn {
   --background: #247E3E;
   color: white;
+  text-transform: none;
+  
+  
 }
 
 .register-btn {
+  text-transform: none;
   border: 3px solid #247E3E;
   color: #247E3E;
   background-color: white;
@@ -105,8 +109,15 @@ ion-footer {
   font-size: 0.9rem;
   margin: 0;
 }
+.no-transform {
+  text-transform: none;
+}
 
-@media (max-width: 600px) {
+
+@media (max-width: 768px) {
+  .welcome-container {
+    width: 90%;
+  }
   .welcome-container {
     padding: 5px;
     margin-top: 5vh;
@@ -128,12 +139,6 @@ ion-footer {
 
   ion-button {
     font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .welcome-container {
-    width: 90%;
   }
 
   .welcome-title {

@@ -94,5 +94,15 @@
   "VELOCIDAD":"Speed",
   "ENERGIA":"Energy",
   "ESPAÑOL":"Spanish",
-  "INGLES":"English"
+  "INGLES":"English",
+  "VENTILADORES":"Wind Fans",
+  "VIENTO":"Wind",
+  "ELEVADOR": "Elevator",
+  "CONTROL_ELEVADOR": "Control Elevator",
+  "PISO":"Piso",
+  "CONTROL_COMPLETO": "Complete Control",
+  "CONTROL_PUERTAS": "Door Control",
+  "NIVELL":"Safe level"
+
+
 }

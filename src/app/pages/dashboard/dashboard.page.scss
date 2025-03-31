@@ -72,20 +72,17 @@ ion-tabs {
   left: 0;
   width: 100%;
 }
-
 ion-toolbar {
   --background: var(--app-footer-background);
 }
-
 ion-tab-bar,
 ion-tab-button {
   background: var(--app-footer-background);
+  
 }
-
 ion-label {
   color: var(--app-text-color);
 }
-
 @media (max-width: 600px) {
 }
 

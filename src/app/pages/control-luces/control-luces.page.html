@@ -3,14 +3,14 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Control de Luces</ion-title>
+    <ion-title>{{ 'MENU_LIGHT_CONTROL' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Control Completo</ion-title>
+      <ion-title size="large">{{ 'CONTROL_COMPLETO' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -18,7 +18,7 @@
   <div class="general-view">
     <!-- Sección 1: Control de Luces -->
     <div class="section section-1">
-      <h2>Control de Luces</h2>
+      <h2>{{ 'MENU_LIGHT_CONTROL' | translate }}</h2>
       <div class="lights-container">
         <div class="light" *ngFor="let light of lightStatus; let i = index"
              [class.on]="light"
@@ -30,7 +30,7 @@
 
     <!-- Sección 2: Control de Puertas -->
     <div class="section section-2">
-      <h2>Control de Puertas</h2>
+      <h2>{{ 'CONTROL_PUERTAS' | translate }}</h2>
       <div class="doors-container">
         <div class="door" *ngFor="let door of doorStatus; let i = index"
              [class.open]="door"
@@ -42,21 +42,21 @@
 
     <!-- Sección 3: Elevadores -->
     <div class="section section-3">
-      <h2>Control de Elevadores</h2>
+      <h2>{{'CONTROL_ELEVADOR' | translate}}</h2>
       <div class="elevators-container">
         <div class="elevator" *ngFor="let elevator of elevatorStatus; let i = index"
              [class.active]="elevator === 2"
              (click)="toggleElevator(i)">
-          <p >Elevador {{i + 1}} - Piso: {{elevator}}</p>
+          <p >{{'ELEVADOR' | translate}} {{i + 1}} - {{'Piso' | translate}}: {{elevator}}</p>
         </div>
       </div>
     </div>
 
     <!-- Sección 4: Ventiladores -->
     <div class="section section-4">
-      <h2>Ventiladores Eólicos</h2>
+      <h2>{{'VENTILADORES' | translate}}</h2>
       <div class="wind-container">
-        <p>Viento generado: {{ windSpeed | number: '1.0-0' }} km/h</p>
+        <p>{{'VIENTO' | translate}}: {{ windSpeed | number: '1.0-0' }} km/h</p>
       </div>
     </div>
   </div>
@@ -70,15 +70,15 @@
   <ion-tab-bar slot="fixed">
     <ion-tab-button [routerLink]="['/dashboard']">
       <ion-icon name="home" style="color:white"></ion-icon>
-      <ion-label>Dashboard</ion-label>
+      <ion-label>{{ 'Dashboard' | translate }}</ion-label>
     </ion-tab-button>
     <ion-tab-button [routerLink]="['/vista']">
       <ion-icon name="bulb" style="color:white"></ion-icon>
-      <ion-label>Vista General</ion-label>
+      <ion-label>{{ 'VISTA_GENERAL' | translate }}</ion-label>
     </ion-tab-button>
     <ion-tab-button [routerLink]="['/historial']">
       <ion-icon name="list" style="color:white"></ion-icon>
-      <ion-label>Historial</ion-label>
+      <ion-label>{{ 'HISTORIAL' | translate }}</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-footer>
