@@ -34,9 +34,9 @@
         <ion-input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" placeholder="Confirmar Contraseña" required></ion-input>
       </ion-item>
 
-      <ion-button expand="full" type="submit" [disabled]="loading">
+      <ion-button  type="submit" [disabled]="loading">
         <ion-spinner *ngIf="loading"></ion-spinner>
-        <span *ngIf="!loading">Registrarse</span>
+        <span *ngIf="!loading" class="no-transform">Registrarse</span>
       </ion-button>
 
       <p class="register-link">

@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ThemeService } from 'src/app/services/theme.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-control-luces',
@@ -12,7 +13,8 @@ import { ThemeService } from 'src/app/services/theme.service';
   imports: [
     IonicModule, 
     CommonModule,
-    RouterModule // Añade RouterModule a los imports
+    RouterModule,
+    TranslateModule // Añade RouterModule a los imports
   ]
 })
 export class ControlLucesPage {
