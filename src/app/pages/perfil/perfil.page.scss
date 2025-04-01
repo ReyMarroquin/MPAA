@@ -8,6 +8,12 @@ ion-item {
 ion-label{
   color:black;
 }
+ion-modal::part(content){
+  border-radius: 10px;
+  overflow: hidden; /* Evita que el contenido sobresalga */
+  width: 90%; /* Ajusta el ancho al 90% de la pantalla */
+  max-width: 450px; /* Ancho máximo para evitar que sea muy grande en pantallas grandes */
+}
 
 /* Barra de navegación */
 ion-toolbar {
@@ -45,6 +51,26 @@ ion-content{
   background: transparent;
   background-color: var(--app-background);
 }
+.edit{
+  display: flex;
+  border-radius: 10px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  margin: auto;
+
+}
+.logout{
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  margin: auto;
+
+}
 
 
 
@@ -80,10 +106,10 @@ ion-card-header {
   --background:#247E3E;
   display: flex;
   flex-direction: column;
-  padding-top:15px;
+  padding-top:20px;
   --padding: 5px; /* Espaciado interno reducido */
-  width: 85%;
-  margin: 3px auto; /* Centrando los botones */
+  width: 75%;
+  margin: auto; /* Centrando los botones */
 }
 
 .icon-container ion-icon {
@@ -159,6 +185,111 @@ ion-card-header {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
   }
   
+
+  @media (max-width: 768px) {
+    /* Ajustar el orden de los elementos en la tarjeta */
+    ion-card-header {
+      flex-direction: column-reverse; /* Invierte el orden en móviles */
+      align-items: center; /* Centra los elementos */
+      text-align: center;
+    }
+  
+    /* Ajustar el contenedor del icono para que no se vea mal */
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 400px;
+      margin: auto;
+    }
+    /* Tarjetas con estilo moderno y minimalista */
+    .profile-card {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background: transparent;
+    }
+  
+    /* Centrar información del usuario */
+    .user-info {
+      align-items: center;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    /* Ajustar los botones para que ocupen todo el ancho en móvil */
+    .buttons-container {
+      width: 100%;
+    }
+  
+    ion-button {
+      width: 90%;
+      margin: auto;
+    }
+    ion-modal::part(content){
+      border-radius: 10px;
+      overflow: hidden; /* Evita que el contenido sobresalga */
+      width: 90%; /* Ajusta el ancho al 90% de la pantalla */
+      height: 50%;
+      max-width: 450px; /* Ancho máximo para evitar que sea muy grande en pantallas grandes */
+    }
+    /* Icono de usuario */
+    .icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #247E3E; /* Fondo verde para el icono */
+  }
+  .gc, .close{
+  --background:#247E3E;
+  display: flex;
+  flex-direction: column;
+  padding-top:20px;
+  --padding: 5px; /* Espaciado interno reducido */
+  width: 75%;
+  margin: auto; /* Centrando los botones */
+  }
+
+  .icon-container ion-icon {
+  font-size: 40px;
+  color: white;
+  }
+
+/* Colores de fondo para cada tipo de usuario */
+  .admin-bg {
+  background: #247E3E;/* Fondo rojo para administrador */
+  }
+
+  .user-bg {
+  background: #247E3E;/* Fondo azul para usuario */
+  }
+
+/* Información del usuario */
+  .user-info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  }
+/* Información del tipo de usuario (Administrador / Usuario) */
+  .user-type {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+    color:black;
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    text-align: center; /* Asegura que el texto esté centrado */
+  }
+}
+
   /* 🌙 Modo Oscuro Automático */
   @media (prefers-color-scheme: dark) {
     ion-content {

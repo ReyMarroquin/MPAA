@@ -7,6 +7,10 @@ ion-tabs {
 
 ion-toolbar {
   --background: var(--ion-color-primary);
+ display: flex;
+}
+.verde{
+  --background:#247E3E;
 }
 
 
@@ -107,11 +111,8 @@ ion-label {
   
 /* Puertas */
 .doors-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    cursor: pointer;
-    margin-top: 12px;
+  cursor: pointer;
+  margin-top: 12px;
 }
   
 .door {
@@ -127,7 +128,6 @@ ion-label {
   
 .door.open {
     background-color: var(--app-door-open);
-    animation: fadeEffect 0.3s ease-in-out;
 }
   
 .door:focus {
@@ -182,6 +182,9 @@ ion-label {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
   }
+  .section:hover {
+    transform: none;
+  }
 
   .lights-container {
     grid-template-columns: repeat(3, 1fr);
@@ -195,10 +198,28 @@ ion-label {
     flex-direction: column;
     gap: 10px;
   }
+  ion-content{
 
+  }
+  .section section-1{
+    
+
+  }
+  section section-2{
+   
+
+  }
+  section section-3{
+
+  }
+  .general-view {
+  
+    height: calc(100vh - 57px - 56px);
+  }
   .light,
   .door,
   .elevator {
+    align-items: center;
     font-size: 14px;
     padding: 15px;
   }

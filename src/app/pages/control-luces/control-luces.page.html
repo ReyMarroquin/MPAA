@@ -1,19 +1,13 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="verde">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button style="color:white"></ion-menu-button>
     </ion-buttons>
     <ion-title>{{ 'MENU_LIGHT_CONTROL' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ 'CONTROL_COMPLETO' | translate }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <!-- Contenido principal con todas las secciones -->
   <div class="general-view">
     <!-- Sección 1: Control de Luces -->
@@ -35,7 +29,7 @@
         <div class="door" *ngFor="let door of doorStatus; let i = index"
              [class.open]="door"
              (click)="toggleDoor(i)">
-          <ion-icon [name]="door ? 'lock-open' : 'lock-closed'"></ion-icon>
+          <ion-icon [name]="door ? 'lock-open' : 'lock-closed'" class="candado"></ion-icon>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ ion-content{
     --background:white;
 }
 ion-toolbar{
-    --background:#247E3E;
+  --background:#247E3E;
 }
 ion-card-subtitle{
   color:black;
@@ -114,6 +114,17 @@ ion-card{
   }
   ion-fab-button{
     --background: #247E3E;
+  }
+
+  @media(max-width:768px){
+    ion-toolbar{
+      
+    }
+    ion-menu-button{
+      color: white;
+    }
+
+
   }
   
   @keyframes pulse {

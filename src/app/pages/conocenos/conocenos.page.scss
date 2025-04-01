@@ -91,13 +91,14 @@ ion-title {
 .mision-vision {
   display: flex;
   justify-content: space-between;
+  text-align: center;
   margin: 20px;
   background-color: var(--app-background);
 }
 
 .card {
   width: 48%;
-  margin: 10px 0;
+  margin: 5px 0;
   border-radius: 12px;
   box-shadow: var(--app-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -123,7 +124,6 @@ ion-title {
 }
 
 .nosotros {
-  padding: 40px 20px;
   text-align: center;
   background-color: var(--app-background);
   display: flex;
@@ -156,6 +156,17 @@ ion-footer {
   color: white;
   font-size: 0.9rem;
   margin: 0;
+}
+@media (min-width: 768px){
+  .nosotros {
+    text-align: center;
+    background-color: var(--app-background);
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+
 }
 
 @keyframes fadeIn {

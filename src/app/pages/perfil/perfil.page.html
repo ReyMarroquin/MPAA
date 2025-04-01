@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button style="color:white"></ion-menu-button>
     </ion-buttons>
     <ion-title>{{'MENU_PROFILE' | translate}}</ion-title>
   </ion-toolbar>
@@ -33,8 +33,8 @@
         </ion-card-header>
         <ion-card-content>
           <!-- Botones de Cerrar Sesión y Editar Perfil -->
-          <ion-button expand="full" class="edit" (click)="abrirModal()">{{'EDITAR_PERFIL' | translate}}</ion-button>
-          <ion-button expand="full" class="logout" (click)="logout()">{{'MENU_LOGOUT' | translate}}</ion-button>
+          <ion-button  class="edit" (click)="abrirModal()">{{'EDITAR_PERFIL' | translate}}</ion-button>
+          <ion-button  class="logout" (click)="logout()">{{'MENU_LOGOUT' | translate}}</ion-button>
         </ion-card-content>
       </div>
     </ion-card>
@@ -68,7 +68,7 @@
           <ion-button type="submit" class="gc" >{{ 'GUARDAR_CAMBIOS' | translate }}</ion-button>
           
           <!-- Traducción del botón "Cerrar" -->
-          <ion-button (click)="cerrarModal()" slot="end" class="close" >{{ 'CERRAR' | translate }}</ion-button>
+          <ion-button (click)="cerrarModal()"  class="close" >{{ 'CERRAR' | translate }}</ion-button>
         </form>
       </ion-content>
       
