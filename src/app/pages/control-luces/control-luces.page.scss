@@ -79,8 +79,10 @@ ion-label {
 /* Luces */
 .lights-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
     padding: 20px;
     justify-content: center;
     cursor: pointer;
@@ -88,12 +90,14 @@ ion-label {
 }
   
 .light {
-    background-color: var(--app-light-off) !important;
+    --background-color: var(--app-light-off) !important;
     padding: 30px;
     border-radius: 12px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
-    color: rgb(255, 255, 255);
+    color:var(--app-sensor);
     font-weight: bold;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -102,7 +106,7 @@ ion-label {
   
 .light.on {
     background-color:var(--app-light-on) !important;
-    color: yellow;
+    color: #ffffff
 }
   
 .light:focus {
@@ -162,6 +166,11 @@ ion-label {
 .elevator.active {
   background-color: var(--app-elevator-active);
   transform: scale(1.1);
+}
+.section section-1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .elevator:active {

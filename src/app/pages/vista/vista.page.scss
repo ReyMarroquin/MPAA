@@ -25,6 +25,32 @@ ion-tab-button {
 ion-label {
   color: white;
 }
+.lights-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  justify-content: center;
+  cursor: pointer;
+
+}
+
+.light {
+  --background-color: var(--app-light-off) !important;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color:var(--app-sensor);
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  outline: none;
+}
 
 .disabled {
   pointer-events: none;

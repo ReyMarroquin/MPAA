@@ -8,54 +8,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- Contenido principal con todas las secciones -->
   <div class="general-view">
-    <!-- Sección 1: Control de Luces -->
     <div class="section section-1">
-      <h2>{{ 'MENU_LIGHT_CONTROL' | translate }}</h2>
-      <div class="lights-container">
-        <div class="light" *ngFor="let light of lightStatus; let i = index"
-             [class.on]="light"
-             (click)="toggleLight(i)">
-          <ion-icon [name]="light ? 'bulb' : 'bulb-outline'"></ion-icon>
+        <div class="lights-container">
+            <div class="light" *ngFor="let light of lightStatus; let i = index"
+                 [class.on]="light"
+                 (click)="toggleLight(i)">
+                 <ion-icon [name]="light ? 'bulb' : 'bulb-outline'"></ion-icon>
+            </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Sección 2: Control de Puertas -->
-    <div class="section section-2">
-      <h2>{{ 'CONTROL_PUERTAS' | translate }}</h2>
-      <div class="doors-container">
-        <div class="door" *ngFor="let door of doorStatus; let i = index"
-             [class.open]="door"
-             (click)="toggleDoor(i)">
-          <ion-icon [name]="door ? 'lock-open' : 'lock-closed'" class="candado"></ion-icon>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sección 3: Elevadores -->
-    <div class="section section-3">
-      <h2>{{'CONTROL_ELEVADOR' | translate}}</h2>
-      <div class="elevators-container">
-        <div class="elevator" *ngFor="let elevator of elevatorStatus; let i = index"
-             [class.active]="elevator === 2"
-             (click)="toggleElevator(i)">
-          <p >{{'ELEVADOR' | translate}} {{i + 1}} - {{'Piso' | translate}}: {{elevator}}</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sección 4: Ventiladores -->
-    <div class="section section-4">
-      <h2>{{'VENTILADORES' | translate}}</h2>
-      <div class="wind-container">
-        <p>{{'VIENTO' | translate}}: {{ windSpeed | number: '1.0-0' }} km/h</p>
-      </div>
     </div>
   </div>
-
-  
 </ion-content>
 
 

@@ -18,7 +18,11 @@ import { TranslateModule } from '@ngx-translate/core';
   ]
 })
 export class ControlLucesPage {
-  lightStatus = [true, false, true, false, true, false, true, false, true, false];
+  lightStatus = [true, false, 
+                true, false, 
+                true, false, 
+                true, false, 
+                true, false];
   doorStatus = [false];
   elevatorStatus = [1, 2];
   windSpeed = 5;

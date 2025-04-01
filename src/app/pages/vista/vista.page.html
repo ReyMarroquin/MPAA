@@ -8,58 +8,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-
-  <!-- Contenido principal: 4 secciones -->
   <div class="general-view">
-    <!-- Sección 1: Vista de Luces -->
     <div class="section section-1">
-      <h2>Vista de Luces</h2>
-      <div class="lights-container">
-        <div class="light" *ngFor="let light of lightStatus; let i = index"
-             [class.on]="light"
-             [ngClass]="{'disabled': !isAdmin}" 
-             (click)="isAdmin ? toggleLight(i) : null">
-          <ion-icon [name]="light ? 'bulb' : 'bulb-outline'" 
-                    style="font-size: 48px; color: light '#32cd32' '#d40000';"></ion-icon>
+        <div class="lights-container">
+            <div class="light" *ngFor="let light of lightStatus; let i = index"
+                 [class.on]="light"
+                 (click)="toggleLight(i)">
+                 <ion-icon [name]="light ? 'bulb' : 'bulb-outline'"></ion-icon>
+            </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Sección 2: Vista de Puertas -->
-    <div class="section section-2">
-      <h2>Vista de Puertas</h2>
-      <div class="doors-container">
-        <div class="door" *ngFor="let door of doorStatus; let i = index"
-             [class.open]="door"
-             [ngClass]="{'disabled': !isAdmin}" 
-             (click)="isAdmin ? toggleDoor(i) : null">
-          <ion-icon [name]="door ? 'lock-open' : 'lock-closed'" 
-                    style="font-size: 48px; color: door  '#32cd32'  '#d40000';"></ion-icon>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sección 3: Elevadores -->
-    <div class="section section-3">
-      <h2>Elevadores</h2>
-      <div class="elevators-container">
-        <div class="elevator" *ngFor="let elevator of elevatorStatus; let i = index"
-             [class.active]="elevator === 2"
-             [ngClass]="{'disabled': !isAdmin}" 
-             (click)="isAdmin ? toggleElevator(i) : null">
-          <p>Elevador {{ i + 1 }} - Piso: {{ elevator }}</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sección 4: Ventiladores Eólicos -->
-    <div class="section section-4">
-      <h2>Ventiladores Eólicos</h2>
-      <div class="wind-speed">
-        <p>Viento generado: {{ windSpeed }} km/h</p>
-        
-      </div>
     </div>
   </div>
 </ion-content>
